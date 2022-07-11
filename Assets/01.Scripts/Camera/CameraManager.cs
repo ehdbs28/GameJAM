@@ -29,6 +29,8 @@ public class CameraManager : MonoBehaviour
         {
             i++;
             CameraMove(i);
+            UIManager.Instance.Fade();
+            ShakeCam(6, 2);
         }
     }
 
