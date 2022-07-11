@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class MenuManager : MonoBehaviour
 {
@@ -36,11 +38,30 @@ public class MenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _isEsc = !_isEsc;
+
+            StartCoroutine(¹ú¸´());
         }
 
         _escMenu.SetActive(_isEsc ? true : false);
         _settingMenu.SetActive(_isSetting ? true : false);
 
-        Time.timeScale = _isEsc || _isSetting ? 0 : 1;
+    }
+
+    IEnumerator ¹ú¸´()
+    {
+        if (_isEsc)
+        {
+            _escMenu.GetComponent<Image>().DOFade(0.8f, 0.5f);
+
+            yield return new WaitForSecondsRealtime(0.5f);
+            Time.timeScale = _isEsc || _isSetting ? 0 : 1;
+        }
+        else
+        {
+            Time.timeScale = _isEsc || _isSetting ? 0 : 1;
+            _escMenu.GetComponent<Image>().DOFade(0, 0.5f);
+
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
     }
 }

@@ -25,6 +25,11 @@ public class UIManager : MonoBehaviour
         fadeImage.DOFade(0, 0.7f);
     }
 
+    public void Ablity()
+    {
+
+    }
+
     IEnumerator IEFade()
     {
         FadeIn();
