@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _mousePos;
     private EnemyList _enemyList;
 
-
+    int i = 0;
     void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
@@ -32,10 +32,12 @@ public class PlayerAttack : MonoBehaviour
 
             hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance, _enemyLayer);
             Debug.DrawRay(_mousePos, hit.point, Color.yellow, 0.5f);
-            if (hit.transform.position == _enemyList.enemyList[0].transform.position) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
+
+            if (hit.transform.gameObject == _enemyList.enemyList[0].gameObject) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
             {
                 transform.position = hit.transform.position;
 
+                OnEnemyDie.Invoke();
                 //PoolManager.Instance.Push(hit.transform.GetComponent<PoolableMono>());
             }
         }
