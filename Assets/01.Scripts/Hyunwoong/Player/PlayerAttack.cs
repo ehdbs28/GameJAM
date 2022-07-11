@@ -14,7 +14,6 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _mousePos;
     private EnemyList _enemyList;
 
-    int i = 0;
     void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
