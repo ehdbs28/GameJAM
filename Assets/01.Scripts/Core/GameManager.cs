@@ -23,5 +23,7 @@ public class GameManager : MonoBehaviour
         }
 
         MenuManager.Instance = gameObject.AddComponent<MenuManager>();
+        CameraManager.Instance = gameObject.GetComponent<CameraManager>();
+        TimeControlManager.Instance = gameObject.AddComponent<TimeControlManager>();
     }
 }
