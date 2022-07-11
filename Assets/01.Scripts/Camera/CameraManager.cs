@@ -34,6 +34,7 @@ public class CameraManager : MonoBehaviour
 
     public void CameraMove(int stageNum)
     {
+        if (_stageTrm.Count < stageNum) return;
         _mainVcam.Follow = _stageTrm[stageNum - 1];
     }
 
