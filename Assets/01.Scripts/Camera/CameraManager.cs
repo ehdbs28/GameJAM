@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using DG.Tweening;
 
 public class CameraManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private List<Transform> _stageTrm = new List<Transform>();
 
+    private Transform _rigTrm;
     private CinemachineVirtualCamera _mainVcam;
     private CinemachineBasicMultiChannelPerlin _mainPerlin;
 
@@ -16,10 +18,11 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        _rigTrm = GameObject.Find("CamRig").transform;
         _mainVcam = GameObject.Find("MainVcam").GetComponent<CinemachineVirtualCamera>();
         _mainPerlin = _mainVcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-        CameraMove(1);
+        _mainVcam.Follow = _rigTrm;
     }
 
     private void Update()
@@ -28,14 +31,14 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             i++;
-            CameraMove(i);
+            RigMove(i, 2f);
         }
     }
 
-    public void CameraMove(int stageNum)
+    public void RigMove(int stageNum, float time)
     {
         if (_stageTrm.Count < stageNum) return;
-        _mainVcam.Follow = _stageTrm[stageNum - 1];
+        _rigTrm.DOMoveY(_stageTrm[stageNum - 1].position.y, time);
     }
 
     public void ShakeCam(float intensity, float time)

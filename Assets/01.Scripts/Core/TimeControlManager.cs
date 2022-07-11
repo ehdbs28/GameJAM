@@ -20,7 +20,7 @@ public class TimeControlManager : MonoBehaviour
 
     IEnumerator TimeScaleCoroutine(float endTimeValue, float timeToWait, Action OnComplete = null)
     {
-        yield return new WaitForSeconds(timeToWait);
+        yield return new WaitForSecondsRealtime(timeToWait);
         Time.timeScale = endTimeValue;
         OnComplete?.Invoke();
     }
