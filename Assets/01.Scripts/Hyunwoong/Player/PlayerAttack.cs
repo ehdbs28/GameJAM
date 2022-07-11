@@ -14,13 +14,11 @@ public class PlayerAttack : MonoBehaviour
 
     private BoxCollider2D _collider;
     private Vector2 _mousePos;
-    private EnemyList _enemyList;
 
     void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
-        _enemyList = FindObjectOfType<EnemyList>();
     }
 
     void Update()
@@ -33,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
             hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance, _enemyLayer);
             Debug.DrawRay(_mousePos, hit.point, Color.yellow, 0.5f);
 
-            if (hit.transform.gameObject == _enemyList.enemyList[0].gameObject) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
+            if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
             {
                 //transform.position = hit.transform.position;
                 transform.DOMove(hit.transform.position, 0.05f);
