@@ -8,7 +8,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _damage = 5f;
 
     [SerializeField] private float _distance = 1f;
-    [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private UnityEvent OnEnemyDie;
 
     private BoxCollider2D _collider;
@@ -30,11 +29,11 @@ public class PlayerAttack : MonoBehaviour
             _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit;
 
-            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance, _enemyLayer);
+            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
             Debug.DrawRay(_mousePos, hit.point, Color.yellow, 0.5f);
 
             if (hit.transform.gameObject == _enemyList.enemyList[0].gameObject) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
-            {
+            { 
                 transform.position = hit.transform.position;
 
                 OnEnemyDie.Invoke();
@@ -50,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
 
             Collider2D hit;
 
-            hit = Physics2D.OverlapCircle(attackPos, _distance, _enemyLayer);
+            hit = Physics2D.OverlapCircle(attackPos, _distance);
 
             if (hit)
             {
