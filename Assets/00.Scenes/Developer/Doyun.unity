@@ -1047,7 +1047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d038e377e160b428c883eacc71ab58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainVcam: {fileID: 1118941654}
   _stageTrm:
   - {fileID: 1241027684}
   - {fileID: 1471385622}
