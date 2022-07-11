@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class PlayerAttack : MonoBehaviour
 
             if (hit.transform.gameObject == _enemyList.enemyList[0].gameObject) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
             {
-                transform.position = hit.transform.position;
+                //transform.position = hit.transform.position;
+                transform.DOMove(hit.transform.position, 0.05f);
 
                 OnEnemyDie.Invoke();
                 //PoolManager.Instance.Push(hit.transform.GetComponent<PoolableMono>());
