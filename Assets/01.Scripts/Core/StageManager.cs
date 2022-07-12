@@ -13,7 +13,25 @@ public class StageManager : MonoBehaviour
     [SerializeField] private List<Vector2> _stage2 = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage3 = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage4 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage5 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage6 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage7 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage8 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage9 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage10 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage11 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage12 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage13 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage14 = new List<Vector2>();
+    [SerializeField] private List<Vector2> _stage15 = new List<Vector2>();
 
+    private GameObject _thema1Boss;
+    private bool _isStageUp = false;
+    public bool IsStageUp
+    {
+        get => _isStageUp;
+        set => _isStageUp = value;
+    }
     public int CurrentStageNum
     {
         get => _currentStageNum;
@@ -22,7 +40,17 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+        _thema1Boss = GameObject.Find("Thema1Boss");
+        _thema1Boss.SetActive(false);
         StageStart(_currentStageNum);
+    }
+
+    private void Update()
+    {
+        if (_currentStageNum == 5)
+        {
+            _thema1Boss.SetActive(true);
+        }
     }
 
     public void StageUp(int stageNum)

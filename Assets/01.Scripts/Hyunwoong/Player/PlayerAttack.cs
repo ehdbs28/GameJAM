@@ -27,9 +27,10 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if(EnemyManager.Instance.enemyList.Count == 0)
+            if(EnemyManager.Instance.enemyList.Count == 0 && !StageManager.Instance.IsStageUp)
             {
                 Sequence sq = DOTween.Sequence();
+                StageManager.Instance.IsStageUp = true;
                 sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
                 sq.OnComplete(()=>
                 {
@@ -41,6 +42,8 @@ public class PlayerAttack : MonoBehaviour
                     StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
 
                     transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
+
+                    StageManager.Instance.IsStageUp = false;
                 });
             }
 
