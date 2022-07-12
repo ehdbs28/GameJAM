@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1478103863279979512}
   - component: {fileID: 1478103863279979513}
   - component: {fileID: 1478103863279979518}
+  - component: {fileID: -7145297876997464174}
   m_Layer: 5
   m_Name: Delay115
   m_TagString: Untagged
@@ -255,3 +256,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-7145297876997464174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478103863279979516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7ad239e95313e43bb48c78cf773def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

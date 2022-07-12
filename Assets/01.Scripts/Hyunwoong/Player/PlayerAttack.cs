@@ -13,9 +13,24 @@ public class PlayerAttack : MonoBehaviour
         set { _damage = value; }
     }
 
+    float speed = 0.05f;
+
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
     bool isDead = false;
     bool isLeft = true;
+
     bool isAttack = true;
+
+    public bool IsAttack
+    {
+        get { return isAttack; }
+        set { isAttack = value; }
+    }
 
     [SerializeField] private GameObject _afterEffect;
     [SerializeField] private GameObject _afterEffect1;
@@ -38,17 +53,23 @@ public class PlayerAttack : MonoBehaviour
         set { rotate = value; }
     }
 
+
+    private void Awake()
+    {
+    }
     void Start()
     {
-        Sequence seq = DOTween.Sequence();
 
         _collider = GetComponent<BoxCollider2D>();
-
+        Sequence seq = DOTween.Sequence();
+        
         seq.Append(transform.DOMoveX(-8.21f, 1.5f));
         seq.OnComplete(() =>
         {
+            print("dlsdl");
             isAttack = false;
         });
+
         transform.position = new Vector2(-10, -2.16f);
         
 
@@ -121,7 +142,7 @@ public class PlayerAttack : MonoBehaviour
                         Vector2 inputVec = _mousePos;
                         float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
                         transform.eulerAngles = new Vector3(0, 0, angle);
-                        seq.Append(transform.DOMove(hit.transform.position, 0.05f));
+                        seq.Append(transform.DOMove(hit.transform.position, speed));
 
                         seq.OnComplete(() =>
                         {
@@ -176,7 +197,7 @@ public class PlayerAttack : MonoBehaviour
     
     public void PlayerDie()
     {
-        if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
+        if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false  && isAttack == false)
         {
             PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
             print("asd");
