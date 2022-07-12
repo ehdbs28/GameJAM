@@ -38,19 +38,19 @@ public class StageManager : MonoBehaviour
         switch (stageNum)
         {
             case 0:
-                EnemyManager.Instance.SpawnEnemy(_tutorial);
+                EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_1");
                 break;
             case 1:
-                EnemyManager.Instance.SpawnEnemy(_stage1);
+                EnemyManager.Instance.SpawnEnemy(_stage1, "Enemy_1");
                 break;
             case 2:
-                EnemyManager.Instance.SpawnEnemy(_stage2);
+                EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_1");
                 break;
             case 3:
-                EnemyManager.Instance.SpawnEnemy(_stage3);
+                EnemyManager.Instance.SpawnEnemy(_stage3, "Enemy_1");
                 break;
             case 4:
-                EnemyManager.Instance.SpawnEnemy(_stage4);
+                EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
                 break;
 
             default:

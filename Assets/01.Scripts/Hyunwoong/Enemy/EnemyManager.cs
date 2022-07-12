@@ -25,16 +25,16 @@ public class EnemyManager : MonoBehaviour
         enemyList.RemoveAt(0);
     }
 
-    public void SpawnEnemy(List<Vector2> transforms)
+    public void SpawnEnemy(List<Vector2> transforms, string name)
     {
-        StartCoroutine(SpawnEnemyCoroutine(transforms));
+        StartCoroutine(SpawnEnemyCoroutine(transforms, name));
     }
 
-    IEnumerator SpawnEnemyCoroutine(List<Vector2> transforms)
+    IEnumerator SpawnEnemyCoroutine(List<Vector2> transforms, string name)
     {
         foreach(Vector2 enemyPos in transforms)
         {
-            Enemy enemy = PoolManager.Instance.Pop("Enemy_1") as Enemy;
+            Enemy enemy = PoolManager.Instance.Pop(name) as Enemy;
             enemyList.Add(enemy);   
             enemy.transform.position = enemyPos;
             yield return new WaitForSeconds(0.2f);
