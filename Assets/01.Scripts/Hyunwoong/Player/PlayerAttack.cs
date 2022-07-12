@@ -17,6 +17,9 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
+
+        transform.position = new Vector2(-10, -2.16f);
+        transform.DOMoveX(-8.21f, 1.5f);
        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
     }
 
@@ -27,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
             if(EnemyManager.Instance.enemyList.Count == 0)
             {
                 Sequence sq = DOTween.Sequence();
-                sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(transform.position.x + 5, 3f) : transform.DOMoveX(transform.position.x - 5, 3f));
+                sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
                 sq.OnComplete(()=>
                 {
                     transform.localScale = new Vector2(transform.localScale.x * -1, 1);
@@ -37,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
                     StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
                     StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
 
-                    transform.DOMoveX(transform.localScale.x > 0 ? transform.position.x + 5 : transform.position.x - 5, 3f);
+                    transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
                 });
             }
 
