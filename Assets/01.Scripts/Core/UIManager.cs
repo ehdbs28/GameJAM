@@ -54,7 +54,15 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        Sequence seq = DOTween.Sequence();
+
+        FadeIn();
+        seq.AppendInterval(1.5f);
+
+        seq.AppendCallback(() =>
+        {
+            SceneManager.LoadScene(1);
+        });
     }
 
     public void Ablity()

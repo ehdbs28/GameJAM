@@ -17,6 +17,10 @@ public class PlayerAttack : MonoBehaviour
     bool isLeft = true;
     bool isAttack = true;
 
+    [SerializeField] private GameObject _afterEffect;
+    [SerializeField] private GameObject _afterEffect1;
+    [SerializeField] private GameObject _afterEffect2;
+
     [SerializeField] private GameObject _blink;
     [SerializeField] private GameObject _hitSpace;
 
@@ -54,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        #region °ø°Ý ¹üÀ§
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if(EnemyManager.Instance.enemyList.Count != 0)
         {
             _hitSpace.SetActive(true);
@@ -112,14 +116,17 @@ public class PlayerAttack : MonoBehaviour
                         isAttack = true;
                         anim.SetTrigger("IsAttack");
                         GameObject Blink = Instantiate(_blink);
+                        StartCoroutine(AfterEffect());
                         Blink.transform.position = hit.transform.position;
                         Vector2 inputVec = _mousePos;
                         float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
                         transform.eulerAngles = new Vector3(0, 0, angle);
                         seq.Append(transform.DOMove(hit.transform.position, 0.05f));
+
                         seq.OnComplete(() =>
                         {
                             isAttack = false;
+                            StopCoroutine(AfterEffect());
                         });
 
                         if(EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
@@ -175,6 +182,20 @@ public class PlayerAttack : MonoBehaviour
             print("asd");
             player.Damaged(1);
             isDead = true;
+        }
+    }
+
+    IEnumerator AfterEffect()
+    {
+        while (isAttack)
+        {
+            GameObject Effect = Instantiate(_afterEffect);
+            Effect.transform.position = transform.position;
+            Vector2 inputVec = _mousePos;
+            float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
+            Effect.transform.eulerAngles = new Vector3(0, 0, angle);
+
+            yield return new WaitForSeconds(0.007f);
         }
     }
 }
