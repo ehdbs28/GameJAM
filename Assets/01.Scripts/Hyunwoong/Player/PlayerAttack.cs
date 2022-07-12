@@ -23,6 +23,12 @@ public class PlayerAttack : MonoBehaviour
 
     bool isDead = false;
     bool isLeft = true;
+    private bool _isDodge = false;
+    public bool IsDodge
+    {
+        get => _isDodge;
+        set => _isDodge = value;
+    }
 
     bool isAttack = true;
 
@@ -161,7 +167,8 @@ public class PlayerAttack : MonoBehaviour
                         }
                         if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Boss"))
                         {
-                            return;
+                            SoundManager.Instance.SFXPlay(_killAudioClip);
+                            //hit.transform.GetComponent<IDamaged>().Damaged(1);
                         }
                     }
                 }
@@ -184,19 +191,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(1))
         {
-            Bounds bounds = _collider.bounds;
-            //Vector2 attackPos = new Vector2(bounds.max.x, bounds.center.y);
-            Vector2 attackPos = transform.localScale.x > 0 ? new Vector2(bounds.max.x, bounds.center.y) : new Vector2(bounds.min.x, bounds.center.y);
-
-            Collider2D hit;
-
-            hit = Physics2D.OverlapCircle(attackPos, _distance);
-
-            if (hit)
-            {
-                hit.GetComponent<IDamaged>().Damaged(_damage);
-            }
-            else return;
+            _isDodge = true;
         }
     }
     
