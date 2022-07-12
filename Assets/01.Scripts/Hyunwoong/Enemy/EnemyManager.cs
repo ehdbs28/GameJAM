@@ -9,9 +9,7 @@ public class EnemyManager : MonoBehaviour
 
     public List<Enemy> enemyList = new List<Enemy>();
 
-    private int _indexNum = 0;
-
-    public void EnemyDie()
+    public void EnemyDie(PoolableMono enemy)
     {
         GravityController.Instance.ModityGravityScale(0.3f, 0.3f);
         CameraManager.Instance.ShakeCam(4f, 0.3f);
@@ -19,8 +17,9 @@ public class EnemyManager : MonoBehaviour
         {
             TimeControlManager.Instance.ModifyTimeScale(1f, 5f);
         });
+        Debug.Log("다이");
 
-        PoolManager.Instance.Push(enemyList[0].GetComponent<PoolableMono>());
+        PoolManager.Instance.Push(enemy);
         enemyList.RemoveAt(0);
     }
 
@@ -34,10 +33,8 @@ public class EnemyManager : MonoBehaviour
         foreach(Vector2 enemyPos in transforms)
         {
             Enemy enemy = PoolManager.Instance.Pop("Enemy_1") as Enemy;
-            enemyList.Add(enemy);
-            Debug.Log(enemyList.Count); //이거 안되요
+            enemyList.Add(enemy);   
             enemy.transform.position = enemyPos;
-            _indexNum++;
             yield return new WaitForSeconds(0.2f);
         }
     }

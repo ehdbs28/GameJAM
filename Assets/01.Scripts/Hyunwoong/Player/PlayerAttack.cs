@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
@@ -10,7 +9,6 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private float _distance = 1f;
     [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private UnityEvent OnEnemyDie;
 
     private BoxCollider2D _collider;
     private Vector2 _mousePos;
@@ -35,8 +33,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 //transform.position = hit.transform.position;
                 transform.DOMove(hit.transform.position, 0.05f);
-
-                OnEnemyDie.Invoke();
+                EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
+                //OnEnemyDie.Invoke();
                 //PoolManager.Instance.Push(hit.transform.GetComponent<PoolableMono>());
             }
         }
