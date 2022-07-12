@@ -7,6 +7,8 @@ using DG.Tweening;
 public class Theme1Boss : Boss
 {
     [SerializeField] private List<Vector2> _breakTileVec = new List<Vector2>();
+    [SerializeField] private GameObject _warning;
+    [SerializeField] private GameObject _circleWarning;
 
     private Animator _bossAnim;
 
@@ -50,23 +52,54 @@ public class Theme1Boss : Boss
     private void Pattern3_Enter()
     {
         Debug.Log("패턴 쓰리");
+        StartCoroutine(SlamAttack());
         _bossAnim.SetTrigger("SlamAttack");
     }
 
     IEnumerator SweepAttack()
     {
+        GameObject warning = Instantiate(_warning, transform);
+        warning.transform.localScale = new Vector2(12, 1);
         yield return new WaitForSeconds(0.5f);
-        RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.right, 5);
-        RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.left, 5);
+        Destroy(warning);
 
-        if (hitRight || hitLeft)
+        BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
+        CircleCollider2D hitCollider = GameObject.Find("HIt_Space").GetComponent<CircleCollider2D>();
+        myCollider.enabled = false;
+        hitCollider.enabled = false;
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(12, 1), 0, Vector2.right, 20);
+
+        if (hit)
         {
-            if(hitRight.transform.gameObject != null || hitLeft.transform.gameObject)
+            if(hit.transform.gameObject != null)
             {
-                if(hitRight.transform.GetComponent<IDamaged>() != null)
-                    hitRight.transform.GetComponent<IDamaged>().Damaged(1);
-                if(hitLeft.transform.GetComponent<IDamaged>() != null)
-                    hitLeft.transform.GetComponent<IDamaged>().Damaged(1);
+                if (hit.transform.CompareTag("Player"))
+                {
+                    Debug.Log("1");
+                    hit.transform.GetComponent<IDamaged>().Damaged(1);
+                }
+            }
+        }
+        myCollider.enabled = true;
+        hitCollider.enabled = true;
+    }
+
+    IEnumerator SlamAttack()
+    {
+        GameObject circleWarning = Instantiate(_circleWarning);
+        circleWarning.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
+        circleWarning.transform.localScale = new Vector2(3, 3);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(circleWarning);
+        Collider2D hit = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 0.5f), 0.5f);
+        if (hit)
+        {
+            if (hit.transform.gameObject != null)
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    hit.transform.GetComponent<IDamaged>().Damaged(1);
+                }
             }
         }
     }

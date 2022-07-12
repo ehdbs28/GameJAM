@@ -33,7 +33,7 @@ public class Boss : Enemy
     protected void StateChange()
     {
         num = Random.Range(1, 4);
-        Invoke("StateChange", 2f);
+        //Invoke("StateChange", 2f);
 
         if (diction.ContainsKey("1") && diction.ContainsKey("2") && diction.ContainsKey("3"))
         {
@@ -62,5 +62,6 @@ public class Boss : Enemy
         {
             _fsm.ChangeState(State.Pattern3);
         }
+        Invoke("StateChange", 2f);
     }
 }
