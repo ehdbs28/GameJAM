@@ -17,6 +17,9 @@ public class PlayerAttack : MonoBehaviour
     bool isLeft = true;
     bool isAttack = true;
 
+    [SerializeField] private AudioClip _dashAudioClip;
+    [SerializeField] private AudioClip _killAudioClip;
+
     [SerializeField] private GameObject _afterEffect;
     [SerializeField] private GameObject _afterEffect1;
     [SerializeField] private GameObject _afterEffect2;
@@ -58,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        #region ���� ����
+        #region AttackSpace
         if(EnemyManager.Instance.enemyList.Count != 0)
         {
             _hitSpace.SetActive(true);
@@ -114,6 +117,7 @@ public class PlayerAttack : MonoBehaviour
                         Sequence seq = DOTween.Sequence();
 
                         isAttack = true;
+                        SoundManager.Instance.SFXPlay(_dashAudioClip);
                         anim.SetTrigger("IsAttack");
                         GameObject Blink = Instantiate(_blink);
                         StartCoroutine(AfterEffect());
@@ -131,6 +135,7 @@ public class PlayerAttack : MonoBehaviour
 
                         if(EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
                         {
+                            SoundManager.Instance.SFXPlay(_killAudioClip);
                             EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
                         }
                         if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Boss"))

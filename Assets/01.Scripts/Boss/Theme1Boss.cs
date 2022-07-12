@@ -37,6 +37,7 @@ public class Theme1Boss : Boss
     private void Pattern1_Enter()
     {
         Debug.Log("ÆÐÅÏ ¿ø");
+        StartCoroutine(SweepAttack());
         _bossAnim.SetTrigger("SweepAttack");
     }
 
@@ -55,13 +56,17 @@ public class Theme1Boss : Boss
     IEnumerator SweepAttack()
     {
         yield return new WaitForSeconds(0.5f);
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.right, 5);
+        RaycastHit2D hitRight = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.right, 5);
+        RaycastHit2D hitLeft = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.left, 5);
 
-        if (hit)
+        if (hitRight || hitLeft)
         {
-            if(hit.transform.gameObject != null)
+            if(hitRight.transform.gameObject != null || hitLeft.transform.gameObject)
             {
-
+                if(hitRight.transform.GetComponent<IDamaged>() != null)
+                    hitRight.transform.GetComponent<IDamaged>().Damaged(1);
+                if(hitLeft.transform.GetComponent<IDamaged>() != null)
+                    hitLeft.transform.GetComponent<IDamaged>().Damaged(1);
             }
         }
     }

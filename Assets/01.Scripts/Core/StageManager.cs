@@ -50,11 +50,26 @@ public class StageManager : MonoBehaviour
     {
         _thema1Boss = GameObject.Find("Theme1Boss");
         _thema1Boss.SetActive(false);
+        SoundManager.Instance.BGMPlay(1);
         StageStart(_currentStageNum);
     }
 
     private void Update()
     {
+        if(_currentStageNum == 6)
+        {
+            SoundManager.Instance.BGMPlay(2);
+        }
+        if(_currentStageNum == 11)
+        {
+            SoundManager.Instance.BGMPlay(3);
+        }
+        if(_currentStageNum == 16)
+        {
+            SoundManager.Instance.BGMPlay(4);
+        }
+
+
         if (_currentStageNum == 5 && _isBoss == false)
         {
             Debug.Log("d");
