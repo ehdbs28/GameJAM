@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        startButton = GameObject.Find("Canvas/StartButton").GetComponent<Button>();
     }
     private void Start()
     {
-        
+        startButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(1);
+        });
     }
 
     public void Fade()
