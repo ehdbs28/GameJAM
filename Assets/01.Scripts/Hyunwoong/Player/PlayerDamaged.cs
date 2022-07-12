@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
     float _playerHp = 1;
+
+    Animator anim;
     public float PlayerHp
     {
         get { return _playerHp; }
         set { _playerHp = value; }
+    }
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
     }
 
     public void Damaged(float damage)
@@ -28,7 +35,7 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
 
     IEnumerator DieCo()
     {
-        //에니메이션 실행
+        anim.SetTrigger("IsDeath");
 
         //Die Panel 올라오는 코드
 

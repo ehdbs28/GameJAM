@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
 {
+    Animator anim;
     float _damage = 1f;
     public float Damage
     {
@@ -12,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
         set { _damage = value; }
     }
 
+    [SerializeField] private GameObject _blink;
 
     [SerializeField] private float _distance = 1f;
 
@@ -23,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
     }
 
@@ -30,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit;
 
             hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
@@ -42,11 +45,27 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
                     {
+                        anim.SetTrigger("IsAttack");
+                        GameObject Blink = Instantiate(_blink);
+                        Blink.transform.position = hit.transform.position;
+                        Vector2 inputVec = _mousePos;
+                        float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + 180;
+                        transform.eulerAngles = new Vector3(0, 0, angle);
+
                         transform.DOMove(hit.transform.position, 0.05f);
                         EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
                     }
                 }
-                else return;
+                else
+                {
+                    return;
+                };
+            }
+            else
+            {
+                PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
+                print("asd");
+                player.Damaged(1);
             }
         }
         if (Input.GetMouseButtonUp(1))
