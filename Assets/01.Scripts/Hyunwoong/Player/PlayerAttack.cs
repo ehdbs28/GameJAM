@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     bool isDead = false;
     bool isLeft = true;
+    bool isAttack = true;
 
     [SerializeField] private GameObject _blink;
 
@@ -34,10 +35,17 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
+        Sequence seq = DOTween.Sequence();
+
         _collider = GetComponent<BoxCollider2D>();
 
+        seq.Append(transform.DOMoveX(-8.21f, 1.5f));
+        seq.OnComplete(() =>
+        {
+            isAttack = false;
+        });
         transform.position = new Vector2(-10, -2.16f);
-        transform.DOMoveX(-8.21f, 1.5f);
+        
 
         anim = GetComponent<Animator>();
        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
@@ -45,6 +53,11 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        if(isAttack == false)
+        {
+            transform.eulerAngles = new Vector3(0,0,0);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             if(EnemyManager.Instance.enemyList.Count == 0 && !StageManager.Instance.IsStageUp)
@@ -81,8 +94,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 if(hit.transform.gameObject != null)
                 {
-                    if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
+                    if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject && isAttack == false)
                     {
+                        Sequence seq = DOTween.Sequence();
+
+                        isAttack = true;
                         anim.SetTrigger("IsAttack");
                         GameObject Blink = Instantiate(_blink);
                         Blink.transform.position = hit.transform.position;
@@ -90,7 +106,11 @@ public class PlayerAttack : MonoBehaviour
                         float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
                         transform.eulerAngles = new Vector3(0, 0, angle);
 
-                        transform.DOMove(hit.transform.position, 0.05f);
+                        seq.Append(transform.DOMove(hit.transform.position, 0.05f));
+                        seq.OnComplete(() =>
+                        {
+                            isAttack = false;
+                        });
                         EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
                     }
                 }
