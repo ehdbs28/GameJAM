@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _damage = 5f;
 
     [SerializeField] private float _distance = 1f;
+
     [SerializeField] private LayerMask _enemyLayer;
 
     private BoxCollider2D _collider;
@@ -26,19 +27,22 @@ public class PlayerAttack : MonoBehaviour
             _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit;
 
-            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance, _enemyLayer);
-            Debug.DrawRay(_mousePos, hit.point, Color.yellow, 0.5f);
+            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
+            Debug.DrawRay(_mousePos, Vector3.forward, Color.yellow, 0.5f);
 
-            if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
+            if(hit)
             {
-                //transform.position = hit.transform.position;
-                transform.DOMove(hit.transform.position, 0.05f);
-                EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
-                //OnEnemyDie.Invoke();
-                //PoolManager.Instance.Push(hit.transform.GetComponent<PoolableMono>());
+                if(hit.transform.gameObject != null)
+                {
+                    if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
+                    {
+                        transform.DOMove(hit.transform.position, 0.05f);
+                        EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
+                    }
+                }
+                else return;
             }
         }
-
         if (Input.GetMouseButtonUp(1))
         {
             Bounds bounds = _collider.bounds;
@@ -47,12 +51,12 @@ public class PlayerAttack : MonoBehaviour
 
             Collider2D hit;
 
-            hit = Physics2D.OverlapCircle(attackPos, _distance, _enemyLayer);
+            hit = Physics2D.OverlapCircle(attackPos, _distance);
 
             if (hit)
             {
                 hit.GetComponent<IDamaged>().Damaged(_damage);
             }
         }
-    }
+    }        
 }

@@ -28,5 +28,6 @@ public class GameManager : MonoBehaviour
         GravityController.Instance = gameObject.AddComponent<GravityController>();
         StageManager.Instance = gameObject.GetComponent<StageManager>();
         EnemyManager.Instance = gameObject.AddComponent<EnemyManager>();
+        UIManager.Instance = gameObject.GetComponent<UIManager>();
     }
 }

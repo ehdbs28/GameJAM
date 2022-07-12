@@ -25,16 +25,6 @@ public class CameraManager : MonoBehaviour
         _mainVcam.Follow = _rigTrm;
     }
 
-    private void Update()
-    {
-        //test
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            i++;
-            RigMove(i, 2f);
-        }
-    }
-
     public void RigMove(int stageNum, float time)
     {
         if (_stageTrm.Count < stageNum) return;
