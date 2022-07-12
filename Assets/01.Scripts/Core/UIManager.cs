@@ -28,6 +28,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    Theme1Boss theme1;
+
+    private void Start()
+    {
+        theme1 = FindObjectOfType<Theme1Boss>();
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))

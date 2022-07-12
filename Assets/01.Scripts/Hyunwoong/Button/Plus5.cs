@@ -24,7 +24,7 @@ public class Plus5 : StatUp
     public override void Stat()
     {
         _player.Damage += 0.5f;
-        _player.IsAttack = false;
         UIManager.Instance.IsClear = false;
+        _player.IsAttack = false;
     }
 }
