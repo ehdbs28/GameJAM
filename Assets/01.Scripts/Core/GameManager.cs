@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
         MenuManager.Instance = gameObject.AddComponent<MenuManager>();
         CameraManager.Instance = gameObject.GetComponent<CameraManager>();
         TimeControlManager.Instance = gameObject.AddComponent<TimeControlManager>();
+        GravityController.Instance = gameObject.AddComponent<GravityController>();
+        StageManager.Instance = gameObject.GetComponent<StageManager>();
+        EnemyManager.Instance = gameObject.AddComponent<EnemyManager>();
         UIManager.Instance = gameObject.GetComponent<UIManager>();
     }
 }
