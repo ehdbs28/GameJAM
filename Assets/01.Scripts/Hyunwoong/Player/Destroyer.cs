@@ -22,7 +22,7 @@ public class Destroyer : MonoBehaviour
     {
         if (isFade == true)
         {
-            fade -= Time.deltaTime;
+            fade -= 0.03f;
 
             if(fade <= 0f)
             {

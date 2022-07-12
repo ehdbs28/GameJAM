@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/00.Scenes/Developer/StartScene.unity
     guid: e7e69ee949ff1b743998e75eb4b40595
   - enabled: 1
-    path: Assets/00.Scenes/Main.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/00.Scenes/Developer/Hyunwoong.unity
+    guid: 072f11a8e9b7ebc46a74851d2940e525
   m_configObjects: {}
