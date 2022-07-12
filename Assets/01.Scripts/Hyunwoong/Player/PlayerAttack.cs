@@ -29,14 +29,21 @@ public class PlayerAttack : MonoBehaviour
             RaycastHit2D hit;
 
             hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
-            Debug.DrawRay(_mousePos, hit.point, Color.yellow, 0.5f);
+            Debug.DrawRay(_mousePos, Vector3.forward, Color.yellow, 0.5f);
 
-            if (hit.transform.gameObject == _enemyList.enemyList[0].gameObject) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
-            { 
-                transform.position = hit.transform.position;
+            if (hit)
+            {
+                if (hit.transform.gameObject != null)
+                {
+                    if (hit.transform.gameObject == _enemyList.enemyList[0].gameObject) //ÀÌ·¯¸é Æ®·£½ºÆû µü ÇÑ ÇÈ¼¿¸¸ ¹Þ¾Æ¿ÃÅÙµ¥ ...
+                    {
+                        transform.position = hit.transform.position;
 
-                OnEnemyDie.Invoke();
-                //PoolManager.Instance.Push(hit.transform.GetComponent<PoolableMono>());
+                        OnEnemyDie.Invoke();
+                        //PoolManager.Instance.Push(hit.transform.GetComponent<PoolableMono>());
+                    }
+                }
+                else return;
             }
         }
 

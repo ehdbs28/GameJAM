@@ -17,7 +17,7 @@ public class EnemyList : MonoBehaviour
     public void EnemyDie()
     {
         PoolManager.Instance.Push(enemyList[0].GetComponent<PoolableMono>());
-        enemyList.RemoveAt(0);
+
     }
 
     IEnumerator AddEnemy(int k)
