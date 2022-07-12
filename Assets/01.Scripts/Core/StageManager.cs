@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StageManager : MonoBehaviour
 {
     public static StageManager Instance = null;
 
     [SerializeField] private int _currentStageNum = 0;
+    [SerializeField] private UnityEvent OnActive;
 
     [SerializeField] private List<Vector2> _tutorial = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage1 = new List<Vector2>();
@@ -47,9 +49,15 @@ public class StageManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _currentStageNum = 5;
+        }
+
         if (_currentStageNum == 5)
         {
             _thema1Boss.SetActive(true);
+            OnActive.Invoke();
         }
     }
 
