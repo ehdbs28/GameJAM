@@ -21,6 +21,7 @@ public class CameraManager : MonoBehaviour
         _mainPerlin = _mainVcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         _mainVcam.Follow = _rigTrm;
+        _mainPerlin.m_AmplitudeGain = 0;
     }
 
     public void RigMove(int stageNum, float time)
