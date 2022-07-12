@@ -5,6 +5,14 @@ using DG.Tweening;
 
 public class EnemyManager : MonoBehaviour
 {
+    float sec = 0.1f;
+
+    public float Sec
+    {
+        get { return sec; }
+        set { sec = value; }
+    }
+
     public static EnemyManager Instance = null;
 
     public List<Enemy> enemyList = new List<Enemy>();
@@ -17,7 +25,7 @@ public class EnemyManager : MonoBehaviour
         CameraManager.Instance.ShakeCam(2f, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            TimeControlManager.Instance.ModifyTimeScale(1f, 0.1f);
+            TimeControlManager.Instance.ModifyTimeScale(1f, sec);
         });
         Debug.Log("´ÙÀÌ");
 

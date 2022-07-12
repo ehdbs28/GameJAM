@@ -5,7 +5,13 @@ using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float _damage = 5f;
+    float _damage = 1f;
+    public float Damage
+    {
+        get { return _damage; }
+        set { _damage = value; }
+    }
+
 
     [SerializeField] private float _distance = 1f;
 
@@ -57,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 hit.GetComponent<IDamaged>().Damaged(_damage);
             }
+            else return;
         }
     }        
 }

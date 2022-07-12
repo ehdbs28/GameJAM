@@ -8,20 +8,33 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance = null;
-    private Button startButton;
+    [SerializeField] private Button startButton;
 
     [SerializeField] private Image fadeImage;
 
-    private void Awake()
+    public RectTransform _ablityPanelTrm;
+
+    bool isClear = false;
+
+    public bool IsClear
     {
-        startButton = GameObject.Find("Canvas/StartButton").GetComponent<Button>();
-    }
-    private void Start()
-    {
-        startButton.onClick.AddListener(() =>
+        get
         {
-            SceneManager.LoadScene(1);
-        });
+            return isClear;
+        }
+        set
+        {
+            isClear = value;
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            isClear=true;
+            Ablity();
+        }
     }
 
     public void Fade()
@@ -39,9 +52,31 @@ public class UIManager : MonoBehaviour
         fadeImage.DOFade(0, 0.7f);
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Ablity()
     {
+        StartCoroutine(AblityPanelUp());
+    }
 
+    IEnumerator AblityPanelUp()
+    {
+        while (true)
+        {
+            if (isClear == true)
+            {
+                _ablityPanelTrm.transform.DOMoveY(0, 1f);
+            }
+            else
+            {
+                _ablityPanelTrm.transform.DOMoveY(-1200, 1f);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     IEnumerator IEFade()

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
-    [SerializeField] private float _playerHp = 3;
+    float _playerHp = 1;
+    public float PlayerHp
+    {
+        get { return _playerHp; }
+        set { _playerHp = value; }
+    }
 
     public void Damaged(float damage)
     {
