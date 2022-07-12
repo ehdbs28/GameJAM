@@ -195,7 +195,7 @@ public class PlayerAttack : MonoBehaviour
             float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
             Effect.transform.eulerAngles = new Vector3(0, 0, angle);
 
-            yield return new WaitForSeconds(0.007f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }
