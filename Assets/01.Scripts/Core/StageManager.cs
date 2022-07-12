@@ -55,13 +55,9 @@ public class StageManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_currentStageNum == 5 && _isBoss == false)
         {
-            _currentStageNum = 5;
-        }
-
-        if (_currentStageNum == 5 && !_isBoss)
-        {
+            Debug.Log("d");
             _isBoss = true;
             _thema1Boss.SetActive(true);
             OnActive.Invoke();

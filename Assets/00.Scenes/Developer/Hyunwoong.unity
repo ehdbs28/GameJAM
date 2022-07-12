@@ -2150,6 +2150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStageNum: 0
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
   _tutorial:
   - {x: -2.7, y: -2}
   - {x: 0.7, y: 0.6}
@@ -2180,6 +2183,17 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+  _stage5: []
+  _stage6: []
+  _stage7: []
+  _stage8: []
+  _stage9: []
+  _stage10: []
+  _stage11: []
+  _stage12: []
+  _stage13: []
+  _stage14: []
+  _stage15: []
 --- !u!114 &1050129495
 MonoBehaviour:
   m_ObjectHideFlags: 0
