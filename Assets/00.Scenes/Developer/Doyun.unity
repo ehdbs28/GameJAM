@@ -5376,6 +5376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef03b6a112f89334799c60c1cdd9ef39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _afterEffect: {fileID: 1870673645784554233, guid: cc54390b88e10194b8605030713e456d, type: 3}
+  _afterEffect1: {fileID: 0}
+  _afterEffect2: {fileID: 0}
   _blink: {fileID: 1235028877966716077, guid: ec82bebaa194c9c49ab118b457d83104, type: 3}
   _hitSpace: {fileID: 1215121518}
   _distance: 1
