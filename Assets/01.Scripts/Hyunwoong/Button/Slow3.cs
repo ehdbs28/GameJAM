@@ -7,9 +7,11 @@ using DG.Tweening;
 public class Slow3 : StatUp
 {
     Button button;
+    private PlayerAttack _player;
 
     private void Start()
     {
+        _player = FindObjectOfType<PlayerAttack>();
         button = GetComponent<Button>();
 
         button.onClick.AddListener(() =>
@@ -23,5 +25,6 @@ public class Slow3 : StatUp
         EnemyManager.Instance.Sec += 0.3f;
 
         UIManager.Instance.IsClear = false;
+        _player.IsAttack = false;
     }
 }

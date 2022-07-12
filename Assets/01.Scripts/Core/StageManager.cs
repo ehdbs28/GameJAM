@@ -46,12 +46,16 @@ public class StageManager : MonoBehaviour
         set => _currentStageNum = value;
     }
 
+    PlayerAttack player;
+
     private void Start()
     {
         _thema1Boss = GameObject.Find("Theme1Boss");
         _thema1Boss.SetActive(false);
         SoundManager.Instance.BGMPlay(1);
         StageStart(_currentStageNum);
+
+        player = FindObjectOfType<PlayerAttack>();
     }
 
     private void Update()
@@ -82,10 +86,13 @@ public class StageManager : MonoBehaviour
 
     public void StageUp(int stageNum)
     {
+        UIManager.Instance.IsClear = true;
+        player.IsAttack = true;
+        SkillManager.Instance.SkillSelect();
         CameraManager.Instance.RigMove(stageNum, 2f);
         CameraManager.Instance.ShakeCam(6f, 2f);
         UIManager.Instance.Fade();
-
+        UIManager.Instance.Ablity();
     }
 
     public void StageStart(int stageNum)

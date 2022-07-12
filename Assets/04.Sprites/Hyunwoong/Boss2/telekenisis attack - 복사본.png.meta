@@ -1,0 +1,528 @@
+fileFormatVersion: 2
+guid: 3da8062a2ed105244898d637c63f8184
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2628828303631682067
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_0"
+  - first:
+      213: -8352876052293419587
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_1"
+  - first:
+      213: 1166484404993054265
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_2"
+  - first:
+      213: 70911913277472319
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_3"
+  - first:
+      213: -7904395367608445896
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_4"
+  - first:
+      213: -3296973615173890515
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_5"
+  - first:
+      213: -5977980253220275439
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_6"
+  - first:
+      213: 4998066608761724281
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_7"
+  - first:
+      213: 7307672025008798134
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_8"
+  - first:
+      213: 1906641723346026147
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_9"
+  - first:
+      213: 1376841421032191896
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_10"
+  - first:
+      213: -4669521650890206294
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_11"
+  - first:
+      213: 2737978032090817855
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_12"
+  - first:
+      213: 2470646441662229953
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_13"
+  - first:
+      213: 2014549038319825954
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_14"
+  - first:
+      213: -8172160490276479983
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_15"
+  - first:
+      213: 866005092070653701
+    second: "telekenisis attack - \uBCF5\uC0AC\uBCF8_16"
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1120
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a857df9697b7420800000000000000
+      internalID: 2628828303631682067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_1"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1050
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdfe226c7f941c80800000000000000
+      internalID: -8352876052293419587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_2"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 980
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936d4a3d26f203010800000000000000
+      internalID: 1166484404993054265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_3"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 910
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e3f39620eebf000800000000000000
+      internalID: 70911913277472319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834947dda42fd4290800000000000000
+      internalID: -7904395367608445896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_5"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 770
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e89b117fbce32d0800000000000000
+      internalID: -3296973615173890515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_6"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b7184e1a2f90da0800000000000000
+      internalID: -5977980253220275439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_7"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ddbfa8913bc5540800000000000000
+      internalID: 4998066608761724281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_8"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b975b13df01a6560800000000000000
+      internalID: 7307672025008798134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_9"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae7af9ab80c57a10800000000000000
+      internalID: 1906641723346026147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_10"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897faa44af58b1310800000000000000
+      internalID: 1376841421032191896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_11"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 350
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa391b77cc6823fb0800000000000000
+      internalID: -4669521650890206294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_12"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35a89583804ff520800000000000000
+      internalID: 2737978032090817855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_13"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd2cd049df794220800000000000000
+      internalID: 2470646441662229953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_14"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22478a34dad15fb10800000000000000
+      internalID: 2014549038319825954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_15"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c96910557a69e80800000000000000
+      internalID: -8172160490276479983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis attack - \uBCF5\uC0AC\uBCF8_16"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ffc8efa0ba40c00800000000000000
+      internalID: 866005092070653701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

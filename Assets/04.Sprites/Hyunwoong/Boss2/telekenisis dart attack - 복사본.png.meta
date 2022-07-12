@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 374c1fb24b327da4aaad082dd189b676
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -136073462789068201
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_0"
+  - first:
+      213: 4375489024817526904
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_1"
+  - first:
+      213: 8517092024127343981
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_2"
+  - first:
+      213: -7985534721290593620
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_3"
+  - first:
+      213: 772653141099895194
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_4"
+  - first:
+      213: 5849789955605542910
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_5"
+  - first:
+      213: -266093484874701276
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_6"
+  - first:
+      213: 5788762389597519093
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_7"
+  - first:
+      213: -3240261053706204044
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_8"
+  - first:
+      213: -1749487526337304166
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_9"
+  - first:
+      213: 6845303887957947709
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_10"
+  - first:
+      213: 7367668161814891960
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_11"
+  - first:
+      213: 3593948270099349476
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_12"
+  - first:
+      213: -5442496561420170277
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_13"
+  - first:
+      213: 8666321246591740817
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_14"
+  - first:
+      213: -2229680356248642327
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_15"
+  - first:
+      213: -8668088403134467128
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_16"
+  - first:
+      213: -2100650981598543719
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_17"
+  - first:
+      213: -8248966434103181242
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_18"
+  - first:
+      213: -6266107413141211443
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_19"
+  - first:
+      213: 4309550957294994633
+    second: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_20"
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1400
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75aa91318e19c1ef0800000000000000
+      internalID: -136073462789068201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_1"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1330
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8787ed2f51cd8bc30800000000000000
+      internalID: 4375489024817526904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_2"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d4c69021ac23670800000000000000
+      internalID: 8517092024127343981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_3"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1190
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa1debea7ead2190800000000000000
+      internalID: -7985534721290593620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1120
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9959d920f309ba00800000000000000
+      internalID: 772653141099895194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_5"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1050
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7348a98f0ae2150800000000000000
+      internalID: 5849789955605542910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_6"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 980
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4266ff4a265ae4cf0800000000000000
+      internalID: -266093484874701276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_7"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 910
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcf91129b0d55050800000000000000
+      internalID: 5788762389597519093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_8"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c0f424db74803d0800000000000000
+      internalID: -3240261053706204044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_9"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 770
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9920bd2d5298b7e0800000000000000
+      internalID: -1749487526337304166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_10"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35755d3e976ffe50800000000000000
+      internalID: 6845303887957947709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_11"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd8ee758273f3660800000000000000
+      internalID: 7367668161814891960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_12"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efb66cf8e440e130800000000000000
+      internalID: 3593948270099349476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_13"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb0445863e5874b0800000000000000
+      internalID: -5442496561420170277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_14"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b6584f145f44870800000000000000
+      internalID: 8666321246591740817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_15"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 350
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec122387859e01e0800000000000000
+      internalID: -2229680356248642327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_16"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3bc79d583c4b780800000000000000
+      internalID: -8668088403134467128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_17"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9904ebcdf0df8d2e0800000000000000
+      internalID: -2100650981598543719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_18"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640c82babb8c58d80800000000000000
+      internalID: -8248966434103181242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_19"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6b64bc1805a09a0800000000000000
+      internalID: -6266107413141211443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "telekenisis dart attack - \uBCF5\uC0AC\uBCF8_20"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4430f33c99ecb30800000000000000
+      internalID: 4309550957294994633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
