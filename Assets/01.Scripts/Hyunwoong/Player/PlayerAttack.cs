@@ -24,6 +24,23 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if(EnemyManager.Instance.enemyList.Count == 0)
+            {
+                Sequence sq = DOTween.Sequence();
+                sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(transform.position.x + 5, 3f) : transform.DOMoveX(transform.position.x - 5, 3f));
+                sq.OnComplete(()=>
+                {
+                    transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+                    transform.position = new Vector2(transform.position.x, transform.position.y + 7);
+                    StageManager.Instance.CurrentStageNum += 1;
+
+                    StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
+                    StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
+
+                    transform.DOMoveX(transform.localScale.x > 0 ? transform.position.x + 5 : transform.position.x - 5, 3f);
+                });
+            }
+
             _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit;
 

@@ -25,6 +25,14 @@ public class StageManager : MonoBehaviour
         StageStart(_currentStageNum);
     }
 
+    public void StageUp(int stageNum)
+    {
+        CameraManager.Instance.RigMove(stageNum, 2f);
+        CameraManager.Instance.ShakeCam(6f, 2f);
+        UIManager.Instance.Fade();
+
+    }
+
     public void StageStart(int stageNum)
     {
         switch (stageNum)

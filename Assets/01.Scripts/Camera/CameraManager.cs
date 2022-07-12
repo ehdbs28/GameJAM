@@ -14,8 +14,6 @@ public class CameraManager : MonoBehaviour
     private CinemachineVirtualCamera _mainVcam;
     private CinemachineBasicMultiChannelPerlin _mainPerlin;
 
-    int i = 1;
-
     private void Start()
     {
         _rigTrm = GameObject.Find("CamRig").transform;
@@ -28,7 +26,7 @@ public class CameraManager : MonoBehaviour
     public void RigMove(int stageNum, float time)
     {
         if (_stageTrm.Count < stageNum) return;
-        _rigTrm.DOMoveY(_stageTrm[stageNum - 1].position.y, time);
+        _rigTrm.DOMoveY(_stageTrm[stageNum].position.y, time);
     }
 
     public void ShakeCam(float intensity, float time)
