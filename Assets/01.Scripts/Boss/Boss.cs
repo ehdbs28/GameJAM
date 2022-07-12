@@ -19,7 +19,6 @@ public class Boss : MonoBehaviour
     private Dictionary<string, int> diction = new Dictionary<string, int>();
     private int num, randomNum;
 
-    protected bool _isActive = false;
     protected StateMachine<State> _fsm;
     protected Transform _playerTrm;
     protected Vector2 _initPos;
@@ -31,40 +30,33 @@ public class Boss : MonoBehaviour
         _initPos = transform.position;
     }
 
-    private void Start()
+    protected void StateChange()
     {
-        InvokeRepeating("StateChange", 2f, 2f);
-    }
+        num = Random.Range(1, 4);
+        Invoke("StateChange", 2f);
 
-    private void StateChange()
-    {
-        if (_isActive)
+        if (diction.ContainsKey("1") && diction.ContainsKey("2") && diction.ContainsKey("3"))
         {
-            Debug.Log("Ω√¿€");
-            num = Random.Range(1, 4);
+            diction.Clear();
+        }
+        if (!diction.ContainsKey(num.ToString()))
+        {
+            randomNum = num;
+            diction.Add(num.ToString(), num);
+        }
+        else return;
 
-            if (diction.ContainsKey("1") && diction.ContainsKey("2") && diction.ContainsKey("3"))
-            {
-                diction.Clear();
-            }
-            if (diction.ContainsKey(num.ToString()))
-            {
-                randomNum = num;
-                diction.Add(num.ToString(), num);
-            }
-
-            if (randomNum == 1)
-            {
-                _fsm.ChangeState(State.Pattern1);
-            }
-            if (randomNum == 2)
-            {
-                _fsm.ChangeState(State.Pattern2);
-            }
-            if (randomNum == 3)
-            {
-                _fsm.ChangeState(State.Pattern3);
-            }
-        }  
+        if (randomNum == 1)
+        {
+            _fsm.ChangeState(State.Pattern1);
+        }
+        if (randomNum == 2)
+        {
+            _fsm.ChangeState(State.Pattern2);
+        }
+        if (randomNum == 3)
+        {
+            _fsm.ChangeState(State.Pattern3);
+        }
     }
 }

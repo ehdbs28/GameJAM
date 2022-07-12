@@ -28,6 +28,12 @@ public class StageManager : MonoBehaviour
     [SerializeField] private List<Vector2> _stage15 = new List<Vector2>();
 
     private GameObject _thema1Boss;
+    private bool _isBoss = false;
+    public bool IsBoss
+    {
+        get => _isBoss;
+        set => _isBoss = value;
+    }
     private bool _isStageUp = false;
     public bool IsStageUp
     {
@@ -42,7 +48,7 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        _thema1Boss = GameObject.Find("Thema1Boss");
+        _thema1Boss = GameObject.Find("Theme1Boss");
         _thema1Boss.SetActive(false);
         StageStart(_currentStageNum);
     }
@@ -54,8 +60,9 @@ public class StageManager : MonoBehaviour
             _currentStageNum = 5;
         }
 
-        if (_currentStageNum == 5)
+        if (_currentStageNum == 5 && !_isBoss)
         {
+            _isBoss = true;
             _thema1Boss.SetActive(true);
             OnActive.Invoke();
         }

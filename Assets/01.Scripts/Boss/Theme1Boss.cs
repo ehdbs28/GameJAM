@@ -4,11 +4,13 @@ using UnityEngine;
 using MonsterLove.StateMachine;
 using DG.Tweening;
 
-public class Thema1Boss : Boss
+public class Theme1Boss : Boss
 {
+    private Animator _bossAnim;
+
     private void OnEnable()
     {
-        transform.DOMoveX(0, 7f);
+        transform.DOMoveX(0, 2f);
         _fsm.ChangeState(State.Init);
     }
 
@@ -21,26 +23,30 @@ public class Thema1Boss : Boss
 
     public void OnActive()
     {
-        _isActive = true;
+        Invoke("StateChange", 2f);
     }
 
     private void Init_Enter()
     {
         Debug.Log("Fsm준비됨");
+        _bossAnim = GetComponent<Animator>();
     }
 
     private void Pattern1_Enter()
     {
         Debug.Log("패턴 원");
+        _bossAnim.SetTrigger("SweepAttack");
     }
 
     private void Pattern2_Enter()
     {
         Debug.Log("패턴 투");
+        _bossAnim.SetTrigger("SpinSlamAttack");
     }
 
     private void Pattern3_Enter()
     {
         Debug.Log("패턴 쓰리");
+        _bossAnim.SetTrigger("SlamAttack");
     }
 }
