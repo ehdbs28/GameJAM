@@ -5,8 +5,6 @@ using UnityEngine;
 public class Theme2Boss : Boss
 {
     [SerializeField] private GameObject _warningPrefab_1;
-    [SerializeField] private GameObject _warningPrefab_2;
-    [SerializeField] private GameObject _warningPrefab_3;
 
     private Animator _theme2BossAnim;
 
@@ -30,7 +28,8 @@ public class Theme2Boss : Boss
     IEnumerator DartCo()
     {
         GameObject warning = Instantiate(_warningPrefab_1);
-        warning.transform.position = transform.position;
+        warning.transform.localScale = new Vector3(4, 1);
+        warning.transform.position = new Vector3(transform.position.x + 1, 0, 0);
         yield return new WaitForSeconds(0.3f);
         Destroy(warning);
     }
@@ -49,7 +48,7 @@ public class Theme2Boss : Boss
 
     IEnumerator TurnCo()
     {
-        GameObject warning = Instantiate(_warningPrefab_2);
+        GameObject warning = Instantiate(_warningPrefab_1);
         warning.transform.position = transform.position;
         yield return new WaitForSeconds(0.3f);
         Destroy(warning);
@@ -69,7 +68,7 @@ public class Theme2Boss : Boss
 
     IEnumerator WhipCo()
     {
-        GameObject warning = Instantiate(_warningPrefab_3);
+        GameObject warning = Instantiate(_warningPrefab_1);
         warning.transform.position = transform.position;
         yield return new WaitForSeconds(0.3f);
         Destroy(warning);
