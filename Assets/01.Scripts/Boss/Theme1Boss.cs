@@ -12,6 +12,14 @@ public class Theme1Boss : Boss
 
     private Animator _bossAnim;
 
+    private float sec = 2f;
+
+    public float Sec
+    {
+        get => sec;
+        set => sec = value;
+    }
+
     private void OnEnable()
     {
         transform.DOMoveX(0, 2f);
@@ -27,7 +35,7 @@ public class Theme1Boss : Boss
 
     public void OnActive()
     {
-        Invoke("StateChange", 2f);
+        Invoke("StateChange", sec);
     }
 
     private void Init_Enter()

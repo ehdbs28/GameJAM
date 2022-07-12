@@ -97,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
             transform.eulerAngles = new Vector3(0,0,0);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
             if(EnemyManager.Instance.enemyList.Count == 0 && !StageManager.Instance.IsStageUp)
             {
@@ -205,7 +205,7 @@ public class PlayerAttack : MonoBehaviour
         if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false  && isAttack == false)
         {
             PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
-            print("asd");
+            print("플레이어 죽음");
             player.Damaged(1);
             isDead = true;
         }
