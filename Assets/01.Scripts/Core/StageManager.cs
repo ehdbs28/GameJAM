@@ -59,6 +59,7 @@ public class StageManager : MonoBehaviour
         {
             Debug.Log("d");
             _isBoss = true;
+            EnemyManager.Instance.enemyList.Add(_thema1Boss.GetComponent<Enemy>());
             _thema1Boss.SetActive(true);
             OnActive.Invoke();
         }

@@ -54,7 +54,17 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if(isAttack == false)
+        #region 공격 범위
+        if(EnemyManager.Instance.enemyList.Count != 0)
+        {
+            _hitSpace.SetActive(true);
+        }
+        else
+        {
+            _hitSpace.SetActive(false);
+        }
+        #endregion
+        if (isAttack == false)
         {
             transform.eulerAngles = new Vector3(0,0,0);
         }
@@ -111,7 +121,15 @@ public class PlayerAttack : MonoBehaviour
                         {
                             isAttack = false;
                         });
-                        EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
+
+                        if(EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
+                        {
+                            EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
+                        }
+                        if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Boss"))
+                        {
+                            return;
+                        }
                     }
                 }
                 else
@@ -121,13 +139,14 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
-                if(EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
+                PlayerDie();
+                /*if(EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
                 {
                     PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
                     print("asd");
                     player.Damaged(1);
                     isDead = true;
-                }
+                }*/
             }
         }
         if (Input.GetMouseButtonUp(1))
@@ -146,5 +165,16 @@ public class PlayerAttack : MonoBehaviour
             }
             else return;
         }
-    }        
+    }
+    
+    public void PlayerDie()
+    {
+        if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
+        {
+            PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
+            print("asd");
+            player.Damaged(1);
+            isDead = true;
+        }
+    }
 }

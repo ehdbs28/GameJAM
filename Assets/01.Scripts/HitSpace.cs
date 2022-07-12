@@ -8,12 +8,7 @@ public class HitSpace : PoolableMono
     {
         if(EnemyManager.Instance.enemyList.Count != 0)
         {
-            gameObject.SetActive(true);
             transform.position = EnemyManager.Instance.enemyList[0].transform.position;
-        }
-        else
-        {
-            gameObject.SetActive(false);
         }
     }
 

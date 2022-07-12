@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
+    private float _tryCount = 3;
+
     float _playerHp = 1;
 
     Animator anim;

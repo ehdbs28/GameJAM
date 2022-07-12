@@ -4,7 +4,7 @@ using UnityEngine;
 using MonsterLove.StateMachine;
 using DG.Tweening;
 
-public class Boss : MonoBehaviour
+public class Boss : Enemy
 {
     public enum State
     {
