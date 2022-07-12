@@ -44,7 +44,11 @@ public class Boss : MonoBehaviour
             randomNum = num;
             diction.Add(num.ToString(), num);
         }
-        else return;
+        else
+        {
+            Invoke("StateChange", 2f);
+            return;
+        }
 
         if (randomNum == 1)
         {

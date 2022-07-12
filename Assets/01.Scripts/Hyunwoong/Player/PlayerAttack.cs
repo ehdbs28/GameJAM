@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     bool isLeft = true;
 
     [SerializeField] private GameObject _blink;
+    [SerializeField] private GameObject _hitSpace;
 
     [SerializeField] private float _distance = 1f;
 
@@ -81,7 +82,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if(hit.transform.gameObject != null)
                 {
-                    if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
+                    if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true)//EnemyManager.Instance.enemyList[0].gameObject)
                     {
                         anim.SetTrigger("IsAttack");
                         GameObject Blink = Instantiate(_blink);
@@ -91,7 +92,8 @@ public class PlayerAttack : MonoBehaviour
                         transform.eulerAngles = new Vector3(0, 0, angle);
 
                         transform.DOMove(hit.transform.position, 0.05f);
-                        EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
+                        EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
+                        //EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
                     }
                 }
                 else
