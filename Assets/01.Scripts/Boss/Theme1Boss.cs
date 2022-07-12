@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class Theme1Boss : Boss
 {
+    [SerializeField] private List<Vector2> _breakTileVec = new List<Vector2>();
+
     private Animator _bossAnim;
 
     private void OnEnable()
@@ -48,5 +50,19 @@ public class Theme1Boss : Boss
     {
         Debug.Log("패턴 쓰리");
         _bossAnim.SetTrigger("SlamAttack");
+    }
+
+    IEnumerator SweepAttack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1, 1), 0, Vector2.right, 5);
+
+        if (hit)
+        {
+            if(hit.transform.gameObject != null)
+            {
+
+            }
+        }
     }
 }

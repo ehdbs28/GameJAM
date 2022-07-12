@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject _afterEffect2;
 
     [SerializeField] private GameObject _blink;
+    [SerializeField] private GameObject _hitSpace;
 
     [SerializeField] private float _distance = 1f;
 
@@ -57,7 +58,17 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if(isAttack == false)
+        #region ���� ����
+        if(EnemyManager.Instance.enemyList.Count != 0)
+        {
+            _hitSpace.SetActive(true);
+        }
+        else
+        {
+            _hitSpace.SetActive(false);
+        }
+        #endregion
+        if (isAttack == false)
         {
             transform.eulerAngles = new Vector3(0,0,0);
         }
@@ -98,7 +109,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if(hit.transform.gameObject != null)
                 {
-                    if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject && isAttack == false)
+                    if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                     {
                         Sequence seq = DOTween.Sequence();
 
@@ -110,7 +121,6 @@ public class PlayerAttack : MonoBehaviour
                         Vector2 inputVec = _mousePos;
                         float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
                         transform.eulerAngles = new Vector3(0, 0, angle);
-
                         seq.Append(transform.DOMove(hit.transform.position, 0.05f));
 
                         seq.OnComplete(() =>
@@ -118,9 +128,15 @@ public class PlayerAttack : MonoBehaviour
                             isAttack = false;
                             StopCoroutine(AfterEffect());
                         });
-                       
 
-                        EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
+                        if(EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
+                        {
+                            EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
+                        }
+                        if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Boss"))
+                        {
+                            return;
+                        }
                     }
                 }
                 else
@@ -130,13 +146,14 @@ public class PlayerAttack : MonoBehaviour
             }
             else
             {
-                if(EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
+                PlayerDie();
+                /*if(EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
                 {
                     PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
                     print("asd");
                     player.Damaged(1);
                     isDead = true;
-                }
+                }*/
             }
         }
         if (Input.GetMouseButtonUp(1))
@@ -157,6 +174,17 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     
+    public void PlayerDie()
+    {
+        if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
+        {
+            PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
+            print("asd");
+            player.Damaged(1);
+            isDead = true;
+        }
+    }
+
     IEnumerator AfterEffect()
     {
         while (isAttack)

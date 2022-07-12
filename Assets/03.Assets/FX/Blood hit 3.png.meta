@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 3b593b9ce12e19440bf869f9d0ed59bd
+guid: f2bad1ddc4c31724697640ca66811bf4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1559514206008731582
-    second: shuffe(move)_0
+      213: -7903847127708637111
+    second: Blood hit 3_0
   - first:
-      213: -1207393100361714698
-    second: shuffe(move)_1
+      213: -6835081385621457037
+    second: Blood hit 3_1
   - first:
-      213: -3566548728246889543
-    second: shuffe(move)_2
+      213: 2111238393085563265
+    second: Blood hit 3_2
   - first:
-      213: -2983139913145908508
-    second: shuffe(move)_3
+      213: 7804436784724765470
+    second: Blood hit 3_3
   - first:
-      213: -7071339250823722576
-    second: shuffe(move)_4
+      213: -2026864035853886983
+    second: Blood hit 3_4
   - first:
-      213: 4300611324449068570
-    second: shuffe(move)_5
+      213: -5168145931037792035
+    second: Blood hit 3_5
   - first:
-      213: 5631017432771177300
-    second: shuffe(move)_6
+      213: -5352243067610097819
+    second: Blood hit 3_6
   - first:
-      213: 6380330009702543217
-    second: shuffe(move)_7
+      213: 207788544905803951
+    second: Blood hit 3_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,169 +139,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shuffe(move)_0
+      name: Blood hit 3_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 210
-        width: 31
-        height: 19
-      alignment: 9
-      pivot: {x: 0.85600996, y: 0.45723686}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb7635f58e184a510800000000000000
-      internalID: 1559514206008731582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_1
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 180
-        width: 31
-        height: 20
-      alignment: 9
-      pivot: {x: 0.86474633, y: 0.45598984}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f3beac4f5a7e3fe0800000000000000
-      internalID: -1207393100361714698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 150
-        width: 31
-        height: 20
-      alignment: 9
-      pivot: {x: 0.84945756, y: 0.5067703}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b319baf3d2118ec0800000000000000
-      internalID: -3566548728246889543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_3
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 120
-        width: 31
-        height: 18
-      alignment: 9
-      pivot: {x: 0.8538258, y: 0.47743055}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e206a9ed02c996d0800000000000000
-      internalID: -2983139913145908508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_4
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 90
-        width: 31
-        height: 18
-      alignment: 9
-      pivot: {x: 0.8210641, y: 0.5037613}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b9006cba6e8ddd90800000000000000
-      internalID: -7071339250823722576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_5
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 60
-        width: 31
-        height: 19
-      alignment: 9
-      pivot: {x: 0.8232482, y: 0.46792763}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a161fc6c637deab30800000000000000
-      internalID: 4300611324449068570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_6
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 30
-        width: 31
-        height: 20
-      alignment: 9
-      pivot: {x: 0.8319847, y: 0.4932291}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45bab5c4584652e40800000000000000
-      internalID: 5631017432771177300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shuffe(move)_7
-      rect:
-        serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 31
-        height: 18
-      alignment: 9
-      pivot: {x: 0.8254323, y: 0.47743055}
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17fa512e65c7b8850800000000000000
-      internalID: 6380330009702543217
+      spriteID: 9486fe9e9e4ef4290800000000000000
+      internalID: -7903847127708637111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377f52f81b9e421a0800000000000000
+      internalID: -6835081385621457037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1811808f120ac4d10800000000000000
+      internalID: 2111238393085563265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_3
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1be281f7edee4c60800000000000000
+      internalID: 7804436784724765470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_4
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f91aeee5e12fd3e0800000000000000
+      internalID: -2026864035853886983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_5
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8ac1168ae0748b0800000000000000
+      internalID: -5168145931037792035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_6
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5679d83994309b5b0800000000000000
+      internalID: -5352243067610097819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood hit 3_7
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 82
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa87187a49632e200800000000000000
+      internalID: 207788544905803951
       vertices: []
       indices: 
       edges: []

@@ -4,7 +4,7 @@ using UnityEngine;
 using MonsterLove.StateMachine;
 using DG.Tweening;
 
-public class Boss : MonoBehaviour
+public class Boss : Enemy
 {
     public enum State
     {
@@ -44,7 +44,11 @@ public class Boss : MonoBehaviour
             randomNum = num;
             diction.Add(num.ToString(), num);
         }
-        else return;
+        else
+        {
+            Invoke("StateChange", 2f);
+            return;
+        }
 
         if (randomNum == 1)
         {
