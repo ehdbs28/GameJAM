@@ -236,6 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef03b6a112f89334799c60c1cdd9ef39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _afterEffect: {fileID: 1870673645784554233, guid: cc54390b88e10194b8605030713e456d, type: 3}
+  _afterEffect1: {fileID: 1870673645784554233, guid: cc54390b88e10194b8605030713e456d, type: 3}
+  _afterEffect2: {fileID: 0}
   _blink: {fileID: 1235028877966716077, guid: ec82bebaa194c9c49ab118b457d83104, type: 3}
   _distance: 1
   _enemyLayer:
@@ -300,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20500997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.92, y: -2.15, z: 0}
+  m_LocalPosition: {x: -10.28, y: -2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4382,6 +4385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentStageNum: 0
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
   _tutorial:
   - {x: -2.7, y: -2}
   - {x: 0.7, y: 0.6}
