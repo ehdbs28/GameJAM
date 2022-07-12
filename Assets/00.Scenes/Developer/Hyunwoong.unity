@@ -4367,7 +4367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 0}
-  fadeImage: {fileID: 0}
+  fadeImage: {fileID: 1233849235}
   _ablityPanelTrm: {fileID: 0}
 --- !u!114 &1433452857
 MonoBehaviour:
