@@ -5,7 +5,15 @@ using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private float _damage = 5f;
+    Animator anim;
+    float _damage = 1f;
+    public float Damage
+    {
+        get { return _damage; }
+        set { _damage = value; }
+    }
+
+    [SerializeField] private GameObject _blink;
 
     [SerializeField] private float _distance = 1f;
 
@@ -20,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
 
         transform.position = new Vector2(-10, -2.16f);
         transform.DOMoveX(-8.21f, 1.5f);
+
+        anim = GetComponent<Animator>();
        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
     }
 
@@ -47,7 +57,9 @@ public class PlayerAttack : MonoBehaviour
                 });
             }
 
-            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+
+
             RaycastHit2D hit;
 
             hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
@@ -59,11 +71,27 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (hit.transform.gameObject == EnemyManager.Instance.enemyList[0].gameObject)
                     {
+                        anim.SetTrigger("IsAttack");
+                        GameObject Blink = Instantiate(_blink);
+                        Blink.transform.position = hit.transform.position;
+                        Vector2 inputVec = _mousePos;
+                        float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + 180;
+                        transform.eulerAngles = new Vector3(0, 0, angle);
+
                         transform.DOMove(hit.transform.position, 0.05f);
                         EnemyManager.Instance.EnemyDie(hit.transform.GetComponent<PoolableMono>());
                     }
                 }
-                else return;
+                else
+                {
+                    return;
+                };
+            }
+            else
+            {
+                PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
+                print("asd");
+                player.Damaged(1);
             }
         }
         if (Input.GetMouseButtonUp(1))
@@ -80,6 +108,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 hit.GetComponent<IDamaged>().Damaged(_damage);
             }
+            else return;
         }
     }        
 }

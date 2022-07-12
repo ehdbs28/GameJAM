@@ -3,21 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance = null;
-    private Button startButton;
+    [SerializeField] private Button startButton;
 
     [SerializeField] private Image fadeImage;
 
-    private void Awake()
+    public RectTransform _ablityPanelTrm;
+
+    bool isClear = false;
+
+    public bool IsClear
     {
-        
+        get
+        {
+            return isClear;
+        }
+        set
+        {
+            isClear = value;
+        }
     }
-    private void Start()
+
+    public void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            isClear=true;
+            Ablity();
+        }
     }
 
     public void Fade()
@@ -35,9 +52,31 @@ public class UIManager : MonoBehaviour
         fadeImage.DOFade(0, 0.7f);
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Ablity()
     {
+        StartCoroutine(AblityPanelUp());
+    }
 
+    IEnumerator AblityPanelUp()
+    {
+        while (true)
+        {
+            if (isClear == true)
+            {
+                _ablityPanelTrm.transform.DOMoveY(0, 1f);
+            }
+            else
+            {
+                _ablityPanelTrm.transform.DOMoveY(-1200, 1f);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     IEnumerator IEFade()
