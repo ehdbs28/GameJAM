@@ -11,11 +11,13 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyDie(PoolableMono enemy)
     {
+        Time.timeScale = 1;
+
         GravityController.Instance.ModityGravityScale(0.3f, 0.3f);
-        CameraManager.Instance.ShakeCam(4f, 0.3f);
+        CameraManager.Instance.ShakeCam(2f, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            TimeControlManager.Instance.ModifyTimeScale(1f, 5f);
+            TimeControlManager.Instance.ModifyTimeScale(1f, 0.1f);
         });
         Debug.Log("´ÙÀÌ");
 
