@@ -7,8 +7,18 @@ using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance = null;
+    private Button startButton;
 
     [SerializeField] private Image fadeImage;
+
+    private void Awake()
+    {
+        
+    }
+    private void Start()
+    {
+        
+    }
 
     public void Fade()
     {
