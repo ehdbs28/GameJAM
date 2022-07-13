@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public float Speed
     {
         get { return speed; }
-        set { speed = value; }
+        set { speed = Mathf.Clamp(speed, 0.01f, 0.5f);}
     }
 
     bool isDead = false;
@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
         set => isDead = value;
     }
     bool isLeft = true;
-    public bool IsLeft 
+    public bool IsLeft
     {
         get => isLeft;
         set => isLeft = value;
@@ -79,7 +79,7 @@ public class PlayerAttack : MonoBehaviour
     {
         _collider = GetComponent<BoxCollider2D>();
         Sequence seq = DOTween.Sequence();
-        
+
         seq.Append(transform.DOMoveX(-8.21f, 1.5f));
         seq.OnComplete(() =>
         {
@@ -88,58 +88,39 @@ public class PlayerAttack : MonoBehaviour
         });
 
         transform.position = new Vector2(-10, -2.16f);
-        
+
 
         anim = GetComponent<Animator>();
-       //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
+        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
     }
 
     public void StageClear()
     {
         Sequence sq = DOTween.Sequence();
-        
+
         StageManager.Instance.IsStageUp = isDead ? true : false;
 
         sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
         sq.OnComplete(() =>
         {
-            if (IsDead == true)
-            {
-                GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach(GameObject item in enemy)
-                {
-                    PoolManager.Instance.Push(item.GetComponent<PoolableMono>());
-                }
+            isLeft = !isLeft;
+            transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+            rotate = isLeft ? 180 : 360;
+            transform.position = new Vector2(transform.position.x, transform.position.y + 7);
+            StageManager.Instance.CurrentStageNum += 1;
+            StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
+            StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
 
-                isLeft = !isLeft;
-                transform.localScale = new Vector2(transform.localScale.x * -1, 1);
-                rotate = isLeft ? 180 : 360;
-                transform.position = new Vector2(transform.position.x, transform.position.y + 7);
-                transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
-                StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
-                UIManager.Instance.Fade();
-            }
-            else
-            {
-                isLeft = !isLeft;
-                transform.localScale = new Vector2(transform.localScale.x * -1, 1);
-                rotate = isLeft ? 180 : 360;
-                transform.position = new Vector2(transform.position.x, transform.position.y + 7);
-                StageManager.Instance.CurrentStageNum += 1;
-                StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
-                StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
+            transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
 
-                transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
-
-                StageManager.Instance.IsStageUp = false;
-            }
+            StageManager.Instance.IsStageUp = false;
         });
     }
 
     void Update()
     {
         #region AttackSpace
-        if(EnemyManager.Instance.enemyList.Count != 0)
+        if (EnemyManager.Instance.enemyList.Count != 0)
         {
             _hitSpace.SetActive(true);
         }
@@ -148,7 +129,7 @@ public class PlayerAttack : MonoBehaviour
             _hitSpace.SetActive(false);
         }
 
-        if(EnemyManager.Instance.bossList.Count != 0)
+        if (EnemyManager.Instance.bossList.Count != 0)
         {
             _hitBossSpace.SetActive(true);
         }
@@ -159,17 +140,17 @@ public class PlayerAttack : MonoBehaviour
         #endregion
         if (isAttack == false)
         {
-            transform.eulerAngles = new Vector3(0,0,0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            if(EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp)
+            if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp)
             {
                 StageClear();
             }
 
-            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+            _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
             RaycastHit2D hit;
@@ -179,9 +160,9 @@ public class PlayerAttack : MonoBehaviour
 
             if (hit && isDead == false)
             {
-                if(hit.transform.gameObject != null)
+                if (hit.transform.gameObject != null)
                 {
-                    if(EnemyManager.Instance.enemyList.Count != 0)
+                    if (EnemyManager.Instance.enemyList.Count != 0)
                     {
                         if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
@@ -213,10 +194,11 @@ public class PlayerAttack : MonoBehaviour
                             }
                         }
                     }
-                    if(EnemyManager.Instance.bossList.Count != 0)
+                    if (EnemyManager.Instance.bossList.Count != 0)
                     {
-                        if(hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>()  == true && !isAttack)
+                        if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
+                            StartCoroutine(Flash());
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
@@ -270,12 +252,12 @@ public class PlayerAttack : MonoBehaviour
     int index = 3;
     public void PlayerDie()
     {
-        if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false  && isAttack == false)
+        if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false && isAttack == false)
         {
             PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
             player.Damaged(1);
 
-            
+
         }
     }
 

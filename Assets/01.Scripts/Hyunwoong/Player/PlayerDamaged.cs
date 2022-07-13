@@ -35,8 +35,10 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
 
             if (_playerHp <= 0 && _playerAttack.IsDead == false)
             {
-                anim.Play("PlayerDeath");
+                anim.SetBool("IsDeath", true);
                 _playerAttack.IsDead = true;
+
+                _playerAttack.StageClear();
             }
         }
         else return;
