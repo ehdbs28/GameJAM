@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Deco
+    uniqueID: 1742471959
+    locked: 0
   - name: Game
     uniqueID: 2323575065
     locked: 0
