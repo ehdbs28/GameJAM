@@ -83,11 +83,11 @@ public class UIManager : MonoBehaviour
         {
             if (isClear == true)
             {
-                _ablityPanelTrm.transform.DOMoveY(0, 1f);
+                _ablityPanelTrm.transform.DOMoveY(0, 0.5f);
             }
             if(isClear == false)
             {
-                _ablityPanelTrm.transform.DOMoveY(1200, 1f);
+                _ablityPanelTrm.transform.DOMoveY(1200, 0.5f);
             }
 
             yield return new WaitForSeconds(0.1f);

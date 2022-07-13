@@ -38,32 +38,39 @@ public class TimingManager : MonoBehaviour
 
     IEnumerator TimeCoroutine(float sec)
     {
-        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        _timerTxt.text = string.Format("{0:N2}", sec);
         _timerTxt.color = Color.white;
-        _timerTxt.DOColor(new Color(255, 0,0, 0.5f), sec);
         _timerTxt.transform.DOScale(new Vector3(1, 1, 1), 0);
+
+
+        yield return new WaitUntil(() => UIManager.Instance.IsClear == false);
+        print(UIManager.Instance.IsClear);
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        _timerTxt.DOColor(new Color(255, 0, 0, 0.5f), sec);
         _timerTxt.transform.DOScale(new Vector3(2, 2, 2), sec);
+
         //_timerTxt.DOFade(0.5f, 0);
         print("타이머 들어감");
         yield return new WaitForSeconds(0.2f);
         //UIManager.Instance.IsClear = false;
-        print($"{_playerAttack.IsDead}, {UIManager.Instance.IsClear}");
-        while (_playerAttack.IsDead == false && UIManager.Instance.IsClear == false)
+        while (_playerAttack.IsDead == false)
         {
             sec -= Time.deltaTime;
             _timerTxt.text = string.Format("{0:N2}", sec);
 
-            if(sec <= 0)
+            if (sec <= 0)
             {
                 sec = 0;
                 _player.Damaged(1);
             }
+
             yield return new WaitForSecondsRealtime(Time.deltaTime);
-            if(EnemyManager.Instance.enemyList.Count == 0)
+            if (EnemyManager.Instance.enemyList.Count == 0)
             {
                 print("타이머 나가기");
                 break;
             }
+
 
         }
     }

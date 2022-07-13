@@ -102,9 +102,9 @@ public class StageManager : MonoBehaviour
 
     public void StageUp(int stageNum)
     {
+        SkillManager.Instance.SkillSelect();
         UIManager.Instance.IsClear = true;
         player.IsAttack = true;
-        SkillManager.Instance.SkillSelect();
         CameraManager.Instance.RigMove(stageNum, 2f);
         CameraManager.Instance.ShakeCam(6f, 2f);
         UIManager.Instance.Fade();
@@ -118,7 +118,7 @@ public class StageManager : MonoBehaviour
             case 0:
                 EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(3);
+                TimingManager.Instance.Timer(4);
                 break;
             case 1:
                 EnemyManager.Instance.SpawnEnemy(_stage1, "Enemy_1");
@@ -128,17 +128,17 @@ public class StageManager : MonoBehaviour
             case 2:
                 EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_2");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(3);
+                TimingManager.Instance.Timer(2.6f);
                 break;
             case 3:
                 EnemyManager.Instance.SpawnEnemy(_stage3, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(4);
+                TimingManager.Instance.Timer(2.2f);
                 break;
             case 4:
                 EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(5);
+                TimingManager.Instance.Timer(1.8f);
                 break;
 
             default:
