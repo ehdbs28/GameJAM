@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private int _currentStageNum = 0;
     [SerializeField] private UnityEvent OnActive;
+    [SerializeField] private UnityEvent OnActive2;
 
     [SerializeField] private List<GameObject> _backGrounds = new List<GameObject>();
 
@@ -30,6 +31,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private List<Vector2> _stage15 = new List<Vector2>();
 
     private GameObject _thema1Boss;
+    private GameObject _thema2Boss;
     private bool _isBoss = false;
     public bool IsBoss
     {
@@ -53,7 +55,9 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         _thema1Boss = GameObject.Find("Theme1Boss");
+        _thema2Boss = GameObject.Find("Theme2Boss");
         _thema1Boss.SetActive(false);
+        _thema2Boss.SetActive(false);
         SoundManager.Instance.BGMPlay(1);
         StageStart(_currentStageNum);
 
@@ -64,6 +68,7 @@ public class StageManager : MonoBehaviour
     {
         if(_currentStageNum == 6)
         {
+            _isBoss = false;
             _backGrounds[0].SetActive(false);
             _backGrounds[1].SetActive(true);
             SoundManager.Instance.BGMPlay(2);
@@ -85,6 +90,13 @@ public class StageManager : MonoBehaviour
             EnemyManager.Instance.enemyList.Add(_thema1Boss.GetComponent<Enemy>());
             _thema1Boss.SetActive(true);
             OnActive.Invoke();
+        }
+        if(_currentStageNum == 10 && _isBoss == false)
+        {
+            _isBoss = true;
+            EnemyManager.Instance.enemyList.Add(_thema2Boss.GetComponent<Enemy>());
+            _thema2Boss.SetActive(true);
+            OnActive2.Invoke();
         }
     }
 
