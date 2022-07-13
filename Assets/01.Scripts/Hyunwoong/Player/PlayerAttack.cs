@@ -198,7 +198,6 @@ public class PlayerAttack : MonoBehaviour
                     {
                         if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
-                            StartCoroutine(Flash());
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
@@ -249,7 +248,6 @@ public class PlayerAttack : MonoBehaviour
             _isDodge = true;
         }
     }
-    int index = 3;
     public void PlayerDie()
     {
         if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false && isAttack == false)
@@ -257,7 +255,7 @@ public class PlayerAttack : MonoBehaviour
             PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
             player.Damaged(1);
 
-
+            FlashManager.Instance.RedFlash();
         }
     }
 

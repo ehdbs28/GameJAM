@@ -7,7 +7,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class EnemyManager : MonoBehaviour
 {
 
-    Light2D _flash;
     float sec = 0.1f;
 
     public float Sec
@@ -28,10 +27,6 @@ public class EnemyManager : MonoBehaviour
         set => intensity = value;
     }
 
-    private void Start()
-    {
-        _flash = GameObject.Find("Flash").GetComponent<Light2D>();
-    }
     public void EnemyDie(PoolableMono enemy)
     {
         Time.timeScale = 1;
@@ -39,7 +34,7 @@ public class EnemyManager : MonoBehaviour
         CameraManager.Instance.ShakeCam(intensity, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            StartCoroutine(Flash());
+            FlashManager.Instance.WhiteFlash();
             TimeControlManager.Instance.ModifyTimeScale(1f, sec);
         });
         Debug.Log("´ÙÀÌ");
@@ -55,19 +50,12 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator SpawnEnemyCoroutine(List<Vector2> transforms, string name)
     {
-        foreach(Vector2 enemyPos in transforms)
+        foreach (Vector2 enemyPos in transforms)
         {
             Enemy enemy = PoolManager.Instance.Pop(name) as Enemy;
-            enemyList.Add(enemy);   
+            enemyList.Add(enemy);
             enemy.transform.position = enemyPos;
             yield return new WaitForSeconds(0.2f);
         }
-    }
-
-    IEnumerator Flash()
-    {
-        _flash.intensity = 16f;
-        yield return new WaitForSeconds(0.07f);
-        _flash.intensity = 0;
     }
 }

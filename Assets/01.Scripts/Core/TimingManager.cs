@@ -39,7 +39,11 @@ public class TimingManager : MonoBehaviour
     IEnumerator TimeCoroutine(float sec)
     {
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-        _timerTxt.color = new Color(255,255,255,107);
+        _timerTxt.color = Color.white;
+        _timerTxt.DOColor(new Color(255, 0,0, 0.5f), sec);
+        _timerTxt.transform.DOScale(new Vector3(1, 1, 1), 0);
+        _timerTxt.transform.DOScale(new Vector3(2, 2, 2), sec);
+        //_timerTxt.DOFade(0.5f, 0);
         print("타이머 들어감");
         yield return new WaitForSeconds(0.2f);
         //UIManager.Instance.IsClear = false;
@@ -48,9 +52,6 @@ public class TimingManager : MonoBehaviour
         {
             sec -= Time.deltaTime;
             _timerTxt.text = string.Format("{0:N2}", sec);
-            i++;
-
-            _timerTxt.DOFade(0.5f, 0);
 
             if(sec <= 0)
             {
