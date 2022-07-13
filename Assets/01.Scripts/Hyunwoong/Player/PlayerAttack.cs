@@ -198,13 +198,15 @@ public class PlayerAttack : MonoBehaviour
             _isDodge = true;
         }
     }
-    
+    int index = 3;
     public void PlayerDie()
     {
         if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false  && isAttack == false)
         {
             PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
-            player.Damaged(0.4f);
+            player.Damaged(1);
+
+            
         }
     }
 

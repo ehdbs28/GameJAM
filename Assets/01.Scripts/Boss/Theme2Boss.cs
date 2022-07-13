@@ -47,6 +47,19 @@ public class Theme2Boss : Boss
 
     IEnumerator DartCo()
     {
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0), new Vector2(4, 3), 0, Vector2.right, 20);
+
+        if (hit)
+        {
+            if (hit.transform.gameObject != null)
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    Debug.Log("1");
+                    hit.transform.GetComponent<IDamaged>().Damaged(1);
+                }
+            }
+        }
         GameObject warning = Instantiate(_warningPrefab_1);
         warning.transform.localScale = new Vector3(4, 3);
         warning.transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0);
@@ -69,6 +82,19 @@ public class Theme2Boss : Boss
 
     IEnumerator TurnCo()
     {
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0), new Vector2(2, 4), 0, Vector2.right, 20) ;
+
+        if (hit)
+        {
+            if (hit.transform.gameObject != null)
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    Debug.Log("1");
+                    hit.transform.GetComponent<IDamaged>().Damaged(1);
+                }
+            }
+        }
         GameObject warning = Instantiate(_warningPrefab_1);
         warning.transform.localScale = new Vector3(2, 4);
         warning.transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0);
@@ -108,6 +134,19 @@ public class Theme2Boss : Boss
 
     IEnumerator WhipCo()
     {
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x -1f, transform.position.y - 2.5f, 0), new Vector2(10, 2), 0, Vector2.right, 20);
+
+        if (hit)
+        {
+            if (hit.transform.gameObject != null)
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    Debug.Log("1");
+                    hit.transform.GetComponent<IDamaged>().Damaged(1);
+                }
+            }
+        }
         GameObject warning = Instantiate(_warningPrefab_1);
         warning.transform.localScale = new Vector3(10, 2);
         warning.transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 2.5f, 0);

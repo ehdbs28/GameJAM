@@ -10,6 +10,8 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
     float _playerHp = 1;
 
     Animator anim;
+    private int index = 3;
+
     public float PlayerHp
     {
         get { return _playerHp; }
@@ -47,11 +49,16 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
     {
         anim.SetTrigger("IsDeath");
 
-        //Die Panel 올라오는 코드
-
-        //버튼 누르면 넘어가고 TimeScale 조정
-
-        //스타트 화면으로 이동
+        if (index > 0)
+        {
+            StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
+            StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
+            index--;
+        }
+        else
+        {
+            print("게임오버");
+        }
 
         yield return new WaitForSecondsRealtime(5);
     }
