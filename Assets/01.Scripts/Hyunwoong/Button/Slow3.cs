@@ -25,12 +25,17 @@ public class Slow3 : StatUp
         if(StageManager.Instance.CurrentStageNum == 5)
         {
             EnemyManager.Instance.Sec += 0.05f;
+            UIManager.Instance.IsClear = false;
+
             CutSceneManager.Instance.Theme1CutScene();
         }
+        else
+        {
+            EnemyManager.Instance.Sec += 0.05f;
 
-        EnemyManager.Instance.Sec += 0.05f;
+            UIManager.Instance.IsClear = false;
+            _player.IsAttack = false;
+        }
 
-        UIManager.Instance.IsClear = false;
-        _player.IsAttack = false;
     }
 }

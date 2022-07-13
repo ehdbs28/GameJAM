@@ -25,11 +25,12 @@ public class CutSceneManager : MonoBehaviour
             case "Theme1":
                 _player.IsAttack = true;
                 CameraManager.Instance.SetToTheme1();
+                _bossName.text = "'ºÓ≈© Ω∫¿ß∆€'";
                 _bossName.DOColor(new Color(255, 255, 255, 1), 5);
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(3f);
                 CameraManager.Instance.SetToMainVCam();
-                UIManager.Instance.IsClear = false;
                 _player.IsAttack = false;
+                _bossName.DOColor(new Color(255, 255, 255, 0), 5);
                 OnActive.Invoke();
                 break;
         }

@@ -25,11 +25,15 @@ public class Life : StatUp
         if(StageManager.Instance.CurrentStageNum == 5)
         {
             _player.Damage += 0.5f;
+            UIManager.Instance.IsClear = false;
+
             CutSceneManager.Instance.Theme1CutScene();
         }
-
-        _player.Damage += 0.5f;
-        UIManager.Instance.IsClear = false;
-        _player.IsAttack = false;
+        else
+        {
+            _player.Damage += 0.5f;
+            UIManager.Instance.IsClear = false;
+            _player.IsAttack = false;
+        }
     }
 }

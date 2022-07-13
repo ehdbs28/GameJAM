@@ -26,12 +26,16 @@ public class Dash115 : StatUp
         if(StageManager.Instance.CurrentStageNum == 5)
         {
             _player.Speed -= 0.1f;
+            UIManager.Instance.IsClear = false;
+
             CutSceneManager.Instance.Theme1CutScene();
         }
+        else
+        {
+            _player.Speed -= 0.1f;
+            UIManager.Instance.IsClear = false;
 
-        _player.Speed -= 0.1f;
-        UIManager.Instance.IsClear = false;
-        
-        _player.IsAttack = false;
+            _player.IsAttack = false;
+        }
     }
 }

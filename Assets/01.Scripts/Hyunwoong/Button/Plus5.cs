@@ -26,12 +26,17 @@ public class Plus5 : StatUp
         if(StageManager.Instance.CurrentStageNum == 5)
         {
             EnemyManager.Instance.Intensity += 0.5f;
+            UIManager.Instance.IsClear = false;
+
             CutSceneManager.Instance.Theme1CutScene();
         }
+        else
+        {
 
+            EnemyManager.Instance.Intensity += 0.5f;
+            UIManager.Instance.IsClear = false;
+            _player.IsAttack = false;
+        }
 
-        EnemyManager.Instance.Intensity += 0.5f;
-        UIManager.Instance.IsClear = false;
-        _player.IsAttack = false;
     }
 }
