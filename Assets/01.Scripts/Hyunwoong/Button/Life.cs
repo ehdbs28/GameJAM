@@ -24,6 +24,7 @@ public class Life : StatUp
     {
         _player.Damage += 0.5f;
         UIManager.Instance.IsClear = false;
+        print($"{UIManager.Instance.IsClear}");
         _player.IsAttack = false;
     }
 }

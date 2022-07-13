@@ -23,8 +23,9 @@ public class Dash115 : StatUp
 
     public override void Stat()
     {
-        _player.Speed *= 1.15f;
+        _player.Speed -= 0.1f;
         UIManager.Instance.IsClear = false;
+        print($"{UIManager.Instance.IsClear}");
         _player.IsAttack = false;
     }
 }

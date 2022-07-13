@@ -28,8 +28,9 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
         {
             _playerHp -= damage;
 
-            if (_playerHp <= 0&&_playerAttack.IsDead == false)
+            if (_playerHp <= 0 && _playerAttack.IsDead == false)
             {
+                anim.Play("PlayerDeath");
                 _playerAttack.IsDead = true;
                 OnDie();
             }

@@ -22,7 +22,7 @@ public class Slow3 : StatUp
 
     public override void Stat()
     {
-        EnemyManager.Instance.Sec += 0.3f;
+        EnemyManager.Instance.Sec += 0.05f;
 
         UIManager.Instance.IsClear = false;
         _player.IsAttack = false;

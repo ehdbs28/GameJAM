@@ -22,7 +22,7 @@ public class Destroyer : MonoBehaviour
     {
         if (isFade == true)
         {
-            fade -= 0.03f;
+            fade -= 0.01f;
 
             if(fade <= 0f)
             {
