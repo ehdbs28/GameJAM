@@ -267,6 +267,8 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             _isDodge = true;
+            Smoke smoke = PoolManager.Instance.Pop("Smoke") as Smoke;
+            smoke.transform.position = transform.position;
             anim.SetTrigger("IsDodge");
             StartCoroutine(DodgeCoroutine());
         }
@@ -277,6 +279,9 @@ public class PlayerAttack : MonoBehaviour
         _rigid.AddForce(transform.localScale.x > 0 ? new Vector2(-3, -3) : new Vector2(3, 3), ForceMode2D.Impulse);
         Time.timeScale = 0.3f;
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        DashFx dashFx = PoolManager.Instance.Pop("DashFx") as DashFx;
+        dashFx.transform.position = transform.localScale.x > 0 ? new Vector2(transform.position.x - 1, transform.position.y) : new Vector2(transform.position.x + 1, transform.position.y);
+        dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
         Time.timeScale = 1;
     }
 
@@ -285,7 +290,6 @@ public class PlayerAttack : MonoBehaviour
         _isDodge = false;
     }
 
-    int index = 3;
     public void PlayerDie()
     {
         if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false  && isAttack == false)
