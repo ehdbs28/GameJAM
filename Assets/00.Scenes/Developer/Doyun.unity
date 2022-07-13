@@ -15881,9 +15881,6 @@ MonoBehaviour:
   _hitSpace: {fileID: 1215121518}
   _hitBossSpace: {fileID: 1994246686}
   _distance: 1
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!212 &1653730875
 SpriteRenderer:
   m_ObjectHideFlags: 0
