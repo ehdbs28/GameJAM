@@ -168,7 +168,7 @@ public class PlayerAttack : MonoBehaviour
                         if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Boss"))
                         {
                             SoundManager.Instance.SFXPlay(_killAudioClip);
-                            //hit.transform.GetComponent<IDamaged>().Damaged(1);
+                            EnemyManager.Instance.enemyList[0].transform.GetComponent<IDamaged>().Damaged(1);
                         }
                     }
                 }

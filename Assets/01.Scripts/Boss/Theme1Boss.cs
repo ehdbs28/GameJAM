@@ -65,6 +65,23 @@ public class Theme1Boss : Boss
         _bossAnim.SetTrigger("SlamAttack");
     }
 
+    private void Death_Enter()
+    {
+        CancelInvoke();
+
+        Time.timeScale = 1;
+
+        GravityController.Instance.ModityGravityScale(0.3f, 0.3f);
+        CameraManager.Instance.ShakeCam(2f, 0.3f);
+        TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
+        {
+            TimeControlManager.Instance.ModifyTimeScale(1f, 0.1f);
+        });
+
+        _bossAnim.SetTrigger("IsDie");
+        EnemyManager.Instance.enemyList.RemoveAt(0);
+    }
+
     IEnumerator SweepAttack()
     {
         GameObject warning = Instantiate(_warning, transform);
