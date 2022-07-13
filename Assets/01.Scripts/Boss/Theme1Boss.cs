@@ -75,11 +75,16 @@ public class Theme1Boss : Boss
         CameraManager.Instance.ShakeCam(2f, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            TimeControlManager.Instance.ModifyTimeScale(1f, 0.1f);
+            TimeControlManager.Instance.ModifyTimeScale(1f, 4f);
         });
 
         _bossAnim.SetTrigger("IsDie");
-        EnemyManager.Instance.enemyList.RemoveAt(0);
+        EnemyManager.Instance.bossList.RemoveAt(0);
+    }
+
+    public void Death()
+    {
+        CameraManager.Instance.SetToMainVCam();
     }
 
     IEnumerator SweepAttack()
@@ -90,7 +95,7 @@ public class Theme1Boss : Boss
         Destroy(warning);
 
         BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
-        CircleCollider2D hitCollider = GameObject.Find("HIt_Space").GetComponent<CircleCollider2D>();
+        CircleCollider2D hitCollider = GameObject.Find("HitBossSpace").GetComponent<CircleCollider2D>();
         myCollider.enabled = false;
         hitCollider.enabled = false;
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(12, 1), 0, Vector2.right, 20);

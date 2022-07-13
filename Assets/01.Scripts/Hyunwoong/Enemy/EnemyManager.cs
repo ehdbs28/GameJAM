@@ -16,6 +16,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance = null;
 
     public List<Enemy> enemyList = new List<Enemy>();
+    public List<Enemy> bossList = new List<Enemy>();
 
     public void EnemyDie(PoolableMono enemy)
     {

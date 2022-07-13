@@ -10,7 +10,7 @@ public class FinalBoss : MonoBehaviour
     private Animator _anim;
     private bool _isBossDie = false;
     private Vector2 _attackPos = Vector2.zero;
-    private float _rotate = 180f;
+    private float _rotate = 90f;
 
     private void OnEnable()
     {
