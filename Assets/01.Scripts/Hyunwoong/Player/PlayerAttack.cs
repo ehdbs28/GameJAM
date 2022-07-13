@@ -59,6 +59,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private GameObject _blink;
     [SerializeField] private GameObject _hitSpace;
+    [SerializeField] private GameObject _hitBossSpace;
 
     [SerializeField] private float _distance = 1f;
 
@@ -146,6 +147,15 @@ public class PlayerAttack : MonoBehaviour
         {
             _hitSpace.SetActive(false);
         }
+
+        if(EnemyManager.Instance.bossList.Count != 0)
+        {
+            _hitBossSpace.SetActive(true);
+        }
+        else
+        {
+            _hitBossSpace.SetActive(false);
+        }
         #endregion
         if (isAttack == false)
         {
@@ -154,7 +164,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            if(EnemyManager.Instance.enemyList.Count == 0 && !StageManager.Instance.IsStageUp)
+            if(EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp)
             {
                 StageClear();
             }
@@ -171,38 +181,69 @@ public class PlayerAttack : MonoBehaviour
             {
                 if(hit.transform.gameObject != null)
                 {
-                    if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
+                    if(EnemyManager.Instance.enemyList.Count != 0)
                     {
-
-                        Sequence seq = DOTween.Sequence();
-                        isAttack = true;
-                        SoundManager.Instance.SFXPlay(_dashAudioClip);
-                        anim.SetTrigger("IsAttack");
-                        GameObject Blink = Instantiate(_blink);
-                        StartCoroutine(AfterEffect());
-                        Blink.transform.position = hit.transform.position;
-                        Vector2 inputVec = _mousePos;
-                        float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
-                        transform.eulerAngles = new Vector3(0, 0, angle);
-
-
-                        seq.Append(transform.DOMove(hit.transform.position, speed));
-                            
-                        seq.OnComplete(() =>
+                        if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
-                            isAttack = false;
-                            StopCoroutine(AfterEffect());
-                        });
 
-                        if(EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
-                        {
-                            SoundManager.Instance.SFXPlay(_killAudioClip);
-                            EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
+                            StartCoroutine(Flash());
+                            Sequence seq = DOTween.Sequence();
+                            isAttack = true;
+                            SoundManager.Instance.SFXPlay(_dashAudioClip);
+                            anim.SetTrigger("IsAttack");
+                            GameObject Blink = Instantiate(_blink);
+                            StartCoroutine(AfterEffect());
+                            Blink.transform.position = hit.transform.position;
+                            Vector2 inputVec = _mousePos;
+                            float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
+                            transform.eulerAngles = new Vector3(0, 0, angle);
+
+
+                            seq.Append(transform.DOMove(hit.transform.position, speed));
+
+                            seq.OnComplete(() =>
+                            {
+                                isAttack = false;
+                                StopCoroutine(AfterEffect());
+                            });
+
+                            if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
+                            {
+                                SoundManager.Instance.SFXPlay(_killAudioClip);
+                                EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
+                            }
                         }
-                        if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Boss") && EnemyManager.Instance.enemyList.Count != 0)
+                    }
+                    if(EnemyManager.Instance.bossList.Count != 0)
+                    {
+                        if(hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>()  == true && !isAttack)
                         {
-                            SoundManager.Instance.SFXPlay(_killAudioClip);
-                            EnemyManager.Instance.enemyList[0].transform.GetComponent<IDamaged>().Damaged(1);
+                            StartCoroutine(Flash());
+                            Sequence seq = DOTween.Sequence();
+                            isAttack = true;
+                            SoundManager.Instance.SFXPlay(_dashAudioClip);
+                            anim.SetTrigger("IsAttack");
+                            GameObject Blink = Instantiate(_blink);
+                            StartCoroutine(AfterEffect());
+                            Blink.transform.position = hit.transform.position;
+                            Vector2 inputVec = _mousePos;
+                            float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
+                            transform.eulerAngles = new Vector3(0, 0, angle);
+
+
+                            seq.Append(transform.DOMove(hit.transform.position, speed));
+
+                            seq.OnComplete(() =>
+                            {
+                                isAttack = false;
+                                StopCoroutine(AfterEffect());
+                            });
+
+                            if (EnemyManager.Instance.bossList[0].transform.CompareTag("Boss"))
+                            {
+                                SoundManager.Instance.SFXPlay(_killAudioClip);
+                                EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(1);
+                            }
                         }
                     }
                 }
