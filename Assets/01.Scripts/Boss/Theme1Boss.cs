@@ -54,6 +54,7 @@ public class Theme1Boss : Boss
     private void Pattern2_Enter()
     {
         Debug.Log("∆–≈œ ≈ı");
+        StartCoroutine(SlamAttack());
         _bossAnim.SetTrigger("SpinSlamAttack");
     }
 

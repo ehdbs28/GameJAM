@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
     private float _tryCount = 3;
+    private PlayerAttack _playerAttack;
 
     float _playerHp = 1;
 
@@ -17,17 +18,22 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
 
     private void Start()
     {
+        _playerAttack = GetComponent<PlayerAttack>();
         anim = GetComponent<Animator>();
     }
 
     public void Damaged(float damage)
     {
-        _playerHp -= damage;
-
-        if(_playerHp <= 0)
+        if (!_playerAttack.IsDodge)
         {
-            OnDie();
+            _playerHp -= damage;
+
+            if (_playerHp <= 0)
+            {
+                OnDie();
+            }
         }
+        else return;
     }
 
     private void OnDie()
