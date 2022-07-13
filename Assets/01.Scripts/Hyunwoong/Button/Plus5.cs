@@ -30,6 +30,13 @@ public class Plus5 : StatUp
 
             CutSceneManager.Instance.Theme1CutScene();
         }
+        else if (StageManager.Instance.CurrentStageNum == 10)
+        {
+            EnemyManager.Instance.Intensity += 0.5f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme2CutScene();
+        }
         else
         {
 

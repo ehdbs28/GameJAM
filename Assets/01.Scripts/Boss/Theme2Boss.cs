@@ -48,6 +48,11 @@ public class Theme2Boss : Boss
 
     IEnumerator DartCo()
     {
+        GameObject warning = Instantiate(_warningPrefab_1);
+        warning.transform.localScale = new Vector3(4, 3);
+        warning.transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0);
+        yield return new WaitForSeconds(0.7f);
+        Destroy(warning);
         RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0), new Vector2(4, 3), 0, Vector2.right, 20);
 
         if (hit)
@@ -61,11 +66,6 @@ public class Theme2Boss : Boss
                 }
             }
         }
-        GameObject warning = Instantiate(_warningPrefab_1);
-        warning.transform.localScale = new Vector3(4, 3);
-        warning.transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0);
-        yield return new WaitForSeconds(1f);
-        Destroy(warning);
     }
 
     [ContextMenu("pattern2")]
@@ -83,7 +83,12 @@ public class Theme2Boss : Boss
 
     IEnumerator TurnCo()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0), new Vector2(2, 4), 0, Vector2.right, 20) ;
+        GameObject warning = Instantiate(_warningPrefab_1);
+        warning.transform.localScale = new Vector3(2, 4);
+        warning.transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0);
+        yield return new WaitForSeconds(0.7f);
+        Destroy(warning);
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0), new Vector2(2, 4), 0, Vector2.right, 20);
 
         if (hit)
         {
@@ -96,11 +101,6 @@ public class Theme2Boss : Boss
                 }
             }
         }
-        GameObject warning = Instantiate(_warningPrefab_1);
-        warning.transform.localScale = new Vector3(2, 4);
-        warning.transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y - 1.5f, 0);
-        yield return new WaitForSeconds(1f);
-        Destroy(warning);
     }
 
     [ContextMenu("pattern3")]
@@ -121,11 +121,16 @@ public class Theme2Boss : Boss
         CameraManager.Instance.ShakeCam(2f, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            TimeControlManager.Instance.ModifyTimeScale(1f, 0.1f);
+            TimeControlManager.Instance.ModifyTimeScale(1f, 4f);
         });
 
         _theme2BossAnim.SetTrigger("IsDie");
-        EnemyManager.Instance.enemyList.RemoveAt(0);
+        EnemyManager.Instance.bossList.RemoveAt(0);
+    }
+
+    public void Death()
+    {
+        CameraManager.Instance.SetToMainVCam();
     }
 
     void WhipAttack()
@@ -135,7 +140,13 @@ public class Theme2Boss : Boss
 
     IEnumerator WhipCo()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x -1f, transform.position.y - 2.5f, 0), new Vector2(10, 2), 0, Vector2.right, 20);
+        GameObject warning = Instantiate(_warningPrefab_1);
+        warning.transform.localScale = new Vector3(10, 2);
+        warning.transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 2.5f, 0);
+        yield return new WaitForSeconds(0.7f);
+        Destroy(warning);
+
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector3(transform.position.x - 1f, transform.position.y - 2.5f, 0), new Vector2(10, 2), 0, Vector2.right, 20);
 
         if (hit)
         {
@@ -148,10 +159,5 @@ public class Theme2Boss : Boss
                 }
             }
         }
-        GameObject warning = Instantiate(_warningPrefab_1);
-        warning.transform.localScale = new Vector3(10, 2);
-        warning.transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 2.5f, 0);
-        yield return new WaitForSeconds(1f);
-        Destroy(warning);
     }
 }

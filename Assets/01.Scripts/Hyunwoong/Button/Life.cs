@@ -29,6 +29,13 @@ public class Life : StatUp
 
             CutSceneManager.Instance.Theme1CutScene();
         }
+        else if (StageManager.Instance.CurrentStageNum == 10)
+        {
+            _player.Damage += 0.5f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme2CutScene();
+        }
         else
         {
             _player.Damage += 0.5f;

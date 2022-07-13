@@ -12,10 +12,21 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _bossName;
     [SerializeField] PlayerAttack _player;
     [SerializeField] UnityEvent OnActive;
+    [SerializeField] UnityEvent OnActive2;
+
+    public void Intro()
+    {
+        StartCoroutine(CutSceneCoroutine("Intro"));
+    }
 
     public void Theme1CutScene()
     {
         StartCoroutine(CutSceneCoroutine("Theme1"));
+    }
+
+    public void Theme2CutScene()
+    {
+        StartCoroutine(CutSceneCoroutine("Theme2"));
     }
 
     IEnumerator CutSceneCoroutine(string name)
@@ -32,6 +43,17 @@ public class CutSceneManager : MonoBehaviour
                 _player.IsAttack = false;
                 _bossName.DOColor(new Color(255, 255, 255, 0), 5);
                 OnActive.Invoke();
+                break;
+            case "Theme2":
+                _player.IsAttack = true;
+                CameraManager.Instance.SetToTheme2();
+                _bossName.text = "'트리플 세이버'";
+                _bossName.DOColor(new Color(255, 255, 255, 1), 5);
+                yield return new WaitForSeconds(3f);
+                CameraManager.Instance.SetToMainVCam();
+                _player.IsAttack = false;
+                _bossName.DOColor(new Color(255, 255, 255, 0), 5);
+                OnActive2.Invoke();
                 break;
         }
     }
