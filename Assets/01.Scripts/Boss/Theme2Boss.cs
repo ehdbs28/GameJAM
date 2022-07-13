@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Theme2Boss : Boss
 {
@@ -8,8 +9,26 @@ public class Theme2Boss : Boss
 
     private Animator _theme2BossAnim;
 
-    private void Start()
+    private void OnEnable()
     {
+        transform.DOMoveX(0, 2f);
+        _fsm.ChangeState(State.Init);
+    }
+
+    private void OnDisable()
+    {
+        DOTween.KillAll();
+        transform.position = _initPos;
+    }
+
+    public void OnActive()
+    {
+        Invoke("StateChange", 2f);
+    }
+
+    private void Init_Enter()
+    {
+        Debug.Log("2BossFsm준비됨");
         _theme2BossAnim = GetComponent<Animator>();
     }
 
@@ -63,6 +82,11 @@ public class Theme2Boss : Boss
         Debug.Log("패턴 쓰리");
         _theme2BossAnim.SetTrigger("BossAttack3");
         WhipAttack();
+    }
+
+    private void Death_Enter()
+    {
+
     }
 
     void WhipAttack()
