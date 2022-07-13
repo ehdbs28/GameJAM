@@ -64,7 +64,6 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private float _distance = 1f;
 
-    [SerializeField] private LayerMask _enemyLayer;
 
     private BoxCollider2D _collider;
     private Vector2 _mousePos;
@@ -147,7 +146,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp)
+            if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == false)
             {
                 StageClear();
             }
@@ -164,7 +163,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hit.transform.gameObject != null)
                 {
-                    if (EnemyManager.Instance.enemyList.Count != 0)
+                    if (EnemyManager.Instance.enemyList.Count != 0 && UIManager.Instance.IsClear == false)
                     {
                         if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
@@ -198,7 +197,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     if (EnemyManager.Instance.bossList.Count != 0)
                     {
-                        if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
+                        if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack )
                         {
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
