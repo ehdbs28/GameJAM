@@ -28,6 +28,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    Theme1Boss theme1;
+
+    private void Start()
+    {
+        theme1 = FindObjectOfType<Theme1Boss>();
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
@@ -78,12 +85,13 @@ public class UIManager : MonoBehaviour
             {
                 _ablityPanelTrm.transform.DOMoveY(0, 1f);
             }
-            else
+            if(isClear == false)
             {
-                _ablityPanelTrm.transform.DOMoveY(-1200, 1f);
+                _ablityPanelTrm.transform.DOMoveY(1200, 1f);
             }
 
             yield return new WaitForSeconds(0.1f);
+
         }
     }
 

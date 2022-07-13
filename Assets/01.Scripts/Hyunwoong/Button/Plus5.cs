@@ -25,5 +25,6 @@ public class Plus5 : StatUp
     {
         _player.Damage += 0.5f;
         UIManager.Instance.IsClear = false;
+        _player.IsAttack = false;
     }
 }

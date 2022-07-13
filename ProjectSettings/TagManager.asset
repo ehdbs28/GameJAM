@@ -40,8 +40,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 1796824733
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tile
+    uniqueID: 1880620601
+    locked: 0
+  - name: Deco
+    uniqueID: 1742471959
     locked: 0
   - name: Game
     uniqueID: 2323575065

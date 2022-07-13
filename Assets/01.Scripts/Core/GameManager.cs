@@ -29,5 +29,8 @@ public class GameManager : MonoBehaviour
         StageManager.Instance = gameObject.GetComponent<StageManager>();
         EnemyManager.Instance = gameObject.AddComponent<EnemyManager>();
         UIManager.Instance = gameObject.GetComponent<UIManager>();
+        SoundManager.Instance = gameObject.GetComponent<SoundManager>();
+        SkillManager.Instance = gameObject.GetComponent <SkillManager>();
+        TimingManager.Instance = gameObject.GetComponent<TimingManager>();
     }
 }

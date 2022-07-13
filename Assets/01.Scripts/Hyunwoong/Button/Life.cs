@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Life : MonoBehaviour
+public class Life : StatUp
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerAttack _player;
+
+    Button button;
+
+    private void Start()
     {
-        
+        button = GetComponent<Button>();
+        _player = FindObjectOfType<PlayerAttack>();
+
+        button.onClick.AddListener(() =>
+        {
+            Stat();
+        });
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Stat()
     {
-        
+        _player.Damage += 0.5f;
+        UIManager.Instance.IsClear = false;
+        _player.IsAttack = false;
     }
 }

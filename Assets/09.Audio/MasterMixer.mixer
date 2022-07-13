@@ -20,7 +20,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SFX
+  m_Name: Effect
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 2b08ca8b9c9d0e04aadca2b83c1c19a1
   m_Children: []
@@ -50,9 +50,9 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 6fc915799716475469be1a127604467a
-    name: MyExposedParam
+    name: BGM
   - guid: 8b2cc91f60a4dea4f9c9d035c3d73af6
-    name: MyExposedParam 1
+    name: Effect
   m_AudioMixerGroupViews:
   - guids:
     - afbb38cca296e2941b51946e19774a98
