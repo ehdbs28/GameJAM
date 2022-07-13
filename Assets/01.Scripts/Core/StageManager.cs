@@ -69,14 +69,14 @@ public class StageManager : MonoBehaviour
             _isBoss = true;
             EnemyManager.Instance.bossList.Add(_thema1Boss.GetComponent<Enemy>());
             _thema1Boss.SetActive(true);
-            OnActive.Invoke();
+            //OnActive.Invoke();
         }
         if(_currentStageNum == 10 && _isBoss == false)
         {
             _isBoss = true;
             EnemyManager.Instance.bossList.Add(_thema2Boss.GetComponent<Enemy>());
             _thema2Boss.SetActive(true);
-            OnActive2.Invoke();
+            //OnActive2.Invoke();
         }
     }
 
@@ -96,36 +96,43 @@ public class StageManager : MonoBehaviour
         switch (stageNum)
         {
             case 0:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(4);
                 break;
             case 1:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage1, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(3);
                 break;
             case 2:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_2");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(2.6f);
                 break;
             case 3:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage3, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(2.2f);
                 break;
             case 4:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(1.8f);
                 break;
             case 5:
+                TimingManager.Instance.DeleteTimer();
                 //EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
                 //TimingManager.Instance.StopTime();
                 //TimingManager.Instance.Timer(5);
                 break;
             case 6:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage6, "Enemy_1");
                 _isBoss = false;
                 _backGrounds[0].SetActive(false);
@@ -135,26 +142,31 @@ public class StageManager : MonoBehaviour
                 TimingManager.Instance.Timer(5);
                 break;
             case 7:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage7, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
                 break;
             case 8:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage8, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
                 break;
             case 9:
+                TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage9, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
                 break;
             case 10:
+                TimingManager.Instance.DeleteTimer();
                 //EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
                 //TimingManager.Instance.StopTime();
                 //TimingManager.Instance.Timer(5);
                 break;
             case 11:
+                TimingManager.Instance.DeleteTimer();
                 SoundManager.Instance.BGMPlay(4);
                 EnemyManager.Instance.SpawnEnemy(_stage11, "Enemy_1");
                 TimingManager.Instance.StopTime();

@@ -33,5 +33,6 @@ public class GameManager : MonoBehaviour
         SkillManager.Instance = gameObject.GetComponent <SkillManager>();
         TimingManager.Instance = gameObject.GetComponent<TimingManager>();
         FlashManager.Instance = gameObject.GetComponent<FlashManager>();
+        CutSceneManager.Instance = gameObject.GetComponent<CutSceneManager>();
     }
 }

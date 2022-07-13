@@ -118,11 +118,11 @@ public class Theme1Boss : Boss
     IEnumerator SlamAttack()
     {
         GameObject circleWarning = Instantiate(_circleWarning);
-        circleWarning.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
+        circleWarning.transform.position = new Vector2(transform.position.x, transform.position.y);
         circleWarning.transform.localScale = new Vector2(3, 3);
         yield return new WaitForSeconds(0.5f);
         Destroy(circleWarning);
-        Collider2D hit = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 0.5f), 0.5f);
+        Collider2D hit = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y), 0.5f);
         if (hit)
         {
             if (hit.transform.gameObject != null)

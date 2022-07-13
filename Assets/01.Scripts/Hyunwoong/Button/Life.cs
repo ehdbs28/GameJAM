@@ -22,6 +22,12 @@ public class Life : StatUp
 
     public override void Stat()
     {
+        if(StageManager.Instance.CurrentStageNum == 5)
+        {
+            _player.Damage += 0.5f;
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+
         _player.Damage += 0.5f;
         UIManager.Instance.IsClear = false;
         _player.IsAttack = false;

@@ -22,6 +22,12 @@ public class Slow3 : StatUp
 
     public override void Stat()
     {
+        if(StageManager.Instance.CurrentStageNum == 5)
+        {
+            EnemyManager.Instance.Sec += 0.05f;
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+
         EnemyManager.Instance.Sec += 0.05f;
 
         UIManager.Instance.IsClear = false;

@@ -23,6 +23,13 @@ public class Plus5 : StatUp
     
     public override void Stat()
     {
+        if(StageManager.Instance.CurrentStageNum == 5)
+        {
+            EnemyManager.Instance.Intensity += 0.5f;
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+
+
         EnemyManager.Instance.Intensity += 0.5f;
         UIManager.Instance.IsClear = false;
         _player.IsAttack = false;

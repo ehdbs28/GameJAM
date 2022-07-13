@@ -184,12 +184,12 @@ public class PlayerAttack : MonoBehaviour
 
                             seq.OnComplete(() =>
                             {
-                                isAttack = false;
                                 StopCoroutine(AfterEffect());
                             });
 
                             if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
                             {
+                                isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
                                 EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
                             }
@@ -200,7 +200,7 @@ public class PlayerAttack : MonoBehaviour
                         if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack )
                         {
                             Sequence seq = DOTween.Sequence();
-                            isAttack = true;
+                            isAttack = true; //
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
                             anim.SetTrigger("IsAttack");
                             GameObject Blink = Instantiate(_blink);
@@ -215,12 +215,12 @@ public class PlayerAttack : MonoBehaviour
 
                             seq.OnComplete(() =>
                             {
-                                isAttack = false;
                                 StopCoroutine(AfterEffect());
                             });
 
                             if (EnemyManager.Instance.bossList[0].transform.CompareTag("Boss"))
                             {
+                                isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
                                 EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(1);
                             }

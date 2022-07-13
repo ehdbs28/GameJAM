@@ -28,6 +28,11 @@ public class TimingManager : MonoBehaviour
 
     }
 
+    public void DeleteTimer()
+    {
+        _timerTxt.gameObject.SetActive(false);
+    }
+
     public void Timer(float sec)
     {
         StartCoroutine(TimeCoroutine(sec));
@@ -38,6 +43,7 @@ public class TimingManager : MonoBehaviour
 
     IEnumerator TimeCoroutine(float sec)
     {
+        _timerTxt.gameObject.SetActive(true);
         _timerTxt.text = string.Format("{0:N2}", sec);
         _timerTxt.color = Color.white;
         _timerTxt.transform.DOScale(new Vector3(1, 1, 1), 0);
