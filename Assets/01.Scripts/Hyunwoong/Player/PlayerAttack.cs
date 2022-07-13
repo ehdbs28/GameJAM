@@ -281,7 +281,7 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         DashFx dashFx = PoolManager.Instance.Pop("DashFx") as DashFx;
         dashFx.transform.position = transform.localScale.x > 0 ? new Vector2(transform.position.x - 1, transform.position.y) : new Vector2(transform.position.x + 1, transform.position.y);
-        dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
+        dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(2, 2, 2) : new Vector3(-2, 2, 2);
         Time.timeScale = 1;
     }
 
