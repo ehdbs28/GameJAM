@@ -1742,9 +1742,9 @@ MonoBehaviour:
   - {x: 0.73, y: 42.24}
   - {x: 5.74, y: 39.27}
   _stage7:
-  - {x: -3.81, y: 49.19}
-  - {x: 0.14, y: 46.16}
   - {x: 4.12, y: 49.19}
+  - {x: 0.14, y: 46.16}
+  - {x: -3.81, y: 49.19}
   _stage8:
   - {x: -3.14, y: 56.35}
   - {x: 0.74, y: 53.33}
@@ -1755,6 +1755,7 @@ MonoBehaviour:
   - {x: -3.8, y: 63.25}
   _stage10: []
   _stage11: []
+  _finalBoss: {fileID: 0}
 --- !u!114 &443407411
 MonoBehaviour:
   m_ObjectHideFlags: 0
