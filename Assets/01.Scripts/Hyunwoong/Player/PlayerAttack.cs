@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerAttack : MonoBehaviour
 {
     Animator anim;
+    Light2D flash;
     float _damage = 1f;
     public float Damage
     {
@@ -22,6 +24,12 @@ public class PlayerAttack : MonoBehaviour
     }
 
     bool isDead = false;
+
+    public bool IsDead
+    {
+        get => isDead;
+        set => isDead = value;
+    }
     bool isLeft = true;
     private bool _isDodge = false;
     public bool IsDodge
@@ -62,13 +70,9 @@ public class PlayerAttack : MonoBehaviour
         set { rotate = value; }
     }
 
-
-    private void Awake()
-    {
-    }
     void Start()
     {
-
+        flash = GameObject.Find("Flash").GetComponent<Light2D>();
         _collider = GetComponent<BoxCollider2D>();
         Sequence seq = DOTween.Sequence();
         
@@ -141,8 +145,9 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                     {
-                        Sequence seq = DOTween.Sequence();
 
+                        StartCoroutine(Flash());
+                        Sequence seq = DOTween.Sequence();
                         isAttack = true;
                         SoundManager.Instance.SFXPlay(_dashAudioClip);
                         anim.SetTrigger("IsAttack");
@@ -152,8 +157,10 @@ public class PlayerAttack : MonoBehaviour
                         Vector2 inputVec = _mousePos;
                         float angle = Mathf.Atan2(transform.position.y - inputVec.y, transform.position.x - inputVec.x) * Mathf.Rad2Deg + rotate;
                         transform.eulerAngles = new Vector3(0, 0, angle);
-                        seq.Append(transform.DOMove(hit.transform.position, speed));
 
+
+                        seq.Append(transform.DOMove(hit.transform.position, speed));
+                            
                         seq.OnComplete(() =>
                         {
                             isAttack = false;
@@ -218,5 +225,14 @@ public class PlayerAttack : MonoBehaviour
 
             yield return new WaitForSeconds(0.01f);
         }
+    }
+
+    IEnumerator Flash()
+    {
+        flash.intensity = 16f;
+
+        yield return new WaitForSeconds(0.02f);
+
+        flash.intensity = 1f;
     }
 }

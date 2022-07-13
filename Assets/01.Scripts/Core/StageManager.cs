@@ -117,18 +117,28 @@ public class StageManager : MonoBehaviour
         {
             case 0:
                 EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(3);
                 break;
             case 1:
                 EnemyManager.Instance.SpawnEnemy(_stage1, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(3);
                 break;
             case 2:
                 EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(3);
                 break;
             case 3:
                 EnemyManager.Instance.SpawnEnemy(_stage3, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(4);
                 break;
             case 4:
                 EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(5);
                 break;
 
             default:
