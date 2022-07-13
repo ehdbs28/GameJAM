@@ -745,7 +745,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215382693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1639091632}
@@ -1893,7 +1893,7 @@ MonoBehaviour:
   - {fileID: 1478103863279979516, guid: c01edacb1b7d72b4da4f09ae43b6ed19, type: 3}
   - {fileID: 1478103863279979516, guid: 06ad20b0cde680f49a708be4d476a5a8, type: 3}
   - {fileID: 1478103863279979516, guid: ebfb34602fbea744d87364544bb1b654, type: 3}
-  - {fileID: 1478103863279979516, guid: c01edacb1b7d72b4da4f09ae43b6ed19, type: 3}
+  - {fileID: 1478103863279979516, guid: 587a18e7870f4744fa85450d8c44a40f, type: 3}
   - {fileID: 1478103863279979516, guid: ebfb34602fbea744d87364544bb1b654, type: 3}
   Trm: {fileID: 1639091632}
   Trm_1: {fileID: 2038986249}
@@ -11940,7 +11940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15863,12 +15863,14 @@ MonoBehaviour:
   _dashAudioClip: {fileID: 8300000, guid: 95ad4fde8f35d664c882618a851fb059, type: 3}
   _killAudioClip: {fileID: 8300000, guid: 4efeba9643553d241a115336f6513b33, type: 3}
   _afterEffect: {fileID: 1870673645784554233, guid: cc54390b88e10194b8605030713e456d, type: 3}
-  _afterEffect1: {fileID: 0}
-  _afterEffect2: {fileID: 0}
+  blockPanel: {fileID: 0}
   _blink: {fileID: 1235028877966716077, guid: ec82bebaa194c9c49ab118b457d83104, type: 3}
   _hitSpace: {fileID: 1215121518}
   _hitBossSpace: {fileID: 1994246686}
   _distance: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!212 &1653730875
 SpriteRenderer:
   m_ObjectHideFlags: 0

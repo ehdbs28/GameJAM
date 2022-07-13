@@ -5,15 +5,11 @@ using UnityEngine.UI;
 
 public class Life : StatUp
 {
-    private PlayerAttack _player;
-
     Button button;
 
     private void Start()
     {
         button = GetComponent<Button>();
-        _player = FindObjectOfType<PlayerAttack>();
-
         button.onClick.AddListener(() =>
         {
             Stat();
@@ -22,8 +18,7 @@ public class Life : StatUp
 
     public override void Stat()
     {
-        _player.Damage += 0.5f;
+        StageManager.Instance.DeltaTime += 0.2f;
         UIManager.Instance.IsClear = false;
-        _player.IsAttack = false;
     }
 }

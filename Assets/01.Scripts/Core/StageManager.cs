@@ -50,6 +50,14 @@ public class StageManager : MonoBehaviour
         set => _currentStageNum = value;
     }
 
+    float _deltaTime;
+
+    public float DeltaTime
+    {
+        get => _deltaTime;
+        set => _deltaTime = value;
+    }
+
     PlayerAttack player;
 
     private void Start()
@@ -118,27 +126,27 @@ public class StageManager : MonoBehaviour
             case 0:
                 EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(4);
+                TimingManager.Instance.Timer(2);
                 break;
             case 1:
                 EnemyManager.Instance.SpawnEnemy(_stage1, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(3);
+                TimingManager.Instance.Timer(1.8f + _deltaTime);
                 break;
             case 2:
                 EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_2");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(2.6f);
+                TimingManager.Instance.Timer(1.6f + _deltaTime);
                 break;
             case 3:
                 EnemyManager.Instance.SpawnEnemy(_stage3, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(2.2f);
+                TimingManager.Instance.Timer(1.4f + _deltaTime);
                 break;
             case 4:
                 EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.8f);
+                TimingManager.Instance.Timer(1.2f + _deltaTime);
                 break;
 
             default:

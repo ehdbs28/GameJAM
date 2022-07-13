@@ -54,15 +54,16 @@ public class PlayerAttack : MonoBehaviour
     }
 
     [SerializeField] private GameObject _afterEffect;
-    [SerializeField] private GameObject _afterEffect1;
-    [SerializeField] private GameObject _afterEffect2;
+
+    [SerializeField] private GameObject blockPanel;
 
     [SerializeField] private GameObject _blink;
     [SerializeField] private GameObject _hitSpace;
     [SerializeField] private GameObject _hitBossSpace;
 
-    [SerializeField] private float _distance = 1f;
+    [SerializeField] private float _distance = 3f;
 
+    [SerializeField] private LayerMask layerMask;
 
     private BoxCollider2D _collider;
     private Vector2 _mousePos;
@@ -144,7 +145,9 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == false)
+            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0? true: false;
+
+            if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == true)
             {
                 StageClear();
             }
@@ -154,7 +157,7 @@ public class PlayerAttack : MonoBehaviour
 
             RaycastHit2D hit;
 
-            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
+            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance,layerMask);
             Debug.DrawRay(_mousePos, Vector3.forward, Color.yellow, 0.5f);
 
             if (hit && isDead == false)
@@ -163,9 +166,8 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (EnemyManager.Instance.enemyList.Count != 0 && UIManager.Instance.IsClear == false)
                     {
-                        if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
+                        if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true)
                         {
-
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
                             SoundManager.Instance.SFXPlay(_dashAudioClip);

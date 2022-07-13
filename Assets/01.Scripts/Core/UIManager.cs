@@ -72,6 +72,19 @@ public class UIManager : MonoBehaviour
         });
     }
 
+    public void QuitGame()
+    {
+        Sequence seq = DOTween.Sequence();
+
+        FadeIn();
+        seq.AppendInterval(1.5f);
+
+        seq.AppendCallback(() =>
+        {
+            Application.Quit();
+        });
+    }
+
     public void Ablity()
     {
         StartCoroutine(AblityPanelUp());

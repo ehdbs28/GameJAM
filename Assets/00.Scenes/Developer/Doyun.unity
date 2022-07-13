@@ -1591,6 +1591,7 @@ GameObject:
   - component: {fileID: 443407412}
   - component: {fileID: 443407414}
   - component: {fileID: 443407415}
+  - component: {fileID: 443407416}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1909,6 +1910,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerTxt: {fileID: 1309061095}
+--- !u!114 &443407416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443407405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb36a4715a54fe349b883eb81f5dc2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &445591285
 GameObject:
   m_ObjectHideFlags: 0
@@ -15856,10 +15869,6 @@ MonoBehaviour:
   _hitSpace: {fileID: 1215121518}
   _hitBossSpace: {fileID: 1994246686}
   _distance: 1
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  _mask: {fileID: 0}
 --- !u!212 &1653730875
 SpriteRenderer:
   m_ObjectHideFlags: 0
