@@ -90,6 +90,28 @@ public class PlayerAttack : MonoBehaviour
        //_enemyList = GameObject.Find("GameManager").GetComponent<EnemyList>();
     }
 
+    public void StageClear()
+    {
+        Sequence sq = DOTween.Sequence();
+        StageManager.Instance.IsStageUp = true;
+        sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
+        sq.OnComplete(() =>
+        {
+            isLeft = !isLeft;
+            transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+            rotate = isLeft ? 180 : 360;
+            transform.position = new Vector2(transform.position.x, transform.position.y + 7);
+            StageManager.Instance.CurrentStageNum += 1;
+
+            StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
+            StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
+
+            transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
+
+            StageManager.Instance.IsStageUp = false;
+        });
+    }
+
     void Update()
     {
         #region AttackSpace
@@ -111,24 +133,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if(EnemyManager.Instance.enemyList.Count == 0 && !StageManager.Instance.IsStageUp)
             {
-                Sequence sq = DOTween.Sequence();
-                StageManager.Instance.IsStageUp = true;
-                sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
-                sq.OnComplete(()=>
-                {
-                    isLeft = !isLeft;
-                    transform.localScale = new Vector2(transform.localScale.x * -1, 1);
-                    rotate = isLeft ? 180 : 360;
-                    transform.position = new Vector2(transform.position.x, transform.position.y + 7);
-                    StageManager.Instance.CurrentStageNum += 1;
-
-                    StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
-                    StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
-
-                    transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
-
-                    StageManager.Instance.IsStageUp = false;
-                });
+                StageClear();
             }
 
             _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
