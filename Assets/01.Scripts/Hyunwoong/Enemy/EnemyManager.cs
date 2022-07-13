@@ -20,6 +20,13 @@ public class EnemyManager : MonoBehaviour
 
     public List<Enemy> enemyList = new List<Enemy>();
 
+    float intensity = 2f;
+    public float Intensity
+    {
+        get => intensity;
+        set => intensity = value;
+    }
+
     private void Start()
     {
         _flash = GameObject.Find("Flash").GetComponent<Light2D>();
@@ -27,11 +34,11 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDie(PoolableMono enemy)
     {
         Time.timeScale = 1;
-        StartCoroutine(Flash());
         GravityController.Instance.ModityGravityScale(0.3f, 0.3f);
-        CameraManager.Instance.ShakeCam(2f, 0.3f);
+        CameraManager.Instance.ShakeCam(intensity, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
+            StartCoroutine(Flash());
             TimeControlManager.Instance.ModifyTimeScale(1f, sec);
         });
         Debug.Log("´ÙÀÌ");

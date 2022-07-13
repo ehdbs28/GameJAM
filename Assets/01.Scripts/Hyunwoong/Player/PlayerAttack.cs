@@ -30,6 +30,11 @@ public class PlayerAttack : MonoBehaviour
         set => isDead = value;
     }
     bool isLeft = true;
+    public bool IsLeft 
+    {
+        get => isLeft;
+        set => isLeft = value;
+    }
     private bool _isDodge = false;
     public bool IsDodge
     {
@@ -91,22 +96,42 @@ public class PlayerAttack : MonoBehaviour
     public void StageClear()
     {
         Sequence sq = DOTween.Sequence();
-        StageManager.Instance.IsStageUp = true;
+        
+        StageManager.Instance.IsStageUp = isDead ? true : false;
+
         sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
         sq.OnComplete(() =>
         {
-            isLeft = !isLeft;
-            transform.localScale = new Vector2(transform.localScale.x * -1, 1);
-            rotate = isLeft ? 180 : 360;
-            transform.position = new Vector2(transform.position.x, transform.position.y + 7);
-            StageManager.Instance.CurrentStageNum += 1;
+            if (IsDead == true)
+            {
+                GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach(GameObject item in enemy)
+                {
+                    PoolManager.Instance.Push(item.GetComponent<PoolableMono>());
+                }
 
-            StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
-            StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
+                isLeft = !isLeft;
+                transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+                rotate = isLeft ? 180 : 360;
+                transform.position = new Vector2(transform.position.x, transform.position.y + 7);
+                transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
+                StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
+                UIManager.Instance.Fade();
+            }
+            else
+            {
+                isLeft = !isLeft;
+                transform.localScale = new Vector2(transform.localScale.x * -1, 1);
+                rotate = isLeft ? 180 : 360;
+                transform.position = new Vector2(transform.position.x, transform.position.y + 7);
+                StageManager.Instance.CurrentStageNum += 1;
+                StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
+                StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
 
-            transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
+                transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
 
-            StageManager.Instance.IsStageUp = false;
+                StageManager.Instance.IsStageUp = false;
+            }
         });
     }
 

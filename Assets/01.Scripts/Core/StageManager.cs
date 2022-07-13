@@ -126,7 +126,7 @@ public class StageManager : MonoBehaviour
                 TimingManager.Instance.Timer(3);
                 break;
             case 2:
-                EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_2");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(3);
                 break;

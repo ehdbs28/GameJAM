@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3364016746971190069}
   - component: {fileID: -5102367317845006371}
   m_Layer: 6
-  m_Name: Enemy_1
+  m_Name: Enemy_2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3498758220944118095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.568, y: 0.514, z: 0}
+  m_LocalPosition: {x: 7.417929, y: 0.58341515, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -4744724232239111109, guid: c0cee1df9e5945149a030aabdc77e02f, type: 3}
+  m_Sprite: {fileID: 8793639957104055765, guid: 299b524228ba8714098a73eb7a339123, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6, y: 0.5}
-    oldSize: {x: 2.8125, y: 1.75}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.375, y: 1.5625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -133,7 +133,7 @@ Animator:
   m_GameObject: {fileID: 3498758220944118095}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b7eebd9db6c36647916d9014fdbea2d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 240f4521c64a22b49bdbb82adb0b6c2c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
