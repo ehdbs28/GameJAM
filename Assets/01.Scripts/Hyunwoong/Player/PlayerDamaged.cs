@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
@@ -35,10 +36,21 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
 
             if (_playerHp <= 0 && _playerAttack.IsDead == false)
             {
-                anim.Play("PlayerDeath");
+                anim.SetBool("IsDeath", true);
                 _playerAttack.IsDead = true;
+
+                StartCoroutine(SceneReLoad());
             }
         }
         else return;
+    }
+
+    IEnumerator SceneReLoad()
+    {
+        UIManager.Instance.FadeIn();
+
+        yield return new WaitForSeconds(2f);
+
+        //SceneManager.LoadScene("Main");
     }
 }

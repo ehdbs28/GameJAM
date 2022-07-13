@@ -32,5 +32,6 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance = gameObject.GetComponent<SoundManager>();
         SkillManager.Instance = gameObject.GetComponent <SkillManager>();
         TimingManager.Instance = gameObject.GetComponent<TimingManager>();
+        FlashManager.Instance = gameObject.GetComponent<FlashManager>();
     }
 }
