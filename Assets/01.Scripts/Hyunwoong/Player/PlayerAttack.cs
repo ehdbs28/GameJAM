@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public float Speed
     {
         get { return speed; }
-        set { speed = Mathf.Clamp(speed, 0.01f, 0.5f);}
+        set { speed = Mathf.Clamp(speed, 0.01f, 0.5f); }
     }
 
     bool isDead = false;
@@ -253,7 +253,8 @@ public class PlayerAttack : MonoBehaviour
             anim.SetTrigger("IsDodge");
             StartCoroutine(DodgeCoroutine());
         }
-    
+    }
+
     IEnumerator DodgeCoroutine()
     {
         _rigid.AddForce(transform.localScale.x > 0 ? new Vector2(-3, -3) : new Vector2(3, 3), ForceMode2D.Impulse);
