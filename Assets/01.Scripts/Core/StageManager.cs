@@ -10,6 +10,8 @@ public class StageManager : MonoBehaviour
     [SerializeField] private int _currentStageNum = 0;
     [SerializeField] private UnityEvent OnActive;
 
+    [SerializeField] private List<GameObject> _backGrounds = new List<GameObject>();
+
     [SerializeField] private List<Vector2> _tutorial = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage1 = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage2 = new List<Vector2>();
@@ -62,6 +64,8 @@ public class StageManager : MonoBehaviour
     {
         if(_currentStageNum == 6)
         {
+            _backGrounds[0].SetActive(false);
+            _backGrounds[1].SetActive(true);
             SoundManager.Instance.BGMPlay(2);
         }
         if(_currentStageNum == 11)
