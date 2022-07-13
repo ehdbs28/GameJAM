@@ -25,13 +25,10 @@ public class StageManager : MonoBehaviour
     [SerializeField] private List<Vector2> _stage9 = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage10 = new List<Vector2>();
     [SerializeField] private List<Vector2> _stage11 = new List<Vector2>();
-    [SerializeField] private List<Vector2> _stage12 = new List<Vector2>();
-    [SerializeField] private List<Vector2> _stage13 = new List<Vector2>();
-    [SerializeField] private List<Vector2> _stage14 = new List<Vector2>();
-    [SerializeField] private List<Vector2> _stage15 = new List<Vector2>();
 
     private GameObject _thema1Boss;
     private GameObject _thema2Boss;
+    [SerializeField] private GameObject _finalBoss;
     private bool _isBoss = false;
     public bool IsBoss
     {
@@ -66,23 +63,6 @@ public class StageManager : MonoBehaviour
 
     private void Update()
     {
-        if(_currentStageNum == 6)
-        {
-            _isBoss = false;
-            _backGrounds[0].SetActive(false);
-            _backGrounds[1].SetActive(true);
-            SoundManager.Instance.BGMPlay(2);
-        }
-        if(_currentStageNum == 11)
-        {
-            SoundManager.Instance.BGMPlay(3);
-        }
-        if(_currentStageNum == 16)
-        {
-            SoundManager.Instance.BGMPlay(4);
-        }
-
-
         if (_currentStageNum == 5 && _isBoss == false)
         {
             Debug.Log("d");
@@ -137,6 +117,46 @@ public class StageManager : MonoBehaviour
                 break;
             case 4:
                 EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(5);
+                break;
+            case 5:
+                //EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
+                //TimingManager.Instance.StopTime();
+                //TimingManager.Instance.Timer(5);
+                break;
+            case 6:
+                EnemyManager.Instance.SpawnEnemy(_stage6, "Enemy_1");
+                _isBoss = false;
+                _backGrounds[0].SetActive(false);
+                _backGrounds[1].SetActive(true);
+                SoundManager.Instance.BGMPlay(2);
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(5);
+                break;
+            case 7:
+                EnemyManager.Instance.SpawnEnemy(_stage7, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(5);
+                break;
+            case 8:
+                EnemyManager.Instance.SpawnEnemy(_stage8, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(5);
+                break;
+            case 9:
+                EnemyManager.Instance.SpawnEnemy(_stage9, "Enemy_1");
+                TimingManager.Instance.StopTime();
+                TimingManager.Instance.Timer(5);
+                break;
+            case 10:
+                //EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
+                //TimingManager.Instance.StopTime();
+                //TimingManager.Instance.Timer(5);
+                break;
+            case 11:
+                SoundManager.Instance.BGMPlay(4);
+                EnemyManager.Instance.SpawnEnemy(_stage11, "Enemy_1");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
                 break;

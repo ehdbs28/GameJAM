@@ -1755,10 +1755,6 @@ MonoBehaviour:
   - {x: -3.8, y: 63.25}
   _stage10: []
   _stage11: []
-  _stage12: []
-  _stage13: []
-  _stage14: []
-  _stage15: []
 --- !u!114 &443407411
 MonoBehaviour:
   m_ObjectHideFlags: 0

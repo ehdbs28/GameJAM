@@ -91,7 +91,7 @@ public class Theme1Boss : Boss
     {
         GameObject warning = Instantiate(_warning, transform);
         warning.transform.localScale = new Vector2(12, 1);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         Destroy(warning);
 
         BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
