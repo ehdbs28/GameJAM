@@ -19,9 +19,9 @@ public class Boss : Enemy
     private Dictionary<string, int> diction = new Dictionary<string, int>();
     private int num, randomNum;
 
-    protected StateMachine<State> _fsm;
-    protected Transform _playerTrm;
-    protected Vector2 _initPos;
+    public StateMachine<State> _fsm;
+    public Transform _playerTrm;
+    public Vector2 _initPos;
 
     private void Awake()
     {
