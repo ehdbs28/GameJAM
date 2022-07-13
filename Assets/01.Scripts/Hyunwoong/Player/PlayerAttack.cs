@@ -186,7 +186,6 @@ public class PlayerAttack : MonoBehaviour
                         if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
 
-                            StartCoroutine(Flash());
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
@@ -218,7 +217,6 @@ public class PlayerAttack : MonoBehaviour
                     {
                         if(hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>()  == true && !isAttack)
                         {
-                            StartCoroutine(Flash());
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
