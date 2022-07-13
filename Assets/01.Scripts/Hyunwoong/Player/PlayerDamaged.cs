@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
@@ -11,6 +12,8 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
 
     Animator anim;
     private int index = 3;
+
+    [SerializeField] private UnityEvent Stage;
 
     public float PlayerHp
     {
@@ -34,32 +37,8 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
             {
                 anim.Play("PlayerDeath");
                 _playerAttack.IsDead = true;
-                OnDie();
             }
         }
         else return;
-    }
-
-    private void OnDie()
-    {
-        StartCoroutine(DieCo());
-    }
-
-    IEnumerator DieCo()
-    {
-        anim.SetTrigger("IsDeath");
-
-        if (index > 0)
-        {
-            StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
-            StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
-            index--;
-        }
-        else
-        {
-            print("게임오버");
-        }
-
-        yield return new WaitForSecondsRealtime(5);
     }
 }

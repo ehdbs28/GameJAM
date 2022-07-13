@@ -16,8 +16,11 @@ public class BossDamaged : MonoBehaviour, IDamaged
     public void Damaged(float damage)
     {
         _bossHp -= damage;
+
         if (_bossHp <= 0)
         {
+            CameraManager.Instance.SetToTheme1();
+
             boss._fsm.ChangeState(Boss.State.Death);
         }
     }

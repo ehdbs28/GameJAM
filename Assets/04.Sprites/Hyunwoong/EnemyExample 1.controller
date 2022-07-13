@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d208040abcf955d40826d6e245d8156a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 803d1b692d3e3d6468323f1de3432013, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyExample
+  m_Name: EnemyExample 1
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

@@ -39,7 +39,7 @@ public class TimingManager : MonoBehaviour
     IEnumerator TimeCoroutine(float sec)
     {
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-        _timerTxt.color = new Color(255,255,255);
+        _timerTxt.color = new Color(255,255,255,107);
         print("타이머 들어감");
         yield return new WaitForSeconds(0.2f);
         //UIManager.Instance.IsClear = false;
@@ -50,14 +50,14 @@ public class TimingManager : MonoBehaviour
             _timerTxt.text = string.Format("{0:N2}", sec);
             i++;
 
-            _timerTxt.color = new Color(255, 255 - i, 255 - i);
+            _timerTxt.DOFade(0.5f, 0);
 
             if(sec <= 0)
             {
                 sec = 0;
                 _player.Damaged(1);
             }
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSecondsRealtime(Time.deltaTime);
             if(EnemyManager.Instance.enemyList.Count == 0)
             {
                 print("타이머 나가기");

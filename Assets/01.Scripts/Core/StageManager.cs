@@ -87,14 +87,14 @@ public class StageManager : MonoBehaviour
         {
             Debug.Log("d");
             _isBoss = true;
-            EnemyManager.Instance.enemyList.Add(_thema1Boss.GetComponent<Enemy>());
+            EnemyManager.Instance.bossList.Add(_thema1Boss.GetComponent<Enemy>());
             _thema1Boss.SetActive(true);
             OnActive.Invoke();
         }
         if(_currentStageNum == 10 && _isBoss == false)
         {
             _isBoss = true;
-            EnemyManager.Instance.enemyList.Add(_thema2Boss.GetComponent<Enemy>());
+            EnemyManager.Instance.bossList.Add(_thema2Boss.GetComponent<Enemy>());
             _thema2Boss.SetActive(true);
             OnActive2.Invoke();
         }
@@ -126,7 +126,7 @@ public class StageManager : MonoBehaviour
                 TimingManager.Instance.Timer(3);
                 break;
             case 2:
-                EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_2");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(3);
                 break;
