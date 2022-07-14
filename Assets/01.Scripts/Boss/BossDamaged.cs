@@ -19,8 +19,10 @@ public class BossDamaged : MonoBehaviour, IDamaged
 
         if (_bossHp <= 0)
         {
-            CameraManager.Instance.SetToTheme1();
-
+            if(StageManager.Instance.CurrentStageNum == 5)
+                CameraManager.Instance.SetToTheme1();
+            if (StageManager.Instance.CurrentStageNum == 10)
+                CameraManager.Instance.SetToTheme2();
             boss._fsm.ChangeState(Boss.State.Death);
         }
     }

@@ -78,6 +78,16 @@ public class StageManager : MonoBehaviour
             _thema2Boss.SetActive(true);
             //OnActive2.Invoke();
         }
+        if (_currentStageNum == 11 && _isBoss == false)
+        {
+            _isBoss = true;
+            EnemyManager.Instance.bossList.Add(_finalBoss.GetComponent<Enemy>());
+        }
+    }
+
+    public void BossEnemySpawn()
+    {
+        EnemyManager.Instance.SpawnEnemy(_stage11, "Enemy_1");
     }
 
     public void StageUp(int stageNum)
@@ -137,6 +147,7 @@ public class StageManager : MonoBehaviour
                 _isBoss = false;
                 _backGrounds[0].SetActive(false);
                 _backGrounds[1].SetActive(true);
+                _backGrounds[2].SetActive(false);
                 SoundManager.Instance.BGMPlay(2);
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
@@ -166,11 +177,15 @@ public class StageManager : MonoBehaviour
                 //TimingManager.Instance.Timer(5);
                 break;
             case 11:
+                _isBoss = false;
                 TimingManager.Instance.DeleteTimer();
+                _backGrounds[0].SetActive(false);
+                _backGrounds[1].SetActive(false);
+                _backGrounds[2].SetActive(true);
                 SoundManager.Instance.BGMPlay(4);
                 EnemyManager.Instance.SpawnEnemy(_stage11, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(5);
+                CameraManager.Instance.SetToBossVCam();
                 break;
 
             default:
