@@ -49,6 +49,7 @@ public class StageManager : MonoBehaviour
 
     float _deltaTime;
 
+    private int _hardMode = 0;
     public float DeltaTime
     {
         get => _deltaTime;
@@ -57,6 +58,8 @@ public class StageManager : MonoBehaviour
 
     PlayerAttack player;
 
+    private float _hardSec = 0.1f;
+
     private void Start()
     {
         _thema1Boss = GameObject.Find("Theme1Boss");
@@ -64,6 +67,7 @@ public class StageManager : MonoBehaviour
         _thema1Boss.SetActive(false);
         _thema2Boss.SetActive(false);
         SoundManager.Instance.BGMPlay(1);
+        _hardMode = PlayerPrefs.GetInt("Hard", 0);
         StageStart(_currentStageNum);
 
         player = FindObjectOfType<PlayerAttack>();
@@ -116,31 +120,31 @@ public class StageManager : MonoBehaviour
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_3");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(2);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 2f : _hardSec);
                 break;
             case 1:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage1, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.8f + _deltaTime);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 1.8f + _deltaTime : _hardSec);
                 break;
             case 2:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage2, "Enemy_2");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.6f + _deltaTime);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 1.6f + _deltaTime : _hardSec);
                 break;
             case 3:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage3, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.4f + _deltaTime);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 1.4f + _deltaTime : _hardSec);
                 break;
             case 4:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_3");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.2f + _deltaTime);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 1.2f + _deltaTime : _hardSec);
                 break;
             case 5:
                 TimingManager.Instance.DeleteTimer();
@@ -157,25 +161,25 @@ public class StageManager : MonoBehaviour
                 _backGrounds[2].SetActive(false);
                 SoundManager.Instance.BGMPlay(2);
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(2);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 2 : _hardSec);
                 break;
             case 7:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage7, "Enemy_2");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.6f);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 1.6f : _hardSec);
                 break;
             case 8:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage8, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(1.2f);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 1.2f : _hardSec);
                 break;
             case 9:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage9, "Enemy_3");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(0.8f);
+                TimingManager.Instance.Timer(_hardMode == 0 ? 0.8f : _hardSec);
                 break;
             case 10:
                 TimingManager.Instance.DeleteTimer();

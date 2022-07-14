@@ -75,6 +75,21 @@ public class UIManager : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
 
+        PlayerPrefs.SetInt("Hard", 0);
+        FadeIn();
+        seq.AppendInterval(1.5f);
+
+        seq.AppendCallback(() =>
+        {
+            SceneManager.LoadScene(1);
+        });
+    }
+
+    public void HardMode()
+    {
+        Sequence seq = DOTween.Sequence();
+
+        PlayerPrefs.SetInt("Hard", 1);
         FadeIn();
         seq.AppendInterval(1.5f);
 

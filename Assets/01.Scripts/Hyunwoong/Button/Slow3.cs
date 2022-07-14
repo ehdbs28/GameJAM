@@ -45,6 +45,7 @@ public class Slow3 : StatUp
         }
         else
         {
+
             EnemyManager.Instance.Sec += 0.05f;
 
             UIManager.Instance.IsClear = false;
