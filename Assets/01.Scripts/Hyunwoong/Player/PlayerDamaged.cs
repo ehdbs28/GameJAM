@@ -51,6 +51,6 @@ public class PlayerDamaged : MonoBehaviour, IDamaged
 
         yield return new WaitForSeconds(2f);
 
-        //SceneManager.LoadScene("Main");
+        SceneManager.LoadScene(1);
     }
 }

@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
 
     public RectTransform _ablityPanelTrm;
 
+    NumberLine numberLine;
+
     bool isClear = false;
 
     public bool IsClear
@@ -37,6 +39,8 @@ public class UIManager : MonoBehaviour
         player = FindObjectOfType<PlayerAttack>();
 
         theme1 = FindObjectOfType<Theme1Boss>();
+
+        numberLine = FindObjectOfType<NumberLine>();
     }
 
     public void Update()
@@ -105,7 +109,7 @@ public class UIManager : MonoBehaviour
                 index++;
 
                 _ablityPanelTrm.transform.DOMoveY(0, 0.5f);
-
+                numberLine.ViewStage();
                 SkillManager.Instance.SkillSelect();
 
             }

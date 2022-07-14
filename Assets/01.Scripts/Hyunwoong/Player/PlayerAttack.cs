@@ -62,9 +62,13 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject _hitSpace;
     [SerializeField] private GameObject _hitBossSpace;
 
+    [SerializeField] private RectTransform _numberLine;
+
     [SerializeField] private float _distance = 3f;
 
     [SerializeField] private LayerMask layerMask;
+
+    NumberLine number;   
 
     private BoxCollider2D _collider;
     private Vector2 _mousePos;
@@ -80,6 +84,8 @@ public class PlayerAttack : MonoBehaviour
     {
         _collider = GetComponent<BoxCollider2D>();
         _rigid = GetComponent<Rigidbody2D>();
+
+        number = FindObjectOfType<NumberLine>();
         Sequence seq = DOTween.Sequence();
 
         seq.Append(transform.DOMoveX(-8.21f, 1.5f));
@@ -217,7 +223,7 @@ public class PlayerAttack : MonoBehaviour
                         if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
                             Sequence seq = DOTween.Sequence();
-                            isAttack = true; //
+                            isAttack = true; 
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
                             anim.SetTrigger("IsAttack");
                             GameObject Blink = Instantiate(_blink);
@@ -268,6 +274,15 @@ public class PlayerAttack : MonoBehaviour
             smoke.transform.position = transform.position;
             anim.SetTrigger("IsDodge");
             StartCoroutine(DodgeCoroutine());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _numberLine.DOAnchorPosX(100, 1f);
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            _numberLine.DOAnchorPosX(-140, 1f);
         }
     }
 
