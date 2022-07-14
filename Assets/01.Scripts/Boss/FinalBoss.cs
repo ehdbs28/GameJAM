@@ -7,6 +7,8 @@ public class FinalBoss : Enemy
 {
     [SerializeField] private Transform _playerTrm;
 
+    [SerializeField] private AudioClip _dashClip;
+
     private Animator _anim;
     private bool _isBossDie = false;
     private Vector2 _attackPos = Vector2.zero;
@@ -70,6 +72,7 @@ public class FinalBoss : Enemy
             warning.transform.rotation = Quaternion.identity;
             yield return new WaitForSecondsRealtime(1f);
             _anim.SetTrigger("IsDash");
+            SoundManager.Instance.SFXPlay(_dashClip);
             float angle = Mathf.Atan2(transform.position.y - _attackPos.y, transform.position.x - _attackPos.x) * Mathf.Rad2Deg + _rotate;
             transform.eulerAngles = new Vector3(0, 0, angle);
             transform.DOMove(_attackPos, 0.5f);

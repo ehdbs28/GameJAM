@@ -115,6 +115,8 @@ public class PlayerAttack : MonoBehaviour
 
             transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
 
+            transform.rotation = Quaternion.identity;
+
             StageManager.Instance.IsStageUp = false;
 
         });

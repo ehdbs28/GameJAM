@@ -260,9 +260,9 @@ MonoBehaviour:
   _breakTileVec: []
   _warning: {fileID: 6568449493833496749, guid: c808a82b58b9e0548831025c165f93dc, type: 3}
   _circleWarning: {fileID: 6568449493833496749, guid: 337528b27428ad3489ac3bc5a3e5c848, type: 3}
-  _sweepClip: {fileID: 0}
-  _slamClip: {fileID: 0}
-  _electroClip: {fileID: 0}
+  _sweepClip: {fileID: 8300000, guid: 00d7f69360d78794a92a44b2d70d4adb, type: 3}
+  _slamClip: {fileID: 8300000, guid: acff86209870eb64a812c4b7e94763b8, type: 3}
+  _electroClip: {fileID: 8300000, guid: cf4acf11eef31524299aa55e476e73e6, type: 3}
 --- !u!95 &85088602
 Animator:
   serializedVersion: 3
@@ -2373,6 +2373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTrm: {fileID: 1653730876}
+  _dashClip: {fileID: 8300000, guid: 95ad4fde8f35d664c882618a851fb059, type: 3}
 --- !u!114 &462784074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16172,6 +16173,9 @@ MonoBehaviour:
   _playerTrm: {fileID: 0}
   _initPos: {x: 0, y: 0}
   _warningPrefab_1: {fileID: 6568449493833496749, guid: c808a82b58b9e0548831025c165f93dc, type: 3}
+  _bumerangClip: {fileID: 8300000, guid: 9ee0ca6677e596d4796894128aedb562, type: 3}
+  _swordClip: {fileID: 8300000, guid: 00d7f69360d78794a92a44b2d70d4adb, type: 3}
+  _pickClip: {fileID: 8300000, guid: 00d7f69360d78794a92a44b2d70d4adb, type: 3}
 --- !u!95 &1638028228
 Animator:
   serializedVersion: 3
@@ -16251,7 +16255,7 @@ Transform:
   m_GameObject: {fileID: 1638028224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.94, y: 69.91, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: -3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 23
