@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class Life : StatUp
 {
     Button button;
+    PlayerAttack _player;
 
     private void Start()
     {
+        _player = FindObjectOfType<PlayerAttack>();
+
         button = GetComponent<Button>();
         button.onClick.AddListener(() =>
         {
