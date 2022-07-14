@@ -23,33 +23,55 @@ public class Dash115 : StatUp
 
     public override void Stat()
     {
+        Sequence seq = DOTween.Sequence();
+
         if(StageManager.Instance.CurrentStageNum == 5)
         {
             _player.Speed -= 0.1f;
-            UIManager.Instance.IsClear = false;
+            seq.AppendInterval(0.5f);
 
-            CutSceneManager.Instance.Theme1CutScene();
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                CutSceneManager.Instance.Theme1CutScene();
+            });
+
         }
         else if (StageManager.Instance.CurrentStageNum == 10)
         {
             _player.Speed -= 0.1f;
-            UIManager.Instance.IsClear = false;
+            seq.AppendInterval(0.5f);
 
-            CutSceneManager.Instance.Theme2CutScene();
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                CutSceneManager.Instance.Theme2CutScene();
+            });
+
         }
         else if(StageManager.Instance.CurrentStageNum == 11)
         {
             _player.Speed -= 0.1f;
-            UIManager.Instance.IsClear = false;
+            seq.AppendInterval(0.5f);
 
-            CutSceneManager.Instance.BossStartCutScene();
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                CutSceneManager.Instance.BossStartCutScene();
+            });
+
         }
         else
         {
             _player.Speed -= 0.1f;
-            UIManager.Instance.IsClear = false;
 
-            _player.IsAttack = false;
+            seq.AppendInterval(0.5f);
+
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                _player.IsAttack = false;
+            });
         }
     }
 }

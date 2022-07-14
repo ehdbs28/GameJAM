@@ -22,33 +22,46 @@ public class Slow3 : StatUp
 
     public override void Stat()
     {
+        Sequence seq = DOTween.Sequence();
         if (StageManager.Instance.CurrentStageNum == 5)
         {
             EnemyManager.Instance.Sec += 0.05f;
-            UIManager.Instance.IsClear = false;
-
-            CutSceneManager.Instance.Theme1CutScene();
+            seq.AppendInterval(0.5f);
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                CutSceneManager.Instance.Theme1CutScene();
+            });
         }
         else if (StageManager.Instance.CurrentStageNum == 10)
         {
             EnemyManager.Instance.Sec += 0.05f;
-            UIManager.Instance.IsClear = false;
-
-            CutSceneManager.Instance.Theme2CutScene();
+            seq.AppendInterval(0.5f);
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                CutSceneManager.Instance.Theme2CutScene();
+            });
         }
         else if (StageManager.Instance.CurrentStageNum == 11)
         {
             EnemyManager.Instance.Sec += 0.05f;
-            UIManager.Instance.IsClear = false;
-
-            CutSceneManager.Instance.BossStartCutScene();
+            seq.AppendInterval(0.5f);
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                CutSceneManager.Instance.BossStartCutScene();
+            });
         }
         else
         {
             EnemyManager.Instance.Sec += 0.05f;
-
-            UIManager.Instance.IsClear = false;
-            _player.IsAttack = false;
+            seq.AppendInterval(0.5f);
+            seq.AppendCallback(() =>
+            {
+                UIManager.Instance.IsClear = false;
+                _player.IsAttack = false;
+            });
         }
 
     }
