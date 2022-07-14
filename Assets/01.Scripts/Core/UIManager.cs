@@ -111,11 +111,6 @@ public class UIManager : MonoBehaviour
             {
                 index--;
                 seq.Append(_ablityPanelTrm.transform.DOMoveY(1200, 0.5f));
-
-                seq.OnComplete(() =>
-                {
-                    SkillManager.Instance.SkillDel();
-                });
             }
 
             yield return new WaitForSeconds(0.1f);

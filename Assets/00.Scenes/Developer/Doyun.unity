@@ -260,6 +260,9 @@ MonoBehaviour:
   _breakTileVec: []
   _warning: {fileID: 6568449493833496749, guid: c808a82b58b9e0548831025c165f93dc, type: 3}
   _circleWarning: {fileID: 6568449493833496749, guid: 337528b27428ad3489ac3bc5a3e5c848, type: 3}
+  _audioClip: {fileID: 0}
+  _audioClip_1: {fileID: 0}
+  _audioClip_2: {fileID: 0}
 --- !u!95 &85088602
 Animator:
   serializedVersion: 3
@@ -1813,23 +1816,28 @@ MonoBehaviour:
   - {x: 6.18, y: 25.7}
   _stage5: []
   _stage6:
-  - {x: -3.14, y: 39.28}
-  - {x: 0.73, y: 42.24}
-  - {x: 5.74, y: 39.27}
+  - {x: -3.14, y: 39.78}
+  - {x: 0.73, y: 42.72}
+  - {x: 5.74, y: 39.77}
   _stage7:
-  - {x: 4.12, y: 49.19}
-  - {x: 0.14, y: 46.16}
-  - {x: -3.81, y: 49.19}
+  - {x: 4.12, y: 49.69}
+  - {x: 0.14, y: 46.66}
+  - {x: -3.81, y: 49.69}
   _stage8:
-  - {x: -3.14, y: 56.35}
-  - {x: 0.74, y: 53.33}
-  - {x: 5.03, y: 53.33}
+  - {x: -3.14, y: 56.85}
+  - {x: 0.74, y: 53.83}
+  - {x: 5.03, y: 53.83}
   _stage9:
-  - {x: 3.64, y: 63.25}
-  - {x: -0.08, y: 60.2}
-  - {x: -3.8, y: 63.25}
+  - {x: 3.64, y: 63.75}
+  - {x: -0.08, y: 60.7}
+  - {x: -3.8, y: 63.75}
   _stage10: []
-  _stage11: []
+  _stage11:
+  - {x: -5.69, y: 77.65}
+  - {x: 5.36, y: 79.62}
+  - {x: -0.63, y: 82.55}
+  - {x: -5.87, y: 85.56}
+  - {x: 3.35, y: 87.53}
   _finalBoss: {fileID: 462784069}
 --- !u!114 &443407411
 MonoBehaviour:
@@ -1980,6 +1988,8 @@ MonoBehaviour:
   - {fileID: 1478103863279979516, guid: 06ad20b0cde680f49a708be4d476a5a8, type: 3}
   Trm: {fileID: 1639091632}
   Trm_1: {fileID: 2038986249}
+  image: {fileID: 0}
+  image_1: {fileID: 0}
 --- !u!114 &443407415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16349,12 +16359,14 @@ MonoBehaviour:
   _dashAudioClip: {fileID: 8300000, guid: 95ad4fde8f35d664c882618a851fb059, type: 3}
   _killAudioClip: {fileID: 8300000, guid: 4efeba9643553d241a115336f6513b33, type: 3}
   _afterEffect: {fileID: 1870673645784554233, guid: cc54390b88e10194b8605030713e456d, type: 3}
-  _afterEffect1: {fileID: 0}
-  _afterEffect2: {fileID: 0}
+  blockPanel: {fileID: 0}
   _blink: {fileID: 1235028877966716077, guid: ec82bebaa194c9c49ab118b457d83104, type: 3}
   _hitSpace: {fileID: 1215121518}
   _hitBossSpace: {fileID: 1994246686}
   _distance: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &1653730875
 SpriteRenderer:
   m_ObjectHideFlags: 0
