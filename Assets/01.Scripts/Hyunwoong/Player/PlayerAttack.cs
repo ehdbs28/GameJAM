@@ -62,6 +62,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject _hitSpace;
     [SerializeField] private GameObject _hitBossSpace;
 
+    public AudioClip clip;
+
     [SerializeField] private RectTransform _numberLine;
 
     [SerializeField] private float _distance = 3f;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
@@ -11,7 +12,11 @@ public class MenuManager : MonoBehaviour
     private GameObject _escMenu;
     private GameObject _settingMenu;
 
+    private Image fade;
+
     private bool _isEsc = false;
+
+    PlayerAttack player;
     public bool IsEsc
     {
         set => _isEsc = value;
@@ -27,10 +32,22 @@ public class MenuManager : MonoBehaviour
         get => _isSetting;
     }
 
+    private bool isMain = false;
+
+    public bool IsMain
+    {
+        get => isMain;
+        set => isMain = value;
+    }
+
     private void Awake()
     {
         _escMenu = GameObject.Find("Canvas/ESCMenu/ESCPanel");
         _settingMenu = GameObject.Find("Canvas/ESCMenu/SettingMenu");
+
+        fade = GameObject.Find("Canvas/FadeImage").GetComponent<Image>();
+
+        player = FindObjectOfType<PlayerAttack>();
     }
 
     private void Update()
@@ -51,6 +68,7 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator Pause()
     {
+
         while (true)
         {
             if (_isEsc)
@@ -66,6 +84,16 @@ public class MenuManager : MonoBehaviour
                 _escMenu.GetComponent<Image>().DOFade(0, 0.5f);
 
                 yield return new WaitForSecondsRealtime(0.5f);
+            }
+
+            if (IsMain)
+            {
+                SoundManager.Instance.SFXPlay(player.clip);
+                yield return new WaitForSecondsRealtime(0.5F);
+                Time.timeScale = 1;
+
+                SceneManager.LoadScene("StartScene");
+
             }
         }
     }

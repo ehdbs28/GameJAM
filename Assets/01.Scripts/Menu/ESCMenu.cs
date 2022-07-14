@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class ESCMenu : ButtonManager
 {
@@ -19,15 +21,15 @@ public class ESCMenu : ButtonManager
             {
                 MenuManager.Instance.IsEsc = false;
             }
-            if(_currentBtnNum == 1)
+            if (_currentBtnNum == 1)
             {
                 MenuManager.Instance.IsEsc = false;
                 MenuManager.Instance.IsSetting = true;
             }
             if (_currentBtnNum == 0)
             {
-                //메뉴로이동
+                MenuManager.Instance.IsMain = true;
             }
         }
-    }
+    }   
 }
