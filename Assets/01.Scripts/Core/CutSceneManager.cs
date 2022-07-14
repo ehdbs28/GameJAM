@@ -46,6 +46,7 @@ public class CutSceneManager : MonoBehaviour
                 _bossName.DOColor(new Color(255, 255, 255, 1), 5);
                 yield return new WaitForSeconds(3f);
                 CameraManager.Instance.SetToMainVCam();
+                yield return new WaitForSeconds(2f);
                 _player.IsAttack = false;
                 _bossName.DOColor(new Color(255, 255, 255, 0), 5);
                 OnActive.Invoke();
@@ -57,15 +58,16 @@ public class CutSceneManager : MonoBehaviour
                 _bossName.DOColor(new Color(255, 255, 255, 1), 5);
                 yield return new WaitForSeconds(3f);
                 CameraManager.Instance.SetToMainVCam();
+                yield return new WaitForSeconds(2f);
                 _player.IsAttack = false;
                 _bossName.DOColor(new Color(255, 255, 255, 0), 5);
                 OnActive2.Invoke();
                 break;
             case "BossStart":
                 _player.IsAttack = true;
-                CameraManager.Instance.SetToBossZoomin();
                 _bossName.text = "-블러드 킹-";
                 _bossName.DOColor(new Color(255, 0, 0, 1), 5);
+                CameraManager.Instance.SetToBossZoomin();
                 yield return new WaitForSeconds(5f);
                 CameraManager.Instance.SetToBossVCam();
                 _bossName.DOColor(new Color(255, 0, 0, 0), 5);

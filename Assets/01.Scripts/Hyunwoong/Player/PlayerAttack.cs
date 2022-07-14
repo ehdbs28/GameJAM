@@ -121,6 +121,8 @@ public class PlayerAttack : MonoBehaviour
 
             transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
 
+            transform.rotation = Quaternion.identity;
+
             StageManager.Instance.IsStageUp = false;
 
         });
@@ -182,7 +184,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (EnemyManager.Instance.enemyList.Count != 0 && UIManager.Instance.IsClear == false)
                     {
-                        if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true)
+                        if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;

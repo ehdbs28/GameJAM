@@ -7,6 +7,9 @@ using DG.Tweening;
 public class Theme2Boss : Boss
 {
     [SerializeField] private GameObject _warningPrefab_1;
+    [SerializeField] private AudioClip _bumerangClip;
+    [SerializeField] private AudioClip _swordClip;
+    [SerializeField] private AudioClip _pickClip;
 
     private Animator _theme2BossAnim;
 
@@ -37,6 +40,7 @@ public class Theme2Boss : Boss
     private void Pattern1_Enter()
     {
         Debug.Log("패턴 원");
+        SoundManager.Instance.SFXPlay(_pickClip);
         _theme2BossAnim.SetTrigger("BossAttack1");
         DartAttack();
     }
@@ -72,6 +76,7 @@ public class Theme2Boss : Boss
     private void Pattern2_Enter()
     {
         Debug.Log("패턴 투");
+        SoundManager.Instance.SFXPlay(_bumerangClip);
         _theme2BossAnim.SetTrigger("BossAttack2");
         TurnAttack();
     }
@@ -107,6 +112,7 @@ public class Theme2Boss : Boss
     private void Pattern3_Enter()
     {
         Debug.Log("패턴 쓰리");
+        SoundManager.Instance.SFXPlay(_swordClip);
         _theme2BossAnim.SetTrigger("BossAttack3");
         WhipAttack();
     }
