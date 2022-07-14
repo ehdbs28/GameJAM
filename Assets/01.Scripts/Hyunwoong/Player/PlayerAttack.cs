@@ -189,6 +189,11 @@ public class PlayerAttack : MonoBehaviour
 
                             if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
                             {
+                                if(EnemyManager.Instance.enemyList[0].name == "Enemy_3")
+                                {
+                                    EnemyManager.Instance.enemyList[0].GetComponent<Animator>().Play("Enemy3");
+                                }
+
                                 isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
                                 EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);

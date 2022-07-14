@@ -97,7 +97,7 @@ public class StageManager : MonoBehaviour
         {
             case 0:
                 TimingManager.Instance.DeleteTimer();
-                EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_tutorial, "Enemy_3");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(4);
                 break;
@@ -121,7 +121,7 @@ public class StageManager : MonoBehaviour
                 break;
             case 4:
                 TimingManager.Instance.DeleteTimer();
-                EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_stage4, "Enemy_3");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(1.8f);
                 break;
@@ -133,7 +133,7 @@ public class StageManager : MonoBehaviour
                 break;
             case 6:
                 TimingManager.Instance.DeleteTimer();
-                EnemyManager.Instance.SpawnEnemy(_stage6, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_stage6, "Enemy_3");
                 _isBoss = false;
                 _backGrounds[0].SetActive(false);
                 _backGrounds[1].SetActive(true);
@@ -143,7 +143,7 @@ public class StageManager : MonoBehaviour
                 break;
             case 7:
                 TimingManager.Instance.DeleteTimer();
-                EnemyManager.Instance.SpawnEnemy(_stage7, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_stage7, "Enemy_2");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
                 break;
@@ -155,7 +155,7 @@ public class StageManager : MonoBehaviour
                 break;
             case 9:
                 TimingManager.Instance.DeleteTimer();
-                EnemyManager.Instance.SpawnEnemy(_stage9, "Enemy_1");
+                EnemyManager.Instance.SpawnEnemy(_stage9, "Enemy_3");
                 TimingManager.Instance.StopTime();
                 TimingManager.Instance.Timer(5);
                 break;
