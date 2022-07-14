@@ -55,6 +55,7 @@ public class Slow3 : StatUp
         }
         else
         {
+
             EnemyManager.Instance.Sec += 0.05f;
             seq.AppendInterval(0.5f);
             seq.AppendCallback(() =>

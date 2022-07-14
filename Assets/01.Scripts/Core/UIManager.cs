@@ -16,6 +16,11 @@ public class UIManager : MonoBehaviour
 
     public RectTransform _ablityPanelTrm;
 
+    bool isHowTo = false;
+
+    [SerializeField]
+    GameObject _howToPlayPanel;
+
     NumberLine numberLine;
 
     bool isClear = false;
@@ -45,10 +50,9 @@ public class UIManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.Escape) && isHowTo)
         {
-            isClear = true;
-            Ablity();
+            HowTo();
         }
     }
 
@@ -71,6 +75,21 @@ public class UIManager : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
 
+        PlayerPrefs.SetInt("Hard", 0);
+        FadeIn();
+        seq.AppendInterval(1.5f);
+
+        seq.AppendCallback(() =>
+        {
+            SceneManager.LoadScene(1);
+        });
+    }
+
+    public void HardMode()
+    {
+        Sequence seq = DOTween.Sequence();
+
+        PlayerPrefs.SetInt("Hard", 1);
         FadeIn();
         seq.AppendInterval(1.5f);
 
@@ -91,6 +110,13 @@ public class UIManager : MonoBehaviour
         {
             Application.Quit();
         });
+    }
+
+    public void HowTo()
+    {
+        isHowTo = !isHowTo;
+
+        _howToPlayPanel.SetActive(isHowTo ? true : false);
     }
 
     public void Ablity()

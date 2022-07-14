@@ -48,7 +48,16 @@ public class CameraManager : MonoBehaviour
         _mainVcam.Follow = _rigTrm;
         _mainPerlin.m_AmplitudeGain = 0;
 
-        SetToMainVCam();
+        SetToBossVCam();
+        Invoke("SetToMainVCam", 0.5f);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            //SetToMainVCam();
+        }
     }
 
     public void SetToMainVCam()

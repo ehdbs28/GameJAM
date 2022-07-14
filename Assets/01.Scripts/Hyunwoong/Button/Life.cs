@@ -56,6 +56,7 @@ public class Life : StatUp
         }
         else
         {
+
             _player.Damage += 0.5f;
             seq.AppendInterval(0.5f);
             seq.AppendCallback(() =>
