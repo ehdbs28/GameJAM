@@ -70,13 +70,12 @@ public class FinalBoss : Enemy
             WarningMark warning = PoolManager.Instance.Pop("WarningMark") as WarningMark;
             warning.transform.position = _attackPos;
             warning.transform.rotation = Quaternion.identity;
-            yield return new WaitForSecondsRealtime(1f);
             _anim.SetTrigger("IsDash");
             SoundManager.Instance.SFXPlay(_dashClip);
             float angle = Mathf.Atan2(transform.position.y - _attackPos.y, transform.position.x - _attackPos.x) * Mathf.Rad2Deg + _rotate;
             transform.eulerAngles = new Vector3(0, 0, angle);
-            transform.DOMove(_attackPos, 0.5f);
-            yield return new WaitForSecondsRealtime(0.5f);
+            transform.DOMove(_attackPos, 1f);
+            yield return new WaitForSecondsRealtime(1f);
             PoolManager.Instance.Push(warning.GetComponent<PoolableMono>());
             Collider2D hit = Physics2D.OverlapCircle(_attackPos, 1);
             if (hit)
@@ -89,6 +88,7 @@ public class FinalBoss : Enemy
                     }
                 }
             }
+            yield return new WaitForSecondsRealtime(3f);
         }
     }
 }

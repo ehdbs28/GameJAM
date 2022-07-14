@@ -192,7 +192,7 @@ public class StageManager : MonoBehaviour
                 SoundManager.Instance.BGMPlay(4);
                 EnemyManager.Instance.SpawnEnemy(_stage11, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                CameraManager.Instance.SetToBossVCam();
+                //CameraManager.Instance.SetToBossVCam();
                 break;
 
             default:
