@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Image fadeImage;
 
+    private PlayerAttack player;
+
     public RectTransform _ablityPanelTrm;
 
     bool isClear = false;
@@ -32,6 +34,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        player = FindObjectOfType<PlayerAttack>();
+
         theme1 = FindObjectOfType<Theme1Boss>();
     }
 
@@ -108,7 +112,7 @@ public class UIManager : MonoBehaviour
             if (isClear == false && index == 1)
             {
                 index--;
-                seq.Append(_ablityPanelTrm.transform.DOMoveY(1200, 0.5f));
+                _ablityPanelTrm.transform.DOMoveY(1200, 0.5f);
             }
 
             yield return new WaitForSeconds(0.1f);

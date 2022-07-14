@@ -101,6 +101,8 @@ public class PlayerAttack : MonoBehaviour
         Sequence sq = DOTween.Sequence();
 
         StageManager.Instance.IsStageUp = isDead ? true : false;
+        StageManager.Instance.CurrentStageNum += 1;
+        StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
 
         sq.Append(transform.localScale.x > 0 ? transform.DOMoveX(10, 1.5f) : transform.DOMoveX(-10, 1.5f));
         sq.OnComplete(() =>
@@ -109,14 +111,12 @@ public class PlayerAttack : MonoBehaviour
             transform.localScale = new Vector2(transform.localScale.x * -1, 1);
             rotate = isLeft ? 180 : 360;
             transform.position = new Vector2(transform.position.x, transform.position.y + 7);
-            StageManager.Instance.CurrentStageNum += 1;
-            StageManager.Instance.StageUp(StageManager.Instance.CurrentStageNum);
             StageManager.Instance.StageStart(StageManager.Instance.CurrentStageNum);
 
             transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
 
             StageManager.Instance.IsStageUp = false;
-            
+
         });
     }
 
@@ -148,7 +148,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !isAttack? true : false;
+            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !isAttack ? true : false;
 
             if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == true)
             {
@@ -192,7 +192,7 @@ public class PlayerAttack : MonoBehaviour
 
                             if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
                             {
-                                if(EnemyManager.Instance.enemyList[0].name == "Enemy_3")
+                                if (EnemyManager.Instance.enemyList[0].name == "Enemy_3")
                                 {
                                     EnemyManager.Instance.enemyList[0].GetComponent<Animator>().Play("Enemy3");
                                 }

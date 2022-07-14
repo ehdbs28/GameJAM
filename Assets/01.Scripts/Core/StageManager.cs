@@ -100,12 +100,12 @@ public class StageManager : MonoBehaviour
 
     public void StageUp(int stageNum)
     {
+        UIManager.Instance.IsClear = true;
         player.IsAttack = true;
         CameraManager.Instance.RigMove(stageNum, 2f);
         CameraManager.Instance.ShakeCam(6f, 2f);
         UIManager.Instance.Fade();
         UIManager.Instance.Ablity();
-        UIManager.Instance.IsClear = true;
     }
 
     public void StageStart(int stageNum)
