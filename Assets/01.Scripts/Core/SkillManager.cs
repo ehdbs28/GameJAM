@@ -15,9 +15,6 @@ public class SkillManager : MonoBehaviour
     [SerializeField]
     Transform Trm_1;
 
-    public Image image;
-    public Image image_1;
-
     public void SkillSelect()
     {
         Image skillImage = Instantiate(skill[Random.Range(0, 6)].GetComponent<Image>());
