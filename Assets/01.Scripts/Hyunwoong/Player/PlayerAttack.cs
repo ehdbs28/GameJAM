@@ -250,7 +250,7 @@ public class PlayerAttack : MonoBehaviour
                             {
                                 isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
-                                EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(9);
+                                EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(1);
                             }
                         }
                     }
