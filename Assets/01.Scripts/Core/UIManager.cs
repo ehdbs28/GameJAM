@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            isClear=true;
+            isClear = true;
             Ablity();
         }
     }
@@ -93,21 +93,19 @@ public class UIManager : MonoBehaviour
     IEnumerator AblityPanelUp()
     {
         Sequence seq = DOTween.Sequence();
+
         while (true)
         {
             if (isClear == true && index == 0)
             {
                 index++;
 
-                seq.Append(_ablityPanelTrm.transform.DOMoveY(0, 0.5f));
+                _ablityPanelTrm.transform.DOMoveY(0, 0.5f);
 
-                seq.OnComplete(() =>
-                {
-                    SkillManager.Instance.SkillSelect();
-                });
-                
+                SkillManager.Instance.SkillSelect();
+
             }
-            if(isClear == false && index == 1)
+            if (isClear == false && index == 1)
             {
                 index--;
                 seq.Append(_ablityPanelTrm.transform.DOMoveY(1200, 0.5f));
