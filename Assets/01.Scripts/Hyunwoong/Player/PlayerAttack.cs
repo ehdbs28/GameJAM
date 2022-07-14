@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public float Speed
     {
         get { return speed; }
-        set { speed = Mathf.Clamp(speed, 0.01f, 0.5f);}
+        set { speed = Mathf.Clamp(speed, 0.01f, 0.5f); }
     }
 
     bool isDead = false;
@@ -114,6 +114,7 @@ public class PlayerAttack : MonoBehaviour
             transform.DOMoveX(transform.localScale.x > 0 ? -8.21f : 8.21f, 1.5f);
 
             StageManager.Instance.IsStageUp = false;
+            
         });
     }
 
@@ -145,7 +146,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0? true: false;
+            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0 ? true : false;
 
             if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == true)
             {
@@ -157,7 +158,7 @@ public class PlayerAttack : MonoBehaviour
 
             RaycastHit2D hit;
 
-            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance,layerMask);
+            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance, layerMask);
             Debug.DrawRay(_mousePos, Vector3.forward, Color.yellow, 0.5f);
 
             if (hit && isDead == false)
@@ -197,7 +198,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     if (EnemyManager.Instance.bossList.Count != 0)
                     {
-                        if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack )
+                        if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
