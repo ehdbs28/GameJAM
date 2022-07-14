@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using DG.Tweening;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
     Animator anim;
     private Rigidbody2D _rigid;
+
+    Light2D _light;
     float _damage = 1f;
     public float Damage
     {
@@ -85,6 +88,8 @@ public class PlayerAttack : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
         _rigid = GetComponent<Rigidbody2D>();
 
+        _light = GameObject.Find("Flash").GetComponent<Light2D>();
+
         number = FindObjectOfType<NumberLine>();
         Sequence seq = DOTween.Sequence();
 
@@ -158,16 +163,14 @@ public class PlayerAttack : MonoBehaviour
         {
             UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !isAttack ? true : false;
 
+            if(EnemyManager.Instance.bossList.Count == 0 && StageManager.Instance.CurrentStageNum == 11)
+            {
+                SceneManager.LoadScene("Ending");
+            }
+
             if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == true)
             {
-                if(StageManager.Instance.CurrentStageNum == 11)
-                {
-                    Debug.Log("게임클리어");
-                }
-                else
-                {
-                    StageClear();
-                }
+                StageClear();
             }
 
             _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -245,7 +248,7 @@ public class PlayerAttack : MonoBehaviour
                             {
                                 isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
-                                EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(1);
+                                EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(9);
                             }
                         }
                     }
