@@ -37,6 +37,13 @@ public class Dash115 : StatUp
 
             CutSceneManager.Instance.Theme2CutScene();
         }
+        else if(StageManager.Instance.CurrentStageNum == 11)
+        {
+            _player.Speed -= 0.1f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.BossStartCutScene();
+        }
         else
         {
             _player.Speed -= 0.1f;

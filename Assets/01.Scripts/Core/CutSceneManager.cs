@@ -13,6 +13,7 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] PlayerAttack _player;
     [SerializeField] UnityEvent OnActive;
     [SerializeField] UnityEvent OnActive2;
+    [SerializeField] UnityEvent OnActive3;
 
     public void Intro()
     {
@@ -27,6 +28,11 @@ public class CutSceneManager : MonoBehaviour
     public void Theme2CutScene()
     {
         StartCoroutine(CutSceneCoroutine("Theme2"));
+    }
+
+    public void BossStartCutScene()
+    {
+        StartCoroutine(CutSceneCoroutine("BossStart"));
     }
 
     IEnumerator CutSceneCoroutine(string name)
@@ -54,6 +60,18 @@ public class CutSceneManager : MonoBehaviour
                 _player.IsAttack = false;
                 _bossName.DOColor(new Color(255, 255, 255, 0), 5);
                 OnActive2.Invoke();
+                break;
+            case "BossStart":
+                _player.IsAttack = true;
+                CameraManager.Instance.SetToBossZoomin();
+                _bossName.text = "'블러드 킹'";
+                _bossName.DOColor(new Color(255, 0, 0, 1), 5);
+                yield return new WaitForSeconds(5f);
+                CameraManager.Instance.SetToBossVCam();
+                _player.IsAttack = false;
+                _bossName.DOColor(new Color(255, 0, 0, 0), 5);
+                yield return new WaitForSeconds(3f);
+                OnActive3.Invoke();
                 break;
         }
     }

@@ -14,11 +14,13 @@ public class CameraManager : MonoBehaviour
     private CinemachineVirtualCamera _mainVcam;
     private CinemachineVirtualCamera _theme1Vcam;
     private CinemachineVirtualCamera _theme2Vcam;
+    private CinemachineVirtualCamera _bossZoomin;
     private CinemachineVirtualCamera _bossPhase1Vcam;
 
     private CinemachineBasicMultiChannelPerlin _mainPerlin;
     private CinemachineBasicMultiChannelPerlin _theme1Perlin;
     private CinemachineBasicMultiChannelPerlin _theme2Perlin;
+    private CinemachineBasicMultiChannelPerlin _bossZoominPerlin;
     private CinemachineBasicMultiChannelPerlin _bossPhasePerlin;
 
     private const int _backPriority = 10;
@@ -34,11 +36,13 @@ public class CameraManager : MonoBehaviour
         _mainVcam = GameObject.Find("MainVcam").GetComponent<CinemachineVirtualCamera>();
         _theme1Vcam = GameObject.Find("Theme1VCam").GetComponent<CinemachineVirtualCamera>();
         _theme2Vcam = GameObject.Find("Theme2VCam").GetComponent<CinemachineVirtualCamera>();
+        _bossZoomin = GameObject.Find("BossZoomIn").GetComponent<CinemachineVirtualCamera>();
         _bossPhase1Vcam = GameObject.Find("BossPhase1VCam").GetComponent<CinemachineVirtualCamera>();
 
         _mainPerlin = _mainVcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         _theme1Perlin = _theme1Vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         _theme2Perlin = _theme1Vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _bossZoominPerlin = _bossZoomin.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         _bossPhasePerlin = _bossPhase1Vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         _mainVcam.Follow = _rigTrm;
@@ -52,6 +56,7 @@ public class CameraManager : MonoBehaviour
         _mainVcam.Priority = _frontPriority;
         _theme1Vcam.Priority = _backPriority;
         _theme2Vcam.Priority = _backPriority;
+        _bossZoomin.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _backPriority;
         if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _mainVcam;
@@ -63,6 +68,7 @@ public class CameraManager : MonoBehaviour
         _mainVcam.Priority = _backPriority;
         _theme1Vcam.Priority = _frontPriority;
         _theme2Vcam.Priority = _backPriority;
+        _bossZoomin.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _backPriority;
         if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _theme1Vcam;
@@ -74,10 +80,23 @@ public class CameraManager : MonoBehaviour
         _mainVcam.Priority = _backPriority;
         _theme1Vcam.Priority = _backPriority;
         _theme2Vcam.Priority = _frontPriority;
+        _bossZoomin.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _backPriority;
         if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _theme2Vcam;
         _activePerlin = _theme2Perlin;
+    }
+
+    public void SetToBossZoomin()
+    {
+        _mainVcam.Priority = _backPriority;
+        _theme1Vcam.Priority = _backPriority;
+        _theme2Vcam.Priority = _backPriority;
+        _bossZoomin.Priority = _frontPriority;
+        _bossPhase1Vcam.Priority = _backPriority;
+        if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
+        _activeVcam = _bossZoomin;
+        _activePerlin = _bossZoominPerlin;
     }
 
     public void SetToBossVCam()
@@ -85,6 +104,7 @@ public class CameraManager : MonoBehaviour
         _mainVcam.Priority = _backPriority;
         _theme1Vcam.Priority = _backPriority;
         _theme2Vcam.Priority = _backPriority;
+        _bossZoomin.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _frontPriority;
         if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _bossPhase1Vcam;
