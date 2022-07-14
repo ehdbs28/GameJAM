@@ -18,7 +18,25 @@ public class Life : StatUp
 
     public override void Stat()
     {
-        StageManager.Instance.DeltaTime += 0.2f;
-        UIManager.Instance.IsClear = false;
+        if(StageManager.Instance.CurrentStageNum == 5)
+        {
+            _player.Damage += 0.5f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+        else if (StageManager.Instance.CurrentStageNum == 10)
+        {
+            _player.Damage += 0.5f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme2CutScene();
+        }
+        else
+        {
+            _player.Damage += 0.5f;
+            UIManager.Instance.IsClear = false;
+            _player.IsAttack = false;
+        }
     }
 }

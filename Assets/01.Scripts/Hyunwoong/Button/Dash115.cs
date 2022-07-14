@@ -23,9 +23,26 @@ public class Dash115 : StatUp
 
     public override void Stat()
     {
-        _player.Speed -= 0.1f;
-        UIManager.Instance.IsClear = false;
-        
-        _player.IsAttack = false;
+        if(StageManager.Instance.CurrentStageNum == 5)
+        {
+            _player.Speed -= 0.1f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+        else if (StageManager.Instance.CurrentStageNum == 10)
+        {
+            _player.Speed -= 0.1f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme2CutScene();
+        }
+        else
+        {
+            _player.Speed -= 0.1f;
+            UIManager.Instance.IsClear = false;
+
+            _player.IsAttack = false;
+        }
     }
 }

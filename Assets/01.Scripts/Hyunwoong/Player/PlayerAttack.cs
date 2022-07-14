@@ -7,6 +7,7 @@ using DG.Tweening;
 public class PlayerAttack : MonoBehaviour
 {
     Animator anim;
+    private Rigidbody2D _rigid;
     float _damage = 1f;
     public float Damage
     {
@@ -78,6 +79,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
+        _rigid = GetComponent<Rigidbody2D>();
         Sequence seq = DOTween.Sequence();
 
         seq.Append(transform.DOMoveX(-8.21f, 1.5f));
@@ -185,12 +187,17 @@ public class PlayerAttack : MonoBehaviour
 
                             seq.OnComplete(() =>
                             {
-                                isAttack = false;
                                 StopCoroutine(AfterEffect());
                             });
 
                             if (EnemyManager.Instance.enemyList[0].transform.CompareTag("Enemy"))
                             {
+                                if(EnemyManager.Instance.enemyList[0].name == "Enemy_3")
+                                {
+                                    EnemyManager.Instance.enemyList[0].GetComponent<Animator>().Play("Enemy3");
+                                }
+
+                                isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
                                 EnemyManager.Instance.EnemyDie(EnemyManager.Instance.enemyList[0]);
                             }
@@ -201,7 +208,7 @@ public class PlayerAttack : MonoBehaviour
                         if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
                             Sequence seq = DOTween.Sequence();
-                            isAttack = true;
+                            isAttack = true; //
                             SoundManager.Instance.SFXPlay(_dashAudioClip);
                             anim.SetTrigger("IsAttack");
                             GameObject Blink = Instantiate(_blink);
@@ -216,12 +223,12 @@ public class PlayerAttack : MonoBehaviour
 
                             seq.OnComplete(() =>
                             {
-                                isAttack = false;
                                 StopCoroutine(AfterEffect());
                             });
 
                             if (EnemyManager.Instance.bossList[0].transform.CompareTag("Boss"))
                             {
+                                isAttack = false;
                                 SoundManager.Instance.SFXPlay(_killAudioClip);
                                 EnemyManager.Instance.bossList[0].transform.GetComponent<IDamaged>().Damaged(1);
                             }
@@ -248,8 +255,29 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             _isDodge = true;
+            Smoke smoke = PoolManager.Instance.Pop("Smoke") as Smoke;
+            smoke.transform.position = transform.position;
+            anim.SetTrigger("IsDodge");
+            StartCoroutine(DodgeCoroutine());
         }
     }
+
+    IEnumerator DodgeCoroutine()
+    {
+        _rigid.AddForce(transform.localScale.x > 0 ? new Vector2(-3, -3) : new Vector2(3, 3), ForceMode2D.Impulse);
+        Time.timeScale = 0.3f;
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        DashFx dashFx = PoolManager.Instance.Pop("DashFx") as DashFx;
+        dashFx.transform.position = transform.localScale.x > 0 ? new Vector2(transform.position.x - 1, transform.position.y) : new Vector2(transform.position.x + 1, transform.position.y);
+        dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(2, 2, 2) : new Vector3(-2, 2, 2);
+        Time.timeScale = 1;
+    }
+
+    public void OnDodge() //Animation Event
+    {
+        _isDodge = false;
+    }
+
     public void PlayerDie()
     {
         if (EnemyManager.Instance.enemyList.Count != 0 && isDead == false && isAttack == false)

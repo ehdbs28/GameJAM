@@ -53,7 +53,7 @@ public class CameraManager : MonoBehaviour
         _theme1Vcam.Priority = _backPriority;
         _theme2Vcam.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _backPriority;
-
+        if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _mainVcam;
         _activePerlin = _mainPerlin;
     }
@@ -64,7 +64,7 @@ public class CameraManager : MonoBehaviour
         _theme1Vcam.Priority = _frontPriority;
         _theme2Vcam.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _backPriority;
-
+        if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _theme1Vcam;
         _activePerlin = _theme1Perlin;
     }
@@ -75,7 +75,7 @@ public class CameraManager : MonoBehaviour
         _theme1Vcam.Priority = _backPriority;
         _theme2Vcam.Priority = _frontPriority;
         _bossPhase1Vcam.Priority = _backPriority;
-
+        if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _theme2Vcam;
         _activePerlin = _theme2Perlin;
     }
@@ -86,7 +86,7 @@ public class CameraManager : MonoBehaviour
         _theme1Vcam.Priority = _backPriority;
         _theme2Vcam.Priority = _backPriority;
         _bossPhase1Vcam.Priority = _frontPriority;
-
+        if (_activePerlin != null) _activePerlin.m_AmplitudeGain = 0;
         _activeVcam = _bossPhase1Vcam;
         _activePerlin = _bossPhasePerlin;
     }

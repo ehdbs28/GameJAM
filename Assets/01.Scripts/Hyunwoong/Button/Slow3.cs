@@ -22,9 +22,27 @@ public class Slow3 : StatUp
 
     public override void Stat()
     {
-        EnemyManager.Instance.Sec += 0.05f;
+        if(StageManager.Instance.CurrentStageNum == 5)
+        {
+            EnemyManager.Instance.Sec += 0.05f;
+            UIManager.Instance.IsClear = false;
 
-        UIManager.Instance.IsClear = false;
-        _player.IsAttack = false;
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+        else if (StageManager.Instance.CurrentStageNum == 10)
+        {
+            EnemyManager.Instance.Sec += 0.05f;
+            UIManager.Instance.IsClear = false;
+
+            CutSceneManager.Instance.Theme2CutScene();
+        }
+        else
+        {
+            EnemyManager.Instance.Sec += 0.05f;
+
+            UIManager.Instance.IsClear = false;
+            _player.IsAttack = false;
+        }
+
     }
 }

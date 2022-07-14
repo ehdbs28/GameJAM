@@ -91,7 +91,7 @@ public class Theme1Boss : Boss
     {
         GameObject warning = Instantiate(_warning, transform);
         warning.transform.localScale = new Vector2(12, 1);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         Destroy(warning);
 
         BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
@@ -118,11 +118,11 @@ public class Theme1Boss : Boss
     IEnumerator SlamAttack()
     {
         GameObject circleWarning = Instantiate(_circleWarning);
-        circleWarning.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
+        circleWarning.transform.position = new Vector2(transform.position.x, transform.position.y);
         circleWarning.transform.localScale = new Vector2(3, 3);
         yield return new WaitForSeconds(0.5f);
         Destroy(circleWarning);
-        Collider2D hit = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 0.5f), 0.5f);
+        Collider2D hit = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y), 0.5f);
         if (hit)
         {
             if (hit.transform.gameObject != null)
