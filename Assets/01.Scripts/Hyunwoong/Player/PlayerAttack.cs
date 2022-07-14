@@ -152,7 +152,14 @@ public class PlayerAttack : MonoBehaviour
 
             if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == true)
             {
-                StageClear();
+                if(StageManager.Instance.CurrentStageNum == 11)
+                {
+                    Debug.Log("게임클리어");
+                }
+                else
+                {
+                    StageClear();
+                }
             }
 
             _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

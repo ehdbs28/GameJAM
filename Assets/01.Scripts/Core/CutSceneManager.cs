@@ -42,7 +42,7 @@ public class CutSceneManager : MonoBehaviour
             case "Theme1":
                 _player.IsAttack = true;
                 CameraManager.Instance.SetToTheme1();
-                _bossName.text = "'쇼크 스위퍼'";
+                _bossName.text = "-쇼크 스위퍼-";
                 _bossName.DOColor(new Color(255, 255, 255, 1), 5);
                 yield return new WaitForSeconds(3f);
                 CameraManager.Instance.SetToMainVCam();
@@ -53,7 +53,7 @@ public class CutSceneManager : MonoBehaviour
             case "Theme2":
                 _player.IsAttack = true;
                 CameraManager.Instance.SetToTheme2();
-                _bossName.text = "'트리플 세이버'";
+                _bossName.text = "-트리플 세이버-";
                 _bossName.DOColor(new Color(255, 255, 255, 1), 5);
                 yield return new WaitForSeconds(3f);
                 CameraManager.Instance.SetToMainVCam();
@@ -64,13 +64,13 @@ public class CutSceneManager : MonoBehaviour
             case "BossStart":
                 _player.IsAttack = true;
                 CameraManager.Instance.SetToBossZoomin();
-                _bossName.text = "'블러드 킹'";
+                _bossName.text = "-블러드 킹-";
                 _bossName.DOColor(new Color(255, 0, 0, 1), 5);
                 yield return new WaitForSeconds(5f);
                 CameraManager.Instance.SetToBossVCam();
-                _player.IsAttack = false;
                 _bossName.DOColor(new Color(255, 0, 0, 0), 5);
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
+                _player.IsAttack = false;
                 OnActive3.Invoke();
                 break;
         }
