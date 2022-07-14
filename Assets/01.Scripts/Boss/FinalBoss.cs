@@ -35,6 +35,7 @@ public class FinalBoss : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, angle);
             transform.DOMove(_attackPos, 0.5f);
             yield return new WaitForSecondsRealtime(0.5f);
+            //RaycastHit2D hit = Physics2D.OVer
         }
     }
 }
