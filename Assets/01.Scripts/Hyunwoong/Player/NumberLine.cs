@@ -16,6 +16,6 @@ public class NumberLine : MonoBehaviour
 
     public void ViewStage()
     {
-        player.DOMove(rTransform[StageManager.Instance.CurrentStageNum].transform.position, 1f);
+        player.DOMove(rTransform[StageManager.Instance.CurrentStageNum].transform.position, 0f);
     }
 }

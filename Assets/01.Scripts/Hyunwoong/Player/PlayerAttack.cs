@@ -68,6 +68,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private LayerMask layerMask;
 
+    NumberLine number;   
+
     private BoxCollider2D _collider;
     private Vector2 _mousePos;
 
@@ -82,6 +84,8 @@ public class PlayerAttack : MonoBehaviour
     {
         _collider = GetComponent<BoxCollider2D>();
         _rigid = GetComponent<Rigidbody2D>();
+
+        number = FindObjectOfType<NumberLine>();
         Sequence seq = DOTween.Sequence();
 
         seq.Append(transform.DOMoveX(-8.21f, 1.5f));
