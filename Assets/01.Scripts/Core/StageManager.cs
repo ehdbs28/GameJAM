@@ -79,7 +79,7 @@ public class StageManager : MonoBehaviour
             _thema1Boss.SetActive(true);
             //OnActive.Invoke();
         }
-        if(_currentStageNum == 10 && _isBoss == false)
+        if (_currentStageNum == 10 && _isBoss == false)
         {
             _isBoss = true;
             EnemyManager.Instance.bossList.Add(_thema2Boss.GetComponent<Enemy>());
@@ -90,7 +90,6 @@ public class StageManager : MonoBehaviour
 
     public void StageUp(int stageNum)
     {
-        SkillManager.Instance.SkillSelect();
         UIManager.Instance.IsClear = true;
         player.IsAttack = true;
         CameraManager.Instance.RigMove(stageNum, 2f);
@@ -147,25 +146,25 @@ public class StageManager : MonoBehaviour
                 _backGrounds[1].SetActive(true);
                 SoundManager.Instance.BGMPlay(2);
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(5);
+                TimingManager.Instance.Timer(2);
                 break;
             case 7:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage7, "Enemy_2");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(5);
+                TimingManager.Instance.Timer(1.6f);
                 break;
             case 8:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage8, "Enemy_1");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(5);
+                TimingManager.Instance.Timer(1.2f);
                 break;
             case 9:
                 TimingManager.Instance.DeleteTimer();
                 EnemyManager.Instance.SpawnEnemy(_stage9, "Enemy_3");
                 TimingManager.Instance.StopTime();
-                TimingManager.Instance.Timer(5);
+                TimingManager.Instance.Timer(0.8f);
                 break;
             case 10:
                 TimingManager.Instance.DeleteTimer();

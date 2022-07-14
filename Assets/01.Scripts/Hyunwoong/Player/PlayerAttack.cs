@@ -148,7 +148,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && UIManager.Instance.IsClear == false)
         {
-            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0 ? true : false;
+            UIManager.Instance.IsClear = EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !isAttack? true : false;
 
             if (EnemyManager.Instance.enemyList.Count == 0 && EnemyManager.Instance.bossList.Count == 0 && !StageManager.Instance.IsStageUp && UIManager.Instance.IsClear == true)
             {
@@ -160,7 +160,7 @@ public class PlayerAttack : MonoBehaviour
 
             RaycastHit2D hit;
 
-            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance, layerMask);
+            hit = Physics2D.Raycast(_mousePos, Vector3.forward, _distance);
             Debug.DrawRay(_mousePos, Vector3.forward, Color.yellow, 0.5f);
 
             if (hit && isDead == false)

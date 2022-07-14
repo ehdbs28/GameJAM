@@ -89,18 +89,33 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(AblityPanelUp());
     }
-
+    int index = 0;
     IEnumerator AblityPanelUp()
     {
+        Sequence seq = DOTween.Sequence();
         while (true)
         {
-            if (isClear == true)
+            if (isClear == true && index == 0)
             {
-                _ablityPanelTrm.transform.DOMoveY(0, 0.5f);
+                index++;
+
+                seq.Append(_ablityPanelTrm.transform.DOMoveY(0, 0.5f));
+
+                seq.OnComplete(() =>
+                {
+                    SkillManager.Instance.SkillSelect();
+                });
+                
             }
-            if(isClear == false)
+            if(isClear == false && index == 1)
             {
-                _ablityPanelTrm.transform.DOMoveY(1200, 0.5f);
+                index--;
+                seq.Append(_ablityPanelTrm.transform.DOMoveY(1200, 0.5f));
+
+                seq.OnComplete(() =>
+                {
+                    SkillManager.Instance.SkillDel();
+                });
             }
 
             yield return new WaitForSeconds(0.1f);

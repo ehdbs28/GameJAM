@@ -10,6 +10,10 @@ public class Theme1Boss : Boss
     [SerializeField] private GameObject _warning;
     [SerializeField] private GameObject _circleWarning;
 
+    [SerializeField] private AudioClip _audioClip;
+    [SerializeField] private AudioClip _audioClip_1;
+    [SerializeField] private AudioClip _audioClip_2;
+
     private Animator _bossAnim;
 
     private float sec = 2f;
@@ -49,6 +53,8 @@ public class Theme1Boss : Boss
         Debug.Log("패턴 원");
         StartCoroutine(SweepAttack());
         _bossAnim.SetTrigger("SweepAttack");
+        SoundManager.Instance.SFXPlay(_audioClip);
+        SoundManager.Instance.SFXPlay(_audioClip_1);
     }
 
     private void Pattern2_Enter()
@@ -56,6 +62,7 @@ public class Theme1Boss : Boss
         Debug.Log("패턴 투");
         StartCoroutine(SlamAttack());
         _bossAnim.SetTrigger("SpinSlamAttack");
+        SoundManager.Instance.SFXPlay(_audioClip_2);
     }
 
     private void Pattern3_Enter()
@@ -63,6 +70,7 @@ public class Theme1Boss : Boss
         Debug.Log("패턴 쓰리");
         StartCoroutine(SlamAttack());
         _bossAnim.SetTrigger("SlamAttack");
+        SoundManager.Instance.SFXPlay(_audioClip_2);
     }
 
     private void Death_Enter()
