@@ -24,7 +24,6 @@ public class TimingManager : MonoBehaviour
     {
 
         StopCoroutine(TimeCoroutine(3));
-        print("Å¸ÀÌ¸Ó ¸ØÃã");
 
     }
 
@@ -50,7 +49,6 @@ public class TimingManager : MonoBehaviour
 
 
         yield return new WaitUntil(() => UIManager.Instance.IsClear == false);
-        print(UIManager.Instance.IsClear);
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         _timerTxt.DOColor(new Color(255, 0, 0, 0.5f), sec);
         _timerTxt.transform.DOScale(new Vector3(2, 2, 2), sec);

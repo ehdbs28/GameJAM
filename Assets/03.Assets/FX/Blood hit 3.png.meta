@@ -247,12 +247,12 @@ TextureImporter:
       name: Blood hit 3_5
       rect:
         serializedVersion: 2
-        x: 410
-        y: 0
-        width: 82
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 440
+        y: 10
+        width: 32
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5015974, y: 0.47770193}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

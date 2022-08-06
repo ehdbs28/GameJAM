@@ -98,7 +98,6 @@ public class PlayerAttack : MonoBehaviour
         seq.Append(transform.DOMoveX(-8.21f, 1.5f));
         seq.OnComplete(() =>
         {
-            print("dlsdl");
             isAttack = false;
         });
 
@@ -189,7 +188,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (EnemyManager.Instance.enemyList.Count != 0 && UIManager.Instance.IsClear == false)
                     {
-                        if (hit.transform.position == EnemyManager.Instance.enemyList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
+                        if (hit.transform.gameObject.tag == "HitSpace" && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
                             Sequence seq = DOTween.Sequence();
                             isAttack = true;
@@ -225,7 +224,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     if (EnemyManager.Instance.bossList.Count != 0)
                     {
-                        if (hit.transform.position == EnemyManager.Instance.bossList[0].transform.position && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
+                        if (hit.transform.CompareTag("HitBossSpace") && hit.transform.GetComponent<PoolableMono>() == true && !isAttack)
                         {
                             Sequence seq = DOTween.Sequence();
                             isAttack = true; 
@@ -255,21 +254,10 @@ public class PlayerAttack : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    return;
-                };
             }
             else
             {
                 PlayerDie();
-                /*if(EnemyManager.Instance.enemyList.Count != 0 && isDead == false)
-                {
-                    PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
-                    print("asd");
-                    player.Damaged(1);
-                    isDead = true;
-                }*/
             }
         }
         if (Input.GetMouseButtonUp(1) && !_isDodge)
