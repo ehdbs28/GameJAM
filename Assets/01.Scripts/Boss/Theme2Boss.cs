@@ -127,7 +127,7 @@ public class Theme2Boss : Boss
         CameraManager.Instance.ShakeCam(2f, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            TimeControlManager.Instance.ModifyTimeScale(1f, 4f);
+            TimeControlManager.Instance.ModifyTimeScale(1f, 2f);
         });
 
         _theme2BossAnim.SetTrigger("IsDie");
