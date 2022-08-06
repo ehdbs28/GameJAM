@@ -2039,6 +2039,7 @@ MonoBehaviour:
   startButton: {fileID: 0}
   fadeImage: {fileID: 1259967657}
   _ablityPanelTrm: {fileID: 215382694}
+  _howToPlayPanel: {fileID: 0}
 --- !u!82 &443407412
 AudioSource:
   m_ObjectHideFlags: 0

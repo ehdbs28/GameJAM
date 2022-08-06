@@ -272,7 +272,7 @@ public class PlayerAttack : MonoBehaviour
                 }*/
             }
         }
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) && !_isDodge)
         {
             _isDodge = true;
             Smoke smoke = PoolManager.Instance.Pop("Smoke") as Smoke;
@@ -305,6 +305,10 @@ public class PlayerAttack : MonoBehaviour
     public void OnDodge() //Animation Event
     {
         _isDodge = false;
+        DashFx dashFx = PoolManager.Instance.Pop("DashFx") as DashFx;
+        dashFx.transform.position = transform.localScale.x > 0 ? new Vector2(transform.position.x - 1, transform.position.y) : new Vector2(transform.position.x + 1, transform.position.y);
+        dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(2, 2, 2) : new Vector3(-2, 2, 2);
+        Time.timeScale = 1;
     }
 
     public void PlayerDie()

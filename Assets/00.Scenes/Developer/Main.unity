@@ -2039,6 +2039,7 @@ MonoBehaviour:
   startButton: {fileID: 0}
   fadeImage: {fileID: 1259967657}
   _ablityPanelTrm: {fileID: 215382694}
+  _howToPlayPanel: {fileID: 0}
 --- !u!82 &443407412
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2559,7 +2560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTrm: {fileID: 1653730876}
   _dashClip: {fileID: 8300000, guid: 95ad4fde8f35d664c882618a851fb059, type: 3}
-  _afterEffect: {fileID: 8510103502539891122, guid: 0f95d78052f33224d944d2c2051f3e23, type: 3}
 --- !u!114 &462784074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17050,6 +17050,7 @@ MonoBehaviour:
   _blink: {fileID: 1235028877966716077, guid: ec82bebaa194c9c49ab118b457d83104, type: 3}
   _hitSpace: {fileID: 1215121518}
   _hitBossSpace: {fileID: 1994246686}
+  clip: {fileID: 0}
   _numberLine: {fileID: 1639980270}
   _distance: 1
   layerMask:
