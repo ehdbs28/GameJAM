@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     }
 
     Theme1Boss theme1;
+    private PlayerAttack _player;
 
     private void Start()
     {
@@ -46,6 +47,8 @@ public class UIManager : MonoBehaviour
         theme1 = FindObjectOfType<Theme1Boss>();
 
         numberLine = FindObjectOfType<NumberLine>();
+
+        _player = FindObjectOfType<PlayerAttack>();
     }
 
     public void Update()
@@ -119,37 +122,6 @@ public class UIManager : MonoBehaviour
         _howToPlayPanel.SetActive(isHowTo ? true : false);
     }
 
-    public void Ablity()
-    {
-        StartCoroutine(AblityPanelUp());
-    }
-    int index = 0;
-    IEnumerator AblityPanelUp()
-    {
-        Sequence seq = DOTween.Sequence();
-
-        while (true)
-        {
-            if (isClear == true && index == 0)
-            {
-                index++;
-
-                _ablityPanelTrm.transform.DOMoveY(0, 0.5f);
-                numberLine.ViewStage();
-                SkillManager.Instance.SkillSelect();
-
-            }
-            if (isClear == false && index == 1)
-            {
-                index--;
-                _ablityPanelTrm.transform.DOMoveY(1200, 0.5f);
-            }
-
-            yield return new WaitForSeconds(0.1f);
-
-        }
-    }
-
     IEnumerator IEFade()
     {
         FadeIn();
@@ -157,5 +129,23 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         FadeOut();
+
+        yield return new WaitForSeconds(0.7f);
+
+        isClear = false;
+        _player.IsAttack = false;
+
+        if (StageManager.Instance.CurrentStageNum == 5)
+        {
+            CutSceneManager.Instance.Theme1CutScene();
+        }
+        else if (StageManager.Instance.CurrentStageNum == 10)
+        {
+            CutSceneManager.Instance.Theme2CutScene();
+        }
+        else if (StageManager.Instance.CurrentStageNum == 11)
+        {
+            CutSceneManager.Instance.BossStartCutScene();
+        }
     }
 }

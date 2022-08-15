@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class ChangeCursor : MonoBehaviour
 {
-    [SerializeField] Texture2D _cursorImage;
+    [SerializeField] private Texture2D _cursorImage;
+
+
 }

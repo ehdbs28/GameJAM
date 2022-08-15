@@ -284,6 +284,7 @@ public class PlayerAttack : MonoBehaviour
         _rigid.AddForce(transform.localScale.x > 0 ? new Vector2(-7, -7) : new Vector2(7, 7), ForceMode2D.Impulse);
         Time.timeScale = 0.8f;
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        //여기서 해주면 될듯
         DashFx dashFx = PoolManager.Instance.Pop("DashFx") as DashFx;
         dashFx.transform.position = transform.localScale.x > 0 ? new Vector2(transform.position.x - 1, transform.position.y) : new Vector2(transform.position.x + 1, transform.position.y);
         dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(2, 2, 2) : new Vector3(-2, 2, 2);

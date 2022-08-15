@@ -109,7 +109,6 @@ public class StageManager : MonoBehaviour
         CameraManager.Instance.RigMove(stageNum, 2f);
         CameraManager.Instance.ShakeCam(6f, 2f);
         UIManager.Instance.Fade();
-        UIManager.Instance.Ablity();
     }
 
     public void StageStart(int stageNum)

@@ -38,8 +38,6 @@ public class TimingManager : MonoBehaviour
         print($"타이머 시작{sec}");
     }
 
-    int i = 0;
-
     IEnumerator TimeCoroutine(float sec)
     {
         _timerTxt.gameObject.SetActive(true);

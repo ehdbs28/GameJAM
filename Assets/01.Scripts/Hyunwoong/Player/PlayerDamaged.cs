@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDamaged : MonoBehaviour, IDamaged
 {
-    private float _tryCount = 3;
     private PlayerAttack _playerAttack;
 
     float _playerHp = 1;
 
     Animator anim;
-    private int index = 3;
 
     [SerializeField] private UnityEvent Stage;
 

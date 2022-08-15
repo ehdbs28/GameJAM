@@ -102,10 +102,6 @@ public class Theme1Boss : Boss
         yield return new WaitForSeconds(0.7f);
         Destroy(warning);
 
-        BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
-        CircleCollider2D hitCollider = GameObject.Find("HitBossSpace").GetComponent<CircleCollider2D>();
-        myCollider.enabled = false;
-        hitCollider.enabled = false;
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(12, 1), 0, Vector2.right, 20);
 
         if (hit)
@@ -119,8 +115,6 @@ public class Theme1Boss : Boss
                 }
             }
         }
-        myCollider.enabled = true;
-        hitCollider.enabled = true;
     }
 
     IEnumerator SlamAttack()
