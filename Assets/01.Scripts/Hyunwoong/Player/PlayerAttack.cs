@@ -184,6 +184,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (hit && isDead == false)
             {
+                FlashManager.Instance.Flash(_isDodge ? Color.green : Color.white);
                 if (hit.transform.gameObject != null)
                 {
                     if (EnemyManager.Instance.enemyList.Count != 0 && UIManager.Instance.IsClear == false)
@@ -284,7 +285,6 @@ public class PlayerAttack : MonoBehaviour
         _rigid.AddForce(transform.localScale.x > 0 ? new Vector2(-7, -7) : new Vector2(7, 7), ForceMode2D.Impulse);
         Time.timeScale = 0.8f;
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-        //여기서 해주면 될듯
         DashFx dashFx = PoolManager.Instance.Pop("DashFx") as DashFx;
         dashFx.transform.position = transform.localScale.x > 0 ? new Vector2(transform.position.x - 1, transform.position.y) : new Vector2(transform.position.x + 1, transform.position.y);
         dashFx.transform.localScale = transform.localScale.x > 0 ? new Vector3(2, 2, 2) : new Vector3(-2, 2, 2);
@@ -307,7 +307,7 @@ public class PlayerAttack : MonoBehaviour
             PlayerDamaged player = FindObjectOfType<PlayerDamaged>();
             player.Damaged(1);
 
-            FlashManager.Instance.RedFlash();
+            FlashManager.Instance.Flash(Color.red);
         }
     }
 

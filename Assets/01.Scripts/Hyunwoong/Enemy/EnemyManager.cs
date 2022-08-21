@@ -34,7 +34,6 @@ public class EnemyManager : MonoBehaviour
         CameraManager.Instance.ShakeCam(intensity, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
         {
-            FlashManager.Instance.WhiteFlash();
             TimeControlManager.Instance.ModifyTimeScale(1f, sec);
         });
         Debug.Log("´ÙÀÌ");

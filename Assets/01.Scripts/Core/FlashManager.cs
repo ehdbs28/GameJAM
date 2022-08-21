@@ -12,32 +12,20 @@ public class FlashManager : MonoBehaviour
     void Start()
     {
         _flash = GameObject.Find("MainVcam/Flash").GetComponent<Light2D>();
-    }
-
-    public void WhiteFlash()
-    {
-        StartCoroutine(White());
-    }
-
-    IEnumerator White()
-    {
-        _flash.intensity = 16;
-
-        yield return new WaitForSecondsRealtime(0.2f);
 
         _flash.intensity = 0;
     }
 
-    public void RedFlash()
+    public void Flash(Color color)
     {
-        StartCoroutine(Red());
+        _flash.color = color;
+        StopAllCoroutines();
+        StartCoroutine(FlashCoroutine());
     }
 
-    IEnumerator Red()
+    IEnumerator FlashCoroutine()
     {
-        _flash.color = Color.red;
-
-        _flash.intensity = 20;
+        _flash.intensity = 30;
 
         yield return new WaitForSecondsRealtime(0.2f);
 

@@ -2138,15 +2138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e87a4395b0aa6243987e0e264b7d103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill:
-  - {fileID: 1478103863279979516, guid: ebfb34602fbea744d87364544bb1b654, type: 3}
-  - {fileID: 1478103863279979516, guid: c01edacb1b7d72b4da4f09ae43b6ed19, type: 3}
-  - {fileID: 1478103863279979516, guid: 06ad20b0cde680f49a708be4d476a5a8, type: 3}
-  - {fileID: 1478103863279979516, guid: ebfb34602fbea744d87364544bb1b654, type: 3}
-  - {fileID: 1478103863279979516, guid: c01edacb1b7d72b4da4f09ae43b6ed19, type: 3}
-  - {fileID: 1478103863279979516, guid: 06ad20b0cde680f49a708be4d476a5a8, type: 3}
-  Trm: {fileID: 1639091632}
-  Trm_1: {fileID: 2038986249}
 --- !u!114 &443407415
 MonoBehaviour:
   m_ObjectHideFlags: 0

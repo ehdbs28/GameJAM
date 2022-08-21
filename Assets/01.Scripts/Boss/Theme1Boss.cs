@@ -79,6 +79,8 @@ public class Theme1Boss : Boss
 
         Time.timeScale = 1;
 
+        FlashManager.Instance.Flash(Color.yellow);
+
         GravityController.Instance.ModityGravityScale(0.3f, 0.3f);
         CameraManager.Instance.ShakeCam(2f, 0.3f);
         TimeControlManager.Instance.ModifyTimeScale(0.1f, 0.01f, () =>
